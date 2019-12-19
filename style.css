@@ -1,5 +1,12 @@
-/*img{
+img{
     float: left;
     height: 500px;
     width: 150px;
-}*/
+}
+img.nav-item{
+    width:100px;
+    height:33px;
+}
+nav{
+    height:33px;
+}
