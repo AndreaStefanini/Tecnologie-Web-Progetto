@@ -14,18 +14,27 @@
         <img class="nav-item" src="resources/Logo.png" alt="">
            <a class="nav-item" href="#"> Home</a>
            <a class="nav-item" href="Event.html">Contatti</a>
-           <input type="button" class="btn btn-success" value="Sign UP" >
-           <input type="button" class="btn btn-light" value="Sign IN">
+           <input type="text" name="SearchBar" id="search" placeholder="Search..."/>
+           <input type="button" class="btn btn-success" value="Sign UP" />
+           <input type="button" class="btn btn-light" value="Sign IN"/>
        </nav> 
-        <div class="container">
+        
            <h1 class="display-4">Eventi in Primo Piano:</h1>
-                <button id="prev"><</button>
+           <div class="row">
+               <div class="col col-1">
+                   <button  id="prev"><</button>
+               </div>
+               <div class="col col-10">
+                   <a href="Event.html"><img class="col-12" src="resources/TomorrowLand.jpg" alt=""></a>
+                   <a href="Event.html"><img class="col-12" src="resources/capodanno-NY.jpg" alt=""></a>
+                   <a href="Event.html"><img class="col-12" src="resources/okctoberfest.jpg" alt=""></a>
+               </div>
 
-               <a href="Event.html"><img class="col-sm-8" src="resources/TomorrowLand.jpg" alt=""></a>
-               <a href="Event.html"><img class="col-sm-8" src="resources/capodanno-NY.jpg" alt=""></a>
-               <a href="Event.html"><img class="col-sm-8" src="resources/okctoberfest.jpg" alt=""></a>
-               
-               <button id="next">></button>
-        </div>
+               <div class="col col-1">
+                   <button  id="next">></button>
+               </div>
+           </div>
+                
+        
     </body>
 </html>
