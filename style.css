@@ -1,11 +1,14 @@
-img.col-12{
-    display:inline;
+img.altern{
+    display: inline;
     overflow: hidden;
-    position: absolute;
+    
+    margin-left: 20%;
     z-index: 0;
-    padding :10px 10px 100px 10px;
-    background: url("resources/puntina.png") center top 50px no-repeat, #FFF;
-    background-size: 60px, 60px, auto
+    padding: 60px 10px 100px 10px;
+    background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
+    background-size: 50px, auto;
+    max-width: 1080px;
+    max-height: 720px;
 }
 img#polaroid{
     display: inline;
@@ -51,7 +54,7 @@ div.col{
     padding:0;
 }
 footer{
-    background: linear-gradient(to bottom left, #ccffcc , #33cc33 , #009933 );
+    background: white;
     width:100%;
     margin-top:90%;
     height:10%;
@@ -64,9 +67,38 @@ body{
     background-image: url("resources/bacheca.jpg");
 }
 input#signin{
-    float:right;
+ 
+    display:inline;
     
 }
 input#signup{
     margin-left:10%;
+    display: inline;
+}
+span {
+    position: absolute;
+    left:32%;
+    bottom: 0;
+    font-size: 72px ;
+    font-family: 'Times New Roman', Times, serif;
+}
+hr{
+    display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2.5px solid green;
+  border-radius:5px;
+}
+h1{
+    text-align: center;
+}
+img.shared{
+    margin-left:10px;
+    margin-top:10px;
+    padding: 60px 10px 100px 10px;
+    background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
+    background-size: 50px, auto;
+    display: inline-block;
+    max-width: 720px;
+    max-height: 480px;
 }
