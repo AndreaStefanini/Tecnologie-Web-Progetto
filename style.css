@@ -1,6 +1,5 @@
 img.altern{
-    display: inline;
-    overflow: hidden;
+    display: inline-block;
     
     margin-left: 20%;
     z-index: 0;
@@ -101,4 +100,18 @@ img.shared{
     display: inline-block;
     max-width: 720px;
     max-height: 480px;
+}
+input.frm{
+    width:80%;
+    margin-left: 2%;
+}
+form{
+    margin-left:25%;
+    margin-top:10%;
+    background-color: white;
+    padding:150px;
+    border-radius:5px;
+}
+input#submit{
+    float:right;
 }
