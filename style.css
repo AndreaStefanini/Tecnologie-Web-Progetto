@@ -1,7 +1,5 @@
 img.altern{
     display: inline-block;
-    
-    margin-left: 20%;
     z-index: 0;
     padding: 60px 10px 100px 10px;
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
@@ -112,4 +110,7 @@ form{
 }
 input#submit{
     float:right;
+}
+div.postit{
+    background-color: rgb(255,255,165);
 }
