@@ -67,12 +67,10 @@ body{
 }
 input#signin{
  
-    display:inline;
-    
 }
 input#signup{
-    margin-left:10%;
-    display: inline;
+    margin-left:2%;
+    
 }
 span {
     position: absolute;

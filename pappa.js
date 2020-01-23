@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/**$(document).ready(function(){
     console.log("Hello from the script");
     let images = $("a.PP");
 
@@ -42,3 +42,4 @@ $(document).ready(function(){
         }
     });
 });
+*/
