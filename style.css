@@ -37,8 +37,8 @@ button#prev{
     float:left;
     border-radius: 100%;
     box-shadow:0;
-    margin-left:80%;
-    margin-top:200%;
+   
+    
     
 }
 button#next{
@@ -116,4 +116,8 @@ div.carousel-slide{
     width:100%;
     overflow:hidden;
     height:500px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9d7827c0c53729119f2fa5215b8b126f4967f790
