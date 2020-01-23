@@ -1,14 +1,13 @@
 img.altern{
-    display: inline-block;
-    
-    margin-left: 20%;
-    z-index: 0;
+  
     padding: 60px 10px 100px 10px;
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
     background-size: 50px, auto;
-    max-width: 1080px;
-    max-height: 720px;
+    width:100%;
+    
+    
 }
+
 img#polaroid{
     display: inline;
     position: absolute;
@@ -40,14 +39,12 @@ button#prev{
     box-shadow:0;
     margin-left:80%;
     margin-top:200%;
-    z-index: 100;
+    
 }
 button#next{
     border-radius:100%;
     box-shadow: 0;
-    margin-top:200%;
-    margin-right:100%;
-    z-index: 100;
+    
 }
 div.col{
     padding:0;
@@ -65,9 +62,7 @@ footer > div > div> img{
 body{
     background-image: url("resources/bacheca.jpg");
 }
-input#signin{
- 
-}
+
 input#signup{
     margin-left:2%;
     
@@ -112,4 +107,10 @@ form{
 }
 input#submit{
     float:right;
+}
+div.carousel-slide{
+    display: flex;
+    width:100%;
+    overflow:hidden;
+    height:500px;
 }
