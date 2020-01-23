@@ -1,10 +1,5 @@
 img.altern{
-<<<<<<< HEAD
-    display: inline-block;
-    z-index: 0;
-=======
   
->>>>>>> 4a568077495742557e3e8187ec4efa66cd22ab87
     padding: 60px 10px 100px 10px;
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
     background-size: 50px, auto;
@@ -42,8 +37,8 @@ button#prev{
     float:left;
     border-radius: 100%;
     box-shadow:0;
-    margin-left:80%;
-    margin-top:200%;
+   
+    
     
 }
 button#next{
@@ -113,15 +108,12 @@ form{
 input#submit{
     float:right;
 }
-<<<<<<< HEAD
 div.postit{
     background-color: rgb(255,255,165);
 }
-=======
 div.carousel-slide{
     display: flex;
     width:100%;
     overflow:hidden;
     height:500px;
 }
->>>>>>> 4a568077495742557e3e8187ec4efa66cd22ab87
