@@ -91,8 +91,7 @@ img.shared{
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
     background-size: 50px, auto;
     display: inline-block;
-    max-width: 720px;
-    max-height: 480px;
+   
 }
 input.frm{
     width:80%;
@@ -116,8 +115,5 @@ div.carousel-slide{
     width:100%;
     overflow:hidden;
     height:500px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9d7827c0c53729119f2fa5215b8b126f4967f790
+
