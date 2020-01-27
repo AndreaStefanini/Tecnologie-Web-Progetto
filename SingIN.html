@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>
+            BOPLEVE-Registrazione 
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <nav class="navbarnavbar-expand-lg">
+            <img class="nav-item" src="resources/BOPLEVE.png" alt="">
+            <a class="nav-item" href="#"> Home</a>
+            <a class="nav-item" href="Event.html">Contatti</a>
+            <input type="text" name="SearchBar" id="search" placeholder="   Search..."/>
+            <input type="button" class="btn btn-outline-dark" id="SingIn" value="Sign IN" />
+            <input type="button" class="btn btn-outline-success" id="Login" value="Login"/>
+        </nav>
+        <h1>Benvenuto,effetua la registrazione in BOPLEVE!</h1>
+
+        <form action="form col-6">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address:</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Password:</label>
+                <input type="password" class="form-control" id="password1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Name:</label>
+                <input type="name" class="form-control" id="name1" placeholder="Mario">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Surname:</label>
+                <input type="surname" class="form-control" id="surname1" placeholder="Rossi">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Data di nascita:</label>
+                <input type="date" class="form-control" id="date1" placeholder="gg/mm/aa">
+            </div>
+            <!--da aggiungere la scielta del "tipo" di utente-->
+            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </body>
+</html>
