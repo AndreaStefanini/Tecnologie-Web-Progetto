@@ -91,6 +91,8 @@ img.shared{
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
     background-size: 50px, auto;
     display: inline-block;
+    width: auto;
+    height: 400px;
    
 }
 input.frm{
