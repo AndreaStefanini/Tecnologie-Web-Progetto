@@ -112,10 +112,5 @@ input#submit{
 div.postit{
     background-color: rgb(255,255,165);
 }
-div.carousel-slide{
-    display: flex;
-    width:100%;
-    overflow:hidden;
-    height:500px;
-}
+
 
