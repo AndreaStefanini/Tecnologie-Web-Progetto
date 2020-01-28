@@ -85,22 +85,30 @@ h1{
     text-align: center;
 }
 img.shared{
-    margin-left:10px;
-    margin-top:10px;
+    margin-left:5%;
+    margin-top:5%;
+    border: none;
     padding: 60px 10px 100px 10px;
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
     background-size: 50px, auto;
     display: inline-block;
+<<<<<<< HEAD
+    max-width: 500px;
+    max-height: 380px;
+=======
     width: auto;
     height: 400px;
    
+>>>>>>> 283aa88bbd13fc7815c3d20c45059e9648bff116
 }
 input.frm{
     width:80%;
-    margin-left: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 form{
     margin-left:25%;
+    margin-right: 25%;
     margin-top:10%;
     background-color: white;
     padding:150px;
@@ -108,6 +116,11 @@ form{
 }
 input#submit{
     float:right;
+    margin-left: 10%;
+}
+
+small{
+    margin-left: 10%;
 }
 div.postit{
     background-color: rgb(255,255,165);
