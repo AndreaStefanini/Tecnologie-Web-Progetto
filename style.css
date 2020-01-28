@@ -112,5 +112,12 @@ input#submit{
 div.postit{
     background-color: rgb(255,255,165);
 }
+div#carouselExampleIndicators{
+    width:80%;
+   margin-left:10%;
+   
+}
+
+
 
 
