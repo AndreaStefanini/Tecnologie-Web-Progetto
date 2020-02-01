@@ -94,7 +94,12 @@ small{
 div.postit{
     background-color: rgb(255,255,165);
 }
-
+a.carousel-control-next, a.carousel-control-prev{
+    width:100px;
+}
+button#login{
+    margin-left: 37%;
+}
 
 
 
