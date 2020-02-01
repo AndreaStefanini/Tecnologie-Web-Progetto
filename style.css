@@ -1,9 +1,9 @@
 img.altern{
-  
-    padding: 60px 10px 100px 10px;
-    background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
-    background-size: 50px, auto;
     width:100%;
+    max-height:720px;
+    /*: url("resources/puntina.png") center top 20px no-repeat, #FFF;*/
+    
+  
     
     
 }
@@ -14,38 +14,16 @@ img#polaroid{
     overflow: hidden;
     z-index: 0;
 }
-img.nav-item{
-    width:250px;
-    height:100%;
+nav > img{
+    width:100px;
+    height:45px;
 }
-nav{
-    height:10%;
+nav.navbar{
+    height: 10%;
     width:100%;
     background:white;
 }
 
-input#search{
-    margin-left: 20%;
-    margin-right:10%;
-    margin-top:1%;
-    width:25%;
-    border:solid 1px rgb(0, 153, 0);
-    border-radius: 20px;
-}
-button#prev{
-    margin-left:0%;
-    float:left;
-    border-radius: 100%;
-    box-shadow:0;
-   
-    
-    
-}
-button#next{
-    border-radius:100%;
-    box-shadow: 0;
-    
-}
 div.col{
     padding:0;
 }
@@ -67,13 +45,7 @@ input#signup{
     margin-left:2%;
     
 }
-span {
-    position: absolute;
-    left:32%;
-    bottom: 0;
-    font-size: 72px ;
-    font-family: 'Times New Roman', Times, serif;
-}
+
 hr{
     display: block;
   margin-left: 10px;
@@ -92,21 +64,18 @@ img.shared{
     background: url("resources/puntina.png") center top 20px no-repeat, #FFF;
     background-size: 50px, auto;
     display: inline-block;
-<<<<<<< HEAD
     max-width: 500px;
     max-height: 380px;
-=======
     width: auto;
     height: 400px;
    
->>>>>>> 283aa88bbd13fc7815c3d20c45059e9648bff116
 }
 input.frm{
     width:80%;
     margin-left: 10%;
     margin-right: 10%;
 }
-form{
+form.form{
     margin-left:25%;
     margin-right: 25%;
     margin-top:10%;
@@ -125,11 +94,7 @@ small{
 div.postit{
     background-color: rgb(255,255,165);
 }
-div#carouselExampleIndicators{
-    width:80%;
-   margin-left:10%;
-   
-}
+
 
 
 
