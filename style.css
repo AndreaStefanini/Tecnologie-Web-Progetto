@@ -66,8 +66,7 @@ img.shared{
     display: inline-block;
     max-width: 500px;
     max-height: 380px;
-    width: auto;
-    height: 400px;
+    
    
 }
 input.frm{
@@ -92,6 +91,8 @@ small{
     margin-left: 10%;
 }
 div.postit{
+    margin-top: 5%;
+    padding: 20px;
     background-color: rgb(255,255,165);
 }
 a.carousel-control-next, a.carousel-control-prev{
@@ -100,7 +101,12 @@ a.carousel-control-next, a.carousel-control-prev{
 button#login{
     margin-left: 37%;
 }
+@media only screen and (max-width:600px){
+    img.shared{
+        margin-right:10%;
+    }
 
+}
 
 
 
