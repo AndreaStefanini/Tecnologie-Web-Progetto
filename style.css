@@ -1,11 +1,11 @@
 img.altern{
     width:100%;
     max-height:720px;
-    /*: url("resources/puntina.png") center top 20px no-repeat, #FFF;*/
     
-  
-    
-    
+}
+input.form-control{
+    border-radius: 30px;
+    width: 100px;
 }
 
 img#polaroid{
@@ -99,18 +99,12 @@ a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
 button#login{
-    margin-left: 37%;
+    margin-left: 31%;
+    margin-right: 1%;
 }
 @media only screen and (max-width:600px){
-    nav{
-        width:100%;
-
-    }
-    div.carousel{
-        width: 100%;
-    }
     img.shared{
-        margin-right:5%;
+        margin-left:1%;
     }
 
 }
