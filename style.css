@@ -5,7 +5,7 @@ img.altern{
 }
 input.form-control{
     border-radius: 30px;
-    width: 100px;
+    width: 250px;
 }
 
 img#polaroid{
@@ -23,7 +23,6 @@ nav.navbar{
     width:100%;
     background:white;
 }
-
 div.col{
     padding:0;
 }
@@ -92,9 +91,13 @@ small{
 }
 div.postit{
     margin-top: 5%;
-    padding: 20px;
+    height: 255px;
     background-color: rgb(255,255,165);
 }
+/*div.container-post{
+    width: 250px;
+    height: 500px;
+}*/
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
