@@ -2,7 +2,7 @@
 class database {
     public $connection;
 
-    public function connect_to_database(){
+    public function __construct(){
         $this->connection = new mysqli('localhost', 'root', '', 'bopleve');
         if($this->connection->connect_error){
             die("An error occurred during the connection to the database, please retry". $this->connection->connect_error);

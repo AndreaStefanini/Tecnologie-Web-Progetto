@@ -16,13 +16,13 @@
             <input type="button" class="btn btn-outline-success" id="signin" value="Sign IN"/>
         </nav>
         <h1>Benvenuto, fai l'accesso sei hai già un account altrimenti registrati!</h1>
-        <form class="form  col-6">
+        <form class="form  col-6" method="GET" action="login.php">
             <div class="form-group">
-              <input placeholder="Email address:" type="email" class="form-control frm" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input placeholder="Email address:" type="email" class="form-control frm" id="email" name="email" aria-describedby="emailHelp">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-              <input placeholder="Password:" type="password" class="form-control frm" id="exampleInputPassword1">
+              <input placeholder="Password:" type="password" class="form-control frm" id="password" name="password">
             </div>
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
