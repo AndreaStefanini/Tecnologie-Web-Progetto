@@ -1,7 +1,7 @@
 <?php
- function registerLogger($user){
+ /*function registerLogger($user){
    $_SESSION["Email"]= $user["Email"];
- }
+ }*/
 
 
 ?>
