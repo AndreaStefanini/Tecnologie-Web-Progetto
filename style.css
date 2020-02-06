@@ -3,10 +3,10 @@ img.altern{
     max-height:720px;
     
 }
-/*input.form-control{
+input.form-control{
+    width:100%;
     border-radius: 30px;
-    width: 250px;
-}*/
+}
 
 img#polaroid{
     display: inline;
@@ -101,10 +101,10 @@ div.postit{
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
-input.input{
+/*input.input{
     width:100%;
     border-radius: 30px;
-}
+}*/
 button#login{
     margin-left: 31%;
     margin-right: 1%;
@@ -112,6 +112,10 @@ button#login{
 @media only screen and (max-width:600px){
     img.shared{
         margin-left:1%;
+    }
+    form.form{
+        margin-left:1px;
+        margin-right:1px;
     }
 
 }
