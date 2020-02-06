@@ -101,6 +101,10 @@ div.postit{
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
+input.input{
+    width:100%;
+    border-radius: 30px;
+}
 button#login{
     margin-left: 31%;
     margin-right: 1%;
