@@ -76,7 +76,7 @@ input.frm{
 form.form{
     margin-left:25%;
     margin-right: 25%;
-    margin-top:10%;
+    margin-top:5%;
     background-color: white;
     padding:150px;
     border-radius:5px;
@@ -113,9 +113,12 @@ button#login{
     img.shared{
         margin-left:1%;
     }
+    h1{
+        font-size: 24pt;
+    }
     form.form{
-        margin-left:1px;
-        margin-right:1px;
+        padding:50pt;
+        margin-left:0;
     }
 
 }
