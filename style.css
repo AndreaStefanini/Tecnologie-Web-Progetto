@@ -3,10 +3,10 @@ img.altern{
     max-height:720px;
     
 }
-/*input.form-control{
+input.form-control{
+    width:100%;
     border-radius: 30px;
-    width: 250px;
-}*/
+}
 
 img#polaroid{
     display: inline;
@@ -76,9 +76,12 @@ input.frm{
 form.form{
     margin-left:25%;
     margin-right: 25%;
-    margin-top:10%;
+    margin-top:5%;
     background-color: white;
-    padding:150px;
+    padding-top:150px;
+    padding-left: 150px; 
+    padding-bottom: 100px;
+    padding-right: 150px;
     border-radius:5px;
 }
 input#submit{
@@ -101,6 +104,10 @@ div.postit{
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
+/*input.input{
+    width:100%;
+    border-radius: 30px;
+}*/
 button#login{
     margin-left: 31%;
     margin-right: 1%;
@@ -108,6 +115,13 @@ button#login{
 @media only screen and (max-width:600px){
     img.shared{
         margin-left:1%;
+    }
+    h1{
+        font-size: 24pt;
+    }
+    form.form{
+        padding:50pt;
+        margin-left:0;
     }
 
 }
