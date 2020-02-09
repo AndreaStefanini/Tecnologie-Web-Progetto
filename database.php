@@ -21,12 +21,10 @@ class database {
         $result = $login->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_article($title,$costo,$time,$date,$location,$image_path){
-        $article = $this->connection->prepare("INSERT INTO articles(Article_tile,Cost_Ticket,Time_Event,Date_Event,Location_Event,Image_Event) VALUES(?,?,?,?,?,?)");
-        $article->bind_param("sibbss",$title,$costo,$time,$date,$location,$image_path);
+    public function add_article($title,$costo,$time,$date,$location,$image_path,$author){
+        $article = $this->connection->prepare("INSERT INTO articles(Article_tile,Cost_Ticket,Time_Event,Date_Event,Location_Event,Image_Event,Author_COD) VALUES(?,?,?,?,?,?,?)");
+        $article->bind_param("ssssssi",$title,$costo,$time,$date,$location,$image_path, $author);
         $article->execute();
-        $result = $article->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function get_article($idarticle){
         $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Image_Path FROM articles WHERE ID_Article=?");
