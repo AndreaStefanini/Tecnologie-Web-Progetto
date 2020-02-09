@@ -1,4 +1,5 @@
 <?php
+require_once("database-entrance.php");
 function resizeImage($resourceType,$image_width,$image_height) {
     $resizeWidth = 1020;
     $resizeHeight = 780;
@@ -36,7 +37,7 @@ switch ($uploadImageType) {
     default:
         break;
 }
-
+$db->add_article($_POST["ArticleTitle"],$_POST["Ticket_Cost"],$_POST["TimeEvent"],$_POST["dataevento"],$_POST["EventLocation"],$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
 }
 }
 
