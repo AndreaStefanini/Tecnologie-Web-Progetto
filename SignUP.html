@@ -3,7 +3,7 @@
 
 <head>
   <title>
-    Events
+    BOPLEVE-Registrazione
   </title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,80 +64,45 @@
         onclick="window.location.href='Login.html'">Sign Up</button>
     </div>
   </nav>
-
-  <h1 class="display-4">Evento:</h1>
-  <div class="container">
-    <div clas="row">
-      <div class=" event col-sm-12"><a class="col-md-10" href="Event.html">
-          <img class="col-12 altern" id="polaroid" src="resources/capodanno-NY.jpg" alt="">
-        </a>
-      </div>
+  <form class="form col-sm-12 col-lg-6" method="GET" action="signup.php">
+    <h1>Benvenuto,effetua la registrazione in BOPLEVE!</h1>
+    <div class="form-group">
+      <label for="labelEmail">Email address:</label>
+      <input type="email" name="email" class="input form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="container-post col-md-3 col-xs-6">
-        <div class="postit">
-          <h2>Quando</h2>
-          <p>22 02 2010</p>
-        </div>
-      </div>
-      <div class="container-post col-md-3 col-xs-6">
-        <div class="postit">
-          <h2>Dove</h2>
-          <p>Si trova nella ridente Villa Verucchio, in un posto dimenticato da dio</p>
-        </div>
-      </div>
-      <div class="container-post col-md-3 col-xs-6">
-        <div class="postit">
-          <h2>Descrizione evento</h2>
-          <p>un rave party dove ci si spacca ammerda seeeeeeeeeee</p>
-        </div>
-      </div>
-      <div class="container-post col-md-3 col-xs-6">
-        <div class="postit">
-          <h2>Costo del Ticket</h2>
-          <p>€1000.00</p>
-          <!-- bottone aggiungi al carrello -->
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-            Aggiungi al carrello
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Aggiungi al carrello</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  vuoi aggiungere l'evento ciccio bello al carrello?
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                  <button type="button" class="btn btn-primary">Aggiungi</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="form-group">
+      <label for="labelPassword">Password:</label>
+      <input type="password" name="password" class="input form-control" id="password1" placeholder="Password">
     </div>
-    
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d813.3483819864376!2d12.263349521575542!3d44.33721150585204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cb2ae1a8413df%3A0xe9cd019d306b5891!2sMirabilandia!5e0!3m2!1sit!2sit!4v1580719266044!5m2!1sit!2sit"
-        frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-    
-  </div>
-  </div>
-
+    <div class="form-group">
+      <label for="labelNome">Nome:</label>
+      <input type="name" name="nome" class=" input form-control" id="name1" placeholder="Nome...">
+    </div>
+    <div class="form-group">
+      <label for="labelCognome">Cognome:</label>
+      <input type="surname" name="cognome" class="input form-control" id="surname1" placeholder="Cognome...">
+    </div>
+    <div class="form-group">
+      <label for="labelDataNascita">Data di nascita:</label>
+      <input type="date" name="datanascita" class="form-control" id="date1" placeholder="gg/mm/aa">
+    </div>
+    <label for="labelTipoDiUser">Tipologia di Utente:</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="tipouser" id="exampleRadios1" value="Promotore">
+      <label class="form-check-label" for="exampleRadios1">
+        Promotore di Eventi
+      </label>
+    </div>   
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="tipouser" id="exampleRadios2" value="Cliente">
+      <label class="form-check-label" for="exampleRadios2">
+        Cliente
+      </label>
+    </div>
+    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+  </form>
   <footer>
-    <div class="row col-4"></div>
+    <div class="row"></div>
     <div class="row col-4">
       <div class="col">
         <p>Termini e Condizioni di Utilizzo</p>
