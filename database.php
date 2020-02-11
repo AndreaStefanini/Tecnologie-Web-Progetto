@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-session_start();
-require_once("databasefunctions.php");
-require_once("function.php");
-$dbh=new databasefunctions("localhost", "root", "", "utenti");
-
-=======
 class database {
     public $connection;
 
@@ -42,5 +35,4 @@ class database {
         return $result->fetch_all();
     }
 }
->>>>>>> 421826497ee303ca438497b0e53cc3fefd57ae21
 ?>
