@@ -42,7 +42,7 @@ switch ($uploadImageType) {
         break;
 }
 $titolo = $_POST["ArticleTitle"];
-$data = $_POST["dataevento"];
+$data = strtotime($_POST["dataevento"]);
 $costo = (double)$_POST["Ticket_Cost"];
 $location =$_POST["EventLocation"];
 $time=$_POST["TimeEvent"];

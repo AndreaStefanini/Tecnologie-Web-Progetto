@@ -21,8 +21,8 @@ class database {
         $result = $login->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_article($title,$costo,$time,$date,$location,$image_path,$author){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title, Date_Event, Costo_Ticket, Location_Event, Time_Event, Image_Path, Author_COD) VALUES(?,?,?,?,?,?,?)");
+    public function add_article($title,$date,$costo,$location,$time,$image_path,$author){
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Time_Event,Image_Path,Author_COD) VALUES(?,?,?,?,?,?,?)");
         $add_article -> bind_param("ssdsssi", $title, $date, $costo, $location, $time, $image_path, $author);
         $add_article-> execute();
     }
