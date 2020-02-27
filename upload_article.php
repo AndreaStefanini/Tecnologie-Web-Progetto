@@ -14,6 +14,7 @@ $fileName = $_FILES['EventFoto']['tmp_name'];
 $sourceProperties = getimagesize($fileName);
 $resizeFileName = $_POST["ArticleTitle"];
 $uploadPath = "./resources/";
+$newpath = "resources/";
 $fileExt = pathinfo($_FILES['EventFoto']['name'], PATHINFO_EXTENSION);
 $uploadImageType = $sourceProperties[2];
 $sourceImageWidth = $sourceProperties[0];
@@ -23,30 +24,36 @@ switch ($uploadImageType) {
         $resourceType = imagecreatefromjpeg($fileName); 
         $imageLayer = resizeImage($resourceType,$sourceImageWidth,$sourceImageHeight);
         imagejpeg($imageLayer,$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
-        $resizeFileName=$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt;
+        $resizeFileName=$newpath.$_POST["ArticleTitle"].'.'. $fileExt;
         break;
     case IMAGETYPE_GIF:
         $resourceType = imagecreatefromgif($fileName); 
         $imageLayer = resizeImage($resourceType,$sourceImageWidth,$sourceImageHeight);
         imagegif($imageLayer,$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
-        $resizeFileName=$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt;
+        $resizeFileName=$newpath.$_POST["ArticleTitle"].'.'. $fileExt;
         break;
     case IMAGETYPE_PNG:
         $resourceType = imagecreatefrompng($fileName); 
         $imageLayer = resizeImage($resourceType,$sourceImageWidth,$sourceImageHeight);
         imagepng($imageLayer,$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
-        $resizeFileName=$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt;
+        $resizeFileName=$newpath.$_POST["ArticleTitle"].'.'. $fileExt;
         break;
     default:
         break;
 }
 $titolo = $_POST["ArticleTitle"];
-$data =$_POST["dataevento"];
-$costo =$_POST["Ticket_Cost"];
+$data = $_POST["dataevento"];
+$costo = (double)$_POST["Ticket_Cost"];
 $location =$_POST["EventLocation"];
 $time=$_POST["TimeEvent"];
 $image_path = strval($resizeFileName);
 $db->add_article($titolo,$data,$costo,$location,$time,$image_path,1);
+echo $titolo. " " . gettype($titolo) . "<br>";
+echo $data. " " . gettype($data). "<br>";
+echo $costo. " " . gettype($costo) . "<br>";
+echo $location. " " . gettype($location) . "<br>";
+echo $time. " " . gettype($time) . "<br>";
+echo $image_path. " " . gettype($image_path) ."<br>";
 
 }
 }
