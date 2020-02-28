@@ -21,13 +21,13 @@ class database {
         $result = $login->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_article($title,$date,$costo,$location,$time,$image_path,$author){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Time_Event,Image_Path,Author_COD) VALUES(?,?,?,?,?,?,?)");
-        $add_article -> bind_param("ssdsssi", $title, $date, $costo, $location, $time, $image_path, $author);
+    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author){
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD) VALUES(?,?,?,?,?,?,?,?)");
+        $add_article -> bind_param("ssdssssi", $title, $date, $costo, $location,$description, $time, $image_path, $author);
         $add_article-> execute();
     }
     public function get_article($idarticle){
-        $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Image_Path FROM articles WHERE ID_Articles=?");
+        $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE ID_Articles=?");
         $get->bind_param("i",$idarticle);
         $get->execute();
         $result=$get->get_result();
