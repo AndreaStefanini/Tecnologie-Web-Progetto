@@ -34,13 +34,16 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getRandomPosts($n=2){
-        $stmt = $this->connection->prepare("SELECT ID_Articles, Article_title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
-        $stmt->bind_param("i", $n);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    public function getRandomPosts($n){
+        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
+        $get_post->bind_param("i", $n);
+        $get_post->execute();
+        $result = $get_post->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_images(){
+
     }
 }
 ?>
