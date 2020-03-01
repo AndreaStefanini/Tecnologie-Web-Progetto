@@ -37,6 +37,7 @@ switch ($uploadImageType) {
     default:
         break;
 }
+
 $db->add_article($_POST["ArticleTitle"],$_POST["Ticket_Cost"],$_POST["TimeEvent"],$_POST["dataevento"],$_POST["EventLocation"],$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt, 1);
 }
 }
