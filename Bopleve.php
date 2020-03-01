@@ -74,13 +74,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="Event.html"><img class="altern" src="resources/capodanno-NY-pi.jpg" alt=""></a>
+        <a href="Event-handler?id=<?php echo $topevents[0]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[0]["Image_Path"];?>" alt=""></a>
       </div>
       <div class="carousel-item">
-        <a href="Event.html"><img class="altern" src="resources/TomorrowLand-pi.jpg" alt=""></a>
+        <a href="Event-handler?id=<?php echo $topevents[1]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[1]["Image_Path"];?>" alt=""></a>
       </div>
       <div class="carousel-item">
-        <a href="Event.html"><img class="altern" src="resources/okctoberfest-pi.jpg" alt=""></a>
+        <a href="Event-handler?id=<?php echo $topevents[2]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[2]["Image_Path"];?>" alt=""></a>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -96,20 +96,14 @@
   <h1 class="display-4">Prossimi eventi disponibili:</h1>
   <div class="container-fluid">
     <div class="row">
+      <?php foreach($TemplateParam as $article):?>
       <div class="col-md-6 col-xs-10">
-        <a href="obtain_article.php?id=2">
-          <img height="auto" class="col-12 shared img-responsive" src="resources/capodanno-NY.jpg" alt=""
-            class="rounded float-left">
-        </a>
-      </div>
-      <?php for($i=0; $i<count($TemplateParam); $i++){?>
-      <div class="col-md-6 col-xs-10">
-        <a href="obtain_article.php?id= <?php echo $TemplateParam[$i]['ID_Articles'];?>">
-          <img height="auto" class="col-12 shared img-responsive" src="<?php echo $TemplateParam[$i]['Image_Path']; ?>" alt=""
+        <a href="obtain_article.php?id=<?php echo $article['ID_Articles'];?>">
+          <img height="auto" class="col-12 shared img-responsive" src="<?php echo $article['Image_Path']; ?>" alt=""
             class="rounded float-left">
         </a>
     </div>
-    <?php }?>
+    <?php endforeach?>
   </div>
 
 

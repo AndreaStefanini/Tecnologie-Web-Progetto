@@ -21,9 +21,9 @@ class database {
         $result = $login->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD) VALUES(?,?,?,?,?,?,?,?)");
-        $add_article -> bind_param("ssdssssi", $title, $date, $costo, $location,$description, $time, $image_path, $author);
+    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click){
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click) VALUES(?,?,?,?,?,?,?,?,?)");
+        $add_article -> bind_param("ssdssssii", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click);
         $add_article-> execute();
     }
     public function get_article($idarticle){
@@ -34,7 +34,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getRandomPosts($n){
+    public function get_random_posts($n){
         $get_post = $this->connection->prepare("SELECT ID_Articles, Article_title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
         $get_post->bind_param("i", $n);
         $get_post->execute();
@@ -42,8 +42,23 @@ class database {
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function get_images(){
-
+    public function update_number_of_clicks($idarticle){
+        $queryclick = $this->connection->prepare("SELECT num_click FROM articles WHERE ID_Articles = ?");
+        $queryclick->bind_param("i", $idarticle);
+        $queryclick->execute();
+        $result = $queryclick->get_result();
+        $numclicks = $result->fetch_all(MYSQLI_ASSOC);
+        $newnum=(int)$numclicks[0]["num_click"];
+        $newnum++;
+        $queryupdate = $this->connection->prepare("UPDATE articles SET num_click=? WHERE ID_Articles=?");
+        $queryupdate->bind_param("ii", $newnum, $idarticle);
+        $queryupdate->execute();
+    }
+    public function get_top_three_events(){
+        $querytop = $this->connection->prepare("SELECT ID_Articles, Image_Path FROM articles ORDER BY num_click DESC LIMIT 3");
+        $querytop ->execute();
+        $result = $querytop -> get_result();
+        return $result -> fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

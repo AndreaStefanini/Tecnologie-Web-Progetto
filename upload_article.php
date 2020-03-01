@@ -48,7 +48,7 @@ $location =$_POST["EventLocation"];
 $time=$_POST["TimeEvent"];
 $description = $_POST["EventArticle"];
 $image_path = strval($resizeFileName);
-$db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,1);
+$db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,1,0);
 
 }
 }
