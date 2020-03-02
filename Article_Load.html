@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -132,4 +133,136 @@
         </div>
       </footer>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="resources/BOPLEVE-MINI.png" type="image/png" />
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+    <script src="js/pappa.js" type="text/javascript"></script>
+    <title>Load Article</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img class="navbar-brand" src="resources/BOPLEVE.png" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="BOPLEVE.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Categorie
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Concerts</a>
+                <a class="dropdown-item" href="#">Festivals</a>
+                <a class="dropdown-item" href="#">Serate</a>
+                <a class="dropdown-item" href="#">Musei e Cultura</a>
+                <a class="dropdown-item" href="#">Altro</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contattaci</a>
+            </li>
+          </ul>
+          <form class=" form-inline my-2 my-lg-0" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
+            onclick="window.location.href='Login.html'">Login In</button>
+          <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit"
+            onclick="window.location.href='Login.html'">Sign Up</button>
+        </div>
+      </nav>
+      <form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="upload_article.php" enctype="multipart/form-data" >
+        <h1>Inserisci tutti i dettagli per il nuovo Articolo/Evento</h1>
+        <div class="form-group">
+          <label for="labelEmail">Titolo Articolo:</label>
+          <input type="title" name="ArticleTitle" class="input form-control" id="ArticleTitle" placeholder="Titolo..." required>
+          <div class="submessages">Inserisci qui il titolo dell'articolo...</div>
+          <div class="invalid-feedback">
+            Per favore inserisci il titolo dell'articolo.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="labelPassword">Descrizione Evento:</label>
+          <textarea name="EventArticle" class="form-control" id="EventDescription" rows ="4" placeholder="Descrivi brevemente il tipo di Evento che vuoi publicizzare " required></textarea>
+          <div class="invalid-feedback">
+            Per favore inserisci una descrizione dell'evento.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="labelNome">Costo del ticket:</label>
+          <input type="number" step=0.01 name="Ticket_Cost" class="input form-control" id="cost1" placeholder="Costo ticket...">
+          <div class="submessages">Inserisci il costo del ticket, 0.00 se gratuito</div>
+          <div class="invalid-feedback">
+            Inserisci il Costo del ticket.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="labelNome">Orario di Inizio Evento:</label>
+          <input type="time" name="TimeEvent" class=" input form-control" id="time1" placeholder="Inzio Evento...">
+          <div class="submessages">Inserisci l'orario dell'inzio dell'evento nel seguente formato hr:min:sec (secondi solo se necessario)</div>
+          <div class="invalid-feedback">
+            Inserisci l'inizio orario evento.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="labelCognome">Location dell'Evento:</label>
+          <input type="location" name="EventLocation" class="input form-control" id="location1" placeholder="Location..." required>
+          <div class="submessages">Inserisci la città / e la nazione che opsita l'evento...</div>
+          <div class="invalid-feedback">
+            Inserisci per favore il luogo dell'evento.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="labelDataEvent">Data dell'Evento:</label>
+          <input type="date" name="dataevento" class="form-control" id="date1" placeholder="gg/mm/aa" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Inserisci un foto dell'Evento:</label>
+            <input type="file" class="form-control-file" id="CaricaFoto" name="EventFoto" required>
+        </div>
+        <button id="submit" type="submit" name="submit" class="btn btn-primary">Crea Evento</button>
+      </form>
+      <footer>
+        <div class="row"></div>
+        <div class="row col-4">
+          <div class="col">
+            <p>Termini e Condizioni di Utilizzo</p>
+          </div>
+        </div>
+        <div class="row col-4">
+          <div class="col">
+            <p>Seguici su social: </p>
+          </div>
+          <div class="col"><img src="resources/facebook-icon.png" alt=""></div>
+          <div class="col"><img src="resources/instagram.png" alt=""></div>
+          <div class="col"><img src="resources/twitter.png" alt=""></div>
+        </div>
+      </footer>
+</body>
+>>>>>>> c872044e3275c1cb43a1806fe38350dcc40e22cf
 </html>
