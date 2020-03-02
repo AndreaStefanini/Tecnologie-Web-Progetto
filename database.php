@@ -35,7 +35,7 @@ class database {
     }
 
     public function get_random_posts($n){
-        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
+        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_Title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
         $get_post->bind_param("i", $n);
         $get_post->execute();
         $result = $get_post->get_result();

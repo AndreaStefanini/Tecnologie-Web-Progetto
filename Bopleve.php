@@ -65,7 +65,7 @@
         onclick="window.location.href='SignUp.html'">Sign Up</button>
     </div>
   </nav>
-  <h1 class="display-4">Eventi in Primo Piano:</h1>
+  <h1 class="display-4">Eventi più cliccati:</h1>
   <div id="carouselExampleIndicators" class="carousel slide pointer-event" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -74,13 +74,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="Event-handler?id=<?php echo $topevents[0]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[0]["Image_Path"];?>" alt=""></a>
+        <a href="obtain_article.php?id=<?php echo $topevents[0]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[0]["Image_Path"];?>" alt=""></a>
       </div>
       <div class="carousel-item">
-        <a href="Event-handler?id=<?php echo $topevents[1]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[1]["Image_Path"];?>" alt=""></a>
+        <a href="obtain_article.php?id=<?php echo $topevents[1]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[1]["Image_Path"];?>" alt=""></a>
       </div>
       <div class="carousel-item">
-        <a href="Event-handler?id=<?php echo $topevents[2]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[2]["Image_Path"];?>" alt=""></a>
+        <a href="obtain_article.php?id=<?php echo $topevents[2]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[2]["Image_Path"];?>" alt=""></a>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -97,16 +97,26 @@
   <div class="container-fluid">
     <div class="row">
       <?php foreach($TemplateParam as $article):?>
-      <div class="col-md-6 col-xs-10">
+      <div class="col-md-4 col-xs-10">
         <a href="obtain_article.php?id=<?php echo $article['ID_Articles'];?>">
           <img height="auto" class="col-12 shared img-responsive" src="<?php echo $article['Image_Path']; ?>" alt=""
             class="rounded float-left">
         </a>
-    </div>
+        </div>
+        <div class="col">
+        <ul>
+          <li><?php echo $article["Article_Title"];?></li>
+        </ul>
+        <div class="col-md-3">
+          <img class="arrows" src="resources/arrows.png"  alt="">
+        </div>
+        <p>Per saperne di più, clicca l'immagine</p>
+   
+        </div>
+       
     <?php endforeach?>
   </div>
-
-
+  </div>
   <footer>
     <div class="row"></div>
     <div class="row col-4">

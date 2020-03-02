@@ -3,6 +3,14 @@ img.altern{
     max-height:720px;
     
 }
+img.arrows{
+    width:100px;
+    height:100px;
+}
+div.col {
+    margin-left:10pt;
+    margin-top:50pt;
+}
 input.form-control{
     width:100%;
     border-radius: 30px;
@@ -28,7 +36,7 @@ div.col{
 footer{
     background: white;
     width:100%;
-    margin-top:90%;
+    margin-top:10%;
 
 }
 footer > div > div> img{
