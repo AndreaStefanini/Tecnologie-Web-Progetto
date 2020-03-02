@@ -14,6 +14,7 @@ $fileName = $_FILES['EventFoto']['tmp_name'];
 $sourceProperties = getimagesize($fileName);
 $resizeFileName = $_POST["ArticleTitle"];
 $uploadPath = "./resources/";
+$newpath = "resources/";
 $fileExt = pathinfo($_FILES['EventFoto']['name'], PATHINFO_EXTENSION);
 $uploadImageType = $sourceProperties[2];
 $sourceImageWidth = $sourceProperties[0];
@@ -23,23 +24,31 @@ switch ($uploadImageType) {
         $resourceType = imagecreatefromjpeg($fileName); 
         $imageLayer = resizeImage($resourceType,$sourceImageWidth,$sourceImageHeight);
         imagejpeg($imageLayer,$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
+        $resizeFileName=$newpath.$_POST["ArticleTitle"].'.'. $fileExt;
         break;
     case IMAGETYPE_GIF:
         $resourceType = imagecreatefromgif($fileName); 
         $imageLayer = resizeImage($resourceType,$sourceImageWidth,$sourceImageHeight);
         imagegif($imageLayer,$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
+        $resizeFileName=$newpath.$_POST["ArticleTitle"].'.'. $fileExt;
         break;
     case IMAGETYPE_PNG:
         $resourceType = imagecreatefrompng($fileName); 
         $imageLayer = resizeImage($resourceType,$sourceImageWidth,$sourceImageHeight);
         imagepng($imageLayer,$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt);
+        $resizeFileName=$newpath.$_POST["ArticleTitle"].'.'. $fileExt;
         break;
     default:
         break;
 }
-$db->add_article($_POST["ArticleTitle"],$_POST["Ticket_Cost"],$_POST["TimeEvent"],$_POST["dataevento"],$_POST["EventLocation"],$uploadPath.$_POST["ArticleTitle"].'.'. $fileExt, 1);
+$titolo = $_POST["ArticleTitle"];
+$data = strtotime($_POST["dataevento"]);
+$costo = (double)$_POST["Ticket_Cost"];
+$location =$_POST["EventLocation"];
+$time=$_POST["TimeEvent"];
+$description = $_POST["EventArticle"];
+$image_path = strval($resizeFileName);
+$db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,1,0);
+
 }
 }
-
-?>
-
