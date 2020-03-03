@@ -1,20 +1,23 @@
-/*function move_to_left(){
-    $("img.arrows").each( $("img.arrows").animate({
-        right: '+=10px'
-    }));
-  
-};*/
 
-/*function move_to_right(){
-   $("img.arrows").animate({
-       left: '+=10px',
-   },5000,move_to_left());
-};*/
 $(document).ready(function(){
+    console.log($("img.arrows"));
     console.log("qui ci sono");
+    function move(){
+       let images=$("img.arrows");
+       images.each(function(){
+           $(this).animate({
+               marginLeft: '20%'
+           },250).delay(600);
+       });
+       images.each(function(){
+           $(this).animate({
+                marginLeft: '0%'
+           },250).delay(600);
+       });
+    };
     
-    //move_to_left();
-    $("img.arrows").each(function(){
-        $(this).fadeOut(2000);
-    });
+    var interval = self.setInterval(function(){move()},600);
+
+    
+    
 });
