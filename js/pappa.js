@@ -1,7 +1,5 @@
 
 $(document).ready(function(){
-    console.log($("img.arrows"));
-    console.log("qui ci sono");
     function move(){
        let images=$("img.arrows");
        images.each(function(){
@@ -15,9 +13,7 @@ $(document).ready(function(){
            },250).delay(600);
        });
     };
-    
+    // a variabile use to set a timer an repeat the move function.. a sort of an infinte loop
     var interval = self.setInterval(function(){move()},600);
 
-    
-    
 });

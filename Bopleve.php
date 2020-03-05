@@ -56,7 +56,7 @@
           <a class="nav-link" href="#">Contattaci</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" id="searchbar">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
@@ -105,11 +105,9 @@
         </a>
         </div>
         <div class="col">
-        <ul>
-          <li><?php echo $article["Article_Title"];?></li>
-        </ul>
+          <p id="title"><?php echo $article["Article_Title"];?></p>
           <img class="arrows" src="resources/arrows.png"  alt="">
-        <p>Per saperne di più, clicca l'immagine</p>
+          <p id="description">Per saperne di più, clicca l'immagine</p>
         </div>
        
     <?php endforeach?>
