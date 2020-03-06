@@ -1,3 +1,13 @@
+@font-face { 
+    font-family: Rust;
+    src: url(font/pantonrustheavy-grsh.woff);
+    font-style: normal;
+    font-weight: 100;
+    
+}
+p, h1 {
+    font-family: Rust;
+}
 img.altern{
     width:100%;
     max-height:720px;

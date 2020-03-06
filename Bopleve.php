@@ -66,7 +66,7 @@
         onclick="window.location.href='SignUp.html'">Sign Up</button>
     </div>
   </nav>
-  <h1 class="display-4">Eventi più cliccati:</h1>
+  <h1>Eventi più cliccati:</h1>
   <div id="carouselExampleIndicators" class="carousel slide pointer-event" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -94,7 +94,7 @@
     </a>
   </div>
   <hr>
-  <h1 class="display-4">Prossimi eventi disponibili:</h1>
+  <h1>Prossimi eventi disponibili:</h1>
   <div class="container-fluid">
     <div class="row">
       <?php foreach($TemplateParam as $article):?>
