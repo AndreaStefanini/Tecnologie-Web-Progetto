@@ -51,6 +51,8 @@ $image_path = strval($resizeFileName);
 $db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,1,0);
 
 }
+}else{
+    $page="article-form.php";
 }
-$page="article-form.php";
+
 require("Bopleve.php");

@@ -1,4 +1,4 @@
-<?php require_once ("get_multimedia.php"); ?>
+
 <html lang="it">
 
 
