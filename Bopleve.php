@@ -4,6 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -28,7 +29,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img class="navbar-brand" src="resources/BOPLEVE.png" alt="">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +38,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="BOPLEVE.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -61,58 +62,14 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
-        onclick="window.location.href='Login.html'">Login In</button>
+        onclick="window.location.href='login.php'">Login In</button>
       <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit"
-        onclick="window.location.href='SignUp.html'">Sign Up</button>
+        onclick="window.location.href='signup.php'">Sign Up</button>
     </div>
   </nav>
-  <h1>Eventi più cliccati:</h1>
-  <div id="carouselExampleIndicators" class="carousel slide pointer-event" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <a href="obtain_article.php?id=<?php echo $topevents[0]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[0]["Image_Path"];?>" alt=""></a>
-      </div>
-      <div class="carousel-item">
-        <a href="obtain_article.php?id=<?php echo $topevents[1]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[1]["Image_Path"];?>" alt=""></a>
-      </div>
-      <div class="carousel-item">
-        <a href="obtain_article.php?id=<?php echo $topevents[2]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[2]["Image_Path"];?>" alt=""></a>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <hr>
-  <h1>Prossimi eventi disponibili:</h1>
-  <div class="container-fluid">
-    <div class="row">
-      <?php foreach($TemplateParam as $article):?>
-      <div class="col-md-4 col-xs-10">
-        <a href="obtain_article.php?id=<?php echo $article['ID_Articles'];?>">
-          <img height="auto" class="col-12 shared img-responsive" src="<?php echo $article['Image_Path']; ?>" alt=""
-            class="rounded float-left">
-        </a>
-        </div>
-        <div class="col">
-          <p id="title"><?php echo $article["Article_Title"];?></p>
-          <img class="arrows" src="resources/arrows.png"  alt="">
-          <p id="description">Per saperne di più, clicca l'immagine</p>
-        </div>
-       
-    <?php endforeach?>
-  </div>
-  </div>
+  <?php
+    require_once($page);
+  ?>
   <footer>
     <div class="row"></div>
     <div class="row col-4">

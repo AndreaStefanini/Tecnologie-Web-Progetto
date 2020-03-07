@@ -66,82 +66,43 @@
     </div>
   </nav>
 
-  <div class="it-grid-list-wrapper it-quilted-grid">
-  <div class="grid-row">
-    <div class="col-6 col-md-6">
-      <div class="it-grid-item-wrapper it-grid-item-overlay">
-        <a href="#" class="">
-          <div class="img-responsive-wrapper">
-            <div class="img-responsive">
-              <div class="img-wrapper"><img src="https://via.placeholder.com/400x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-            </div>
-          </div>
-          <span class="it-griditem-text-wrapper">
-            <span class="it-griditem-text">Didascalia</span>
-            <svg class="icon">
-              <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-code-circle"></use>
-            </svg>
-          </span>
+  <hr>
+  <h1 class="display-4">Categoria:</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-xs-10">
+        <a href="obtain_article.php?id=2">
+          <img height="auto" class="col-12 shared img-responsive" src="resources/capodanno-NY.jpg" alt=""
+            class="rounded float-left">
+        </a>
+        <figcaption class="figure-caption text-left">Una didascalia per l'immagine sopra.</figcaption>
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <a href="Event.html">
+          <img height="auto" class="col-12 shared img-responsive" src="resources/TomorrowLand.jpg" alt=""
+            class="rounded float-left">
         </a>
       </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="grid-row">
-        <div class="col-6">
-          <div class="it-grid-item-wrapper it-grid-item-overlay">
-            <a href="#">
-              <div class="img-responsive-wrapper">
-                <div class="img-responsive">
-                  <div class="img-wrapper"><img src="https://via.placeholder.com/400x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                </div>
-              </div>
-              <span class="it-griditem-text-wrapper">
-                <span class="it-griditem-text">Didascalia</span>
-                <svg class="icon">
-                  <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-code-circle"></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="it-grid-item-wrapper it-grid-item-overlay">
-            <a href="#">
-              <div class="img-responsive-wrapper">
-                <div class="img-responsive">
-                  <div class="img-wrapper"><img src="https://via.placeholder.com/400x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                </div>
-              </div>
-              <span class="it-griditem-text-wrapper">
-                <span class="it-griditem-text">Didascalia</span>
-                <svg class="icon">
-                  <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-code-circle"></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="it-grid-item-wrapper it-grid-item-overlay it-grid-item-double-w">
-            <a href="#">
-              <div class="img-responsive-wrapper">
-                <div class="img-responsive">
-                  <div class="img-wrapper"><img src="https://via.placeholder.com/400x300/ebebeb/808080/?text=Immagine" alt="image Alt" title="Image Title"></div>
-                </div>
-              </div>
-              <span class="it-griditem-text-wrapper">
-                <span class="it-griditem-text">Didascalia</span>
-                <svg class="icon">
-                  <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-code-circle"></use>
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
+      <div class="col-md-6 col-xs-10">
+        <a href="Event.html"><img height="auto" class="col-12 shared" src="resources/okctoberfest.jpg" alt=""
+            class="rounded float-left "></a>
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <a href="Event.html"><img height="auto" class="col-12 shared" src="resources/capodanno-NY.jpg" alt=""
+            class="rounded float-center"></a>
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <a href="Event.html"><img height="auto" class="col-12 shared" src="resources/TomorrowLand.jpg" alt=""
+            class="rounded float-left"></a>
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <a href="Event.html"><img height="auto" class="col-12 shared" src="resources/okctoberfest.jpg" alt=""
+            class="rounded float-left"></a>
+            
       </div>
     </div>
   </div>
-</div>
+
 
   <footer>
     <div class="row"></div>
