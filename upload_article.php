@@ -52,3 +52,5 @@ $db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,1
 
 }
 }
+$page="article-form.php";
+require("Bopleve.php");

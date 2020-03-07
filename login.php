@@ -4,7 +4,8 @@ require_once("database-entrance.php");
 if(isset($_POST["email"])&& isset($_POST["password"])){
     $result=$db->login($_POST["email"],$_POST["password"]);
     if(count($result)==0){
-       echo "Error";
+       echo "<script> alert('I dati inseriti non sono corretti, riprova'); </script> ";
+       require("login.php");
     }else{
         //echo "Welcome: " . $result[0]["Nome"];
         session_start();
@@ -16,5 +17,14 @@ if(isset($_POST["email"])&& isset($_POST["password"])){
 
     }
 }
+if(isUserLoggedIn()){
+    $page = "login-in.php";
+}else{
+    $page= "login-form.php";
+}
+require("Bopleve.php");
 
+function isUserLoggedIn(){
+    return !empty($_SESSION["email"]);
+}
 ?>
