@@ -46,11 +46,11 @@
             Categorie
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Concerts</a>
-            <a class="dropdown-item" href="#">Festivals</a>
-            <a class="dropdown-item" href="#">Serate</a>
-            <a class="dropdown-item" href="#">Musei e Cultura</a>
-            <a class="dropdown-item" href="#">Altro</a>
+            <a class="dropdown-item" href="obtain-category?categories=Concerti">Concerti</a>
+            <a class="dropdown-item" href="obtain-category?categories=Festivals">Festivals</a>
+            <a class="dropdown-item" href="obtain-category?categories=Serate">Serate</a>
+            <a class="dropdown-item" href="obtain-category?categories=Musei e Cultura">Musei e Cultura</a>
+            <a class="dropdown-item" href="obtain-category?categories=Altro">Altro</a>
           </div>
         </li>
         <li class="nav-item">
