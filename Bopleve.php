@@ -46,19 +46,19 @@
             Categorie
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="obtain-category?categories=Concerti">Concerti</a>
-            <a class="dropdown-item" href="obtain-category?categories=Festivals">Festivals</a>
-            <a class="dropdown-item" href="obtain-category?categories=Serate">Serate</a>
-            <a class="dropdown-item" href="obtain-category?categories=Musei e Cultura">Musei e Cultura</a>
-            <a class="dropdown-item" href="obtain-category?categories=Altro">Altro</a>
+            <a class="dropdown-item" href="obtain-category.php?categories=Concerti">Concerti</a>
+            <a class="dropdown-item" href="obtain-category.php?categories=Festivals">Festivals</a>
+            <a class="dropdown-item" href="obtain-category.php?categories=Serate">Serate</a>
+            <a class="dropdown-item" href="obtain-category.php?categories=Musei e Cultura">Musei e Cultura</a>
+            <a class="dropdown-item" href="obtain-category.php?categories=Altro">Altro</a>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contattaci</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" id="searchbar">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" id="searchbar" method= "GET" action="search_backend.php">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"

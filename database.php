@@ -67,5 +67,12 @@ class database {
         $result = $querycat->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_by_name($title){
+        $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE Article_Title=?");
+        $get->bind_param("s",$title);
+        $get->execute();
+        $result=$get->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
