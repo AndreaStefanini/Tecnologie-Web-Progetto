@@ -43,8 +43,16 @@
           <label for="labelDataEvent">Data dell'Evento:</label>
           <input type="date" name="dataevento" class="form-control" id="date1" placeholder="gg/mm/aa" required>
         </div>
+        <label for="labelCategoryEvent">Scegli la categoria dell'Evento:</label>
+        <select id="Categorie" name="Categorie"class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option value="Concerti">Concerti</option>
+          <option value="Festivals">Festivals</option>
+          <option value="Serate">Serate</option>
+          <option value="Musei e Cultura">Musei e Cultura</option>
+          <option value="Altro">Altro</option>
+        </select>
         <div class="form-group">
-            <label for="exampleFormControlFile1">Inserisci un foto dell'Evento:</label>
+            <label for="fotoEvento">Inserisci un foto dell'Evento:</label>
             <input type="file" class="form-control-file" id="CaricaFoto" name="EventFoto" required>
         </div>
         <button id="submit" type="submit" name="submit" class="btn btn-primary">Crea Evento</button>
