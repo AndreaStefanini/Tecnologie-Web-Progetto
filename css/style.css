@@ -1,5 +1,5 @@
 
-p, h1, li, button, input {
+p, h1, li, button, input.submit {
     font-family: 'Permanent Marker', cursive;
 }
 img.altern{
@@ -11,6 +11,14 @@ img.arrows{
     width:100px;
     height:100px;
 
+}
+img.carrello{
+    height:25pt;
+    width:25pt;
+    border: 1pt solid black;
+    border-radius: 5pt;
+    padding:2px;
+    margin-right:1%;
 }
 div.col {
     margin-left:10pt;

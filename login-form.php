@@ -1,4 +1,4 @@
-<form class="form col-sm-12 col-lg-6" method="GET" action="login.php">
+<form class="form col-sm-12 col-lg-6" method="POST" action="login.php">
           <h1>Benvenuto, fai l'accesso sei hai già un account altrimenti registrati!</h1>
             <div class="form-group">
               <label for="labelCognome">Email:</label>

@@ -5,10 +5,11 @@ if(isset($_GET["email"]) && isset($_GET["password"]) && isset($_GET["nome"]) && 
         $db->add_user($_GET["nome"],$_GET["cognome"],$_GET["email"],$_GET["password"],$_GET["datanascita"],$_GET["tipouser"]);
     }else{
         echo "<script type='text/javascript'>alert('Your password is too weak for our standard, please create a more secure password, you will redirected to the sign page')</script>";
+        $page = "signup-form.php";
+        require("Bopleve.php");
     }
 }
-$page = "signup-form.php";
-require("Bopleve.php");
+
 
 function ContainsNumbers($String){
     return preg_match('/\\d/', $String) > 0;

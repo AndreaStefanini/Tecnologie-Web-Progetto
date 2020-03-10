@@ -15,7 +15,7 @@ class database {
 
     }
     public function login($email, $password){
-        $login=$this->connection->prepare("SELECT Nome, Cognome FROM Users WHERE email= ? and password= ?");
+        $login=$this->connection->prepare("SELECT ID ,Nome, Cognome FROM users WHERE email= ? and password= ?");
         $login->bind_param("ss", $email, $password);
         $login->execute();
         $result = $login->get_result();
@@ -70,6 +70,13 @@ class database {
     public function get_by_name($title){
         $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE Article_Title=?");
         $get->bind_param("s",$title);
+        $get->execute();
+        $result=$get->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_by_author($author){
+        $get=$this->connection->prepare("SELECT Article_Title FROM articles WHERE Author_COD=?");
+        $get->bind_param("i",$author);
         $get->execute();
         $result=$get->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
