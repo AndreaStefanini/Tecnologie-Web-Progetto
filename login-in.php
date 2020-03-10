@@ -1,0 +1,1 @@
+<img src="resources/carrello.png" alt="...">

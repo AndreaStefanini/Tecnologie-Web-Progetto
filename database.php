@@ -61,7 +61,7 @@ class database {
         return $result -> fetch_all(MYSQLI_ASSOC);
     }
     public function get_by_categories($categoria){
-        $querycat = $this->connection->prepare("SELECT ID_Articles, Image_Path, Article_Title, Category FROM articles WHERE Category = ?");
+        $querycat = $this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path, Category FROM articles WHERE Category = ?");
         $querycat->bind_param("s",$categoria);
         $querycat->execute();
         $result = $querycat->get_result();
