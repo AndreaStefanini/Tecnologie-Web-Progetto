@@ -58,7 +58,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <?php if(!empty($_SESSION["email"])){?>
-      <div class="dropdown">
+      <div class="dropleft" style = "margin-right:1%;">
         <img src="resources/carrello.png" class=" carrello dropdown-toggle" data-toggle="dropdown" alt=""> 
         <div class="dropdown-menu">
           <div class="dropdown-item"> Olimpiade</div>

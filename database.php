@@ -75,7 +75,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function get_by_author($author){
-        $get=$this->connection->prepare("SELECT Article_Title FROM articles WHERE Author_COD=?");
+        $get=$this->connection->prepare("SELECT Article_Title,Image_Path FROM articles WHERE Author_COD=?");
         $get->bind_param("i",$author);
         $get->execute();
         $result=$get->get_result();
