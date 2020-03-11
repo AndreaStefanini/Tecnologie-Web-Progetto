@@ -57,11 +57,15 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      <img src="resources/carrello.png" class="carrello" alt="">
-      <?php if(!empty($_SESSION["email"])){
-         echo $_SESSION["nome"];
-         ?>
-           
+      <?php if(!empty($_SESSION["email"])){?>
+      <div class="dropdown">
+        <img src="resources/carrello.png" class=" carrello dropdown-toggle" data-toggle="dropdown" alt=""> 
+        <div class="dropdown-menu">
+          <div class="dropdown-item"> Olimpiade</div>
+        </div>
+      </div>
+
+      <?php echo $_SESSION["nome"]; ?>
       <?php }else{ ?>
         <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
         onclick="window.location.href='login.php'">Login In</button>
