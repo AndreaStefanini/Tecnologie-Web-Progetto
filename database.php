@@ -15,7 +15,7 @@ class database {
 
     }
     public function login($email, $password){
-        $login=$this->connection->prepare("SELECT ID ,Nome, Cognome FROM users WHERE email= ? and password= ?");
+        $login=$this->connection->prepare("SELECT ID ,Nome, Cognome, Tipo_User FROM users WHERE email= ? and password= ?");
         $login->bind_param("ss", $email, $password);
         $login->execute();
         $result = $login->get_result();
@@ -80,6 +80,11 @@ class database {
         $get->execute();
         $result=$get->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function remove_article($title){
+        $remove = $this->connection->prepare("DELETE FROM articles WHERE Article_Title = ?");
+        $remove->bind_param("s", $title);
+        $remove->execute();
     }
 }
 ?>

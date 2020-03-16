@@ -11,6 +11,7 @@ if(isset($_POST["email"])&& isset($_POST["password"])){
         $_SESSION["email"]= $_POST["email"];
         $_SESSION["nome"] = $result[0]["Nome"];
         $_SESSION["ID"] = $result[0]["ID"];
+        $_SESSION["User"] = $result[0]["Tipo_User"];
         $page = "login-in.php";
     }
 }else{

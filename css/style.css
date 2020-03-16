@@ -1,11 +1,23 @@
 
-p, h1, li, button, input.submit {
+p, h1, h2, li, button, input.submit {
     font-family: 'Permanent Marker', cursive;
 }
 img.altern{
     width:100%;
     max-height:720px;
     
+}
+button.login{
+    border:solid;
+    background: transparent;
+    height:50px;
+    width:50px;
+    border: 1pt solid black;
+    border-radius: 5pt;
+}
+.icons{
+    height:35px;
+    width:35px; 
 }
 img.arrows{
     width:100px;
@@ -115,11 +127,13 @@ form#searchbar{
 small{
     margin-left: 10%;
 }
-div.postit{
-    margin-top: 5%;
-    height: 255px;
+.container-post{
     background-color: rgb(255,255,165);
+    margin-top: 5pt;
+    margin-right:5pt;
 }
+
+
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
