@@ -9,7 +9,6 @@ return $imageLayer;
 }
 if(isset($_POST["submit"])){
     if(ContainsNumbers($_POST["password"]) && ContainsUpperCase($_POST["password"]) && ContainsPunctuation($_POST["password"]) && strlen($_POST["password"])>=8){
-        
         $NewFolderName = $_POST["nome"].$_POST["cognome"];
         mkdir("resources/Users/".$NewFolderName, 7000);
         mkdir("resources/Users/".$NewFolderName."/Articoli", 7000);
@@ -18,8 +17,8 @@ if(isset($_POST["submit"])){
             $fileName = $_FILES['ProfileFoto']['tmp_name']; 
             $sourceProperties = getimagesize($fileName);
             $resizeFileName = $NewFolderName;
-            $uploadPath = "./resources/".$NewFolderName."/Profilo";
-            $newpath = "resources/".$NewFolderName."/Profilo";
+            $uploadPath = "resources/".$NewFolderName."/Profilo/";
+            $newpath = "resources/".$NewFolderName."/Profilo/";
             $fileExt = pathinfo($_FILES['ProfileFoto']['name'], PATHINFO_EXTENSION);
             $uploadImageType = $sourceProperties[2];
             $sourceImageWidth = $sourceProperties[0];
@@ -46,10 +45,12 @@ if(isset($_POST["submit"])){
                 default:
                     break;
             } 
-            }
+            
             $db->add_user($_POST["nome"],$_POST["cognome"],$_POST["email"],$_POST["password"],$_POST["datanascita"],$_POST["tipouser"],$resizeFileName);
-            header("Location: index.php");
-    }}else{
+            //header("Location: index.php");
+        }
+    }
+}else{
         
         $page = "signup-form.php";
         require("Bopleve.php");
