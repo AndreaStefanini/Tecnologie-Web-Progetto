@@ -17,8 +17,8 @@ if(isset($_POST["submit"])){
             $fileName = $_FILES['ProfileFoto']['tmp_name']; 
             $sourceProperties = getimagesize($fileName);
             $resizeFileName = $NewFolderName;
-            $uploadPath = "resources/".$NewFolderName."/Profilo/";
-            $newpath = "resources/".$NewFolderName."/Profilo/";
+            $uploadPath = "resources/Users/".$NewFolderName."/Profilo/";
+            $newpath = "resources/Users/".$NewFolderName."/Profilo/";
             $fileExt = pathinfo($_FILES['ProfileFoto']['name'], PATHINFO_EXTENSION);
             $uploadImageType = $sourceProperties[2];
             $sourceImageWidth = $sourceProperties[0];

@@ -13,8 +13,8 @@ if(is_array($_FILES)) {
 $fileName = $_FILES['EventFoto']['tmp_name']; 
 $sourceProperties = getimagesize($fileName);
 $resizeFileName = $_POST["ArticleTitle"];
-$uploadPath = "resources/".$_SESSION["nome"]."/Articoli";
-$newpath = "resources/Articoli";
+$uploadPath = "resources/Users/".$_SESSION["nome"]."/Articoli";
+$newpath = "resources/Users/".$_SESSION["nome"]."Articoli";
 $fileExt = pathinfo($_FILES['EventFoto']['name'], PATHINFO_EXTENSION);
 $uploadImageType = $sourceProperties[2];
 $sourceImageWidth = $sourceProperties[0];
