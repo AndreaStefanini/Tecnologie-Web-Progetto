@@ -137,6 +137,10 @@ small{
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
+div.carousel{
+    width:80%;
+    margin-left:10%;
+}
 div.submessages{
     display: none;
     border: solid 1pt black;
@@ -160,6 +164,9 @@ button#signup{
     form.form{
         padding:50pt;
         margin-left:0;
+    }
+    div.carousel{
+        width:100%;
     }
     iframe{
         margin-top: 5%;

@@ -8,9 +8,9 @@ class database {
             die("An error occurred during the connection to the database, please retry". $this->connection->connect_error);
         }
     }
-    public function add_user($nome, $cognome, $email, $userpassword, $data_nascita, $usertype){
-       $insertquery=$this->connection->prepare("INSERT INTO users(Nome,Cognome,email,password,Data_Nascita,Tipo_User) VALUES(?,?,?,?,?,?)");
-       $insertquery->bind_param('ssssss',$nome,$cognome,$email,$userpassword,$data_nascita,$usertype);
+    public function add_user($nome, $cognome, $email, $userpassword, $data_nascita, $usertype, $profileimage){
+       $insertquery=$this->connection->prepare("INSERT INTO users(Nome,Cognome,email,password,Data_Nascita,Tipo_User, ProfileImage) VALUES(?,?,?,?,?,?,?)");
+       $insertquery->bind_param('sssssss',$nome,$cognome,$email,$userpassword,$data_nascita,$usertype,$profileimage);
        $insertquery->execute();
 
     }

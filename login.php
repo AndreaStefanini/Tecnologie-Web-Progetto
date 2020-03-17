@@ -8,8 +8,9 @@ if(isset($_POST["email"])&& isset($_POST["password"])){
     }else{
         echo "<script type ='text/javascript'> alert('Benvenuto'); </script> ";
         session_start();
+        $newname = $result[0]["Nome"].$result[0]["Cognome"];
         $_SESSION["email"]= $_POST["email"];
-        $_SESSION["nome"] = $result[0]["Nome"];
+        $_SESSION["nome"] = $newname;
         $_SESSION["ID"] = $result[0]["ID"];
         $_SESSION["User"] = $result[0]["Tipo_User"];
         $page = "login-in.php";

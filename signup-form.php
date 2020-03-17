@@ -1,4 +1,4 @@
-<form class="form col-sm-12 col-lg-6" method="GET" action="signup.php">
+<form class="form col-sm-12 col-lg-6" method="POST" action="signup.php">
     <h1>Benvenuto,effetua la registrazione in BOPLEVE!</h1>
     <div class="form-group">
       <label for="labelEmail">Email address:</label>
@@ -32,6 +32,10 @@
       <label class="form-check-label" for="exampleRadios2">
         Cliente
       </label>
+    </div>
+    <div class="form-group">
+        <label for="fotoProfilo">Inserisci una foto di Profilo<wha:</label>
+        <input type="file" class="form-control-file" id="CaricaFoto" name="ProfileFoto" required>
     </div>
     <button id="submit" type="submit" class="btn btn-primary">Submit</button>
   </form>
