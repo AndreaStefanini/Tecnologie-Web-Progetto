@@ -15,7 +15,7 @@ class database {
 
     }
     public function login($email, $password){
-        $login=$this->connection->prepare("SELECT ID ,Nome, Cognome, Tipo_User FROM users WHERE email= ? and password= ?");
+        $login=$this->connection->prepare("SELECT ID ,Nome, Cognome, Tipo_User, ProfileImage FROM users WHERE email= ? and password= ?");
         $login->bind_param("ss", $email, $password);
         $login->execute();
         $result = $login->get_result();

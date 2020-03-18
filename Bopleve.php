@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -64,8 +65,8 @@
           <div class="dropdown-item"> Olimpiade</div>
         </div>
       </div>
-
-      <?php echo $_SESSION["nome"]; ?>
+      <p style="margin-bottom:0;"><?php echo $_SESSION["nome"]. " ". $_SESSION["cognome"]; ?></p>
+      <img src="<?php echo $_SESSION["ProfileImage"];?>" style="margin-left:2pt;" alt="">
       <?php }else{ ?>
         <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
         onclick="window.location.href='login.php'">Login In</button>
