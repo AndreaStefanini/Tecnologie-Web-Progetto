@@ -1,30 +1,30 @@
 <?php
 require_once("database-entrance.php");
-
 if(isset($_POST["email"])&& isset($_POST["password"])){
     $result=$db->login($_POST["email"],$_POST["password"]);
     if(count($result)==0){
-       echo "<script> alert('I dati inseriti non sono corretti, riprova'); </script> ";
+       echo "<script type ='text/javascript'> alert('I dati inseriti non sono corretti, riprova'); </script> ";
        require("login.php");
     }else{
-        //echo "Welcome: " . $result[0]["Nome"];
+        echo "<script type ='text/javascript'> alert('Benvenuto'); </script> ";
         session_start();
-        //$_SESSION["ID"]= $result["ID"];
-        $_SESSION["email"]= $result["email"];
-        
-        header("Location: ../BOPLEVE.html");
-        exit();
-
+    
+        $_SESSION["email"]= $_POST["email"];
+        $_SESSION["nome"] = $result[0]["Nome"];
+        $_SESSION["cognome"] = $result[0]["Cognome"];
+        $_SESSION["ID"] = $result[0]["ID"];
+        $_SESSION["User"] = $result[0]["Tipo_User"];
+        $_SESSION["ProfileImage"] = $result[0]["ProfileImage"];
+        $page = "login-in.php";
     }
-}
-if(isUserLoggedIn()){
-    $page = "login-in.php";
 }else{
     $page= "login-form.php";
 }
+
+   
+
+    
 require("Bopleve.php");
 
-function isUserLoggedIn(){
-    return !empty($_SESSION["email"]);
-}
+
 ?>

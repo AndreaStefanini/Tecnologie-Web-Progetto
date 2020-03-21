@@ -1,7 +1,5 @@
-
+<?php session_start(); ?>
 <html lang="it">
-
-
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -27,7 +25,6 @@
     BOPLEVE
   </title>
 </head>
-
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img class="navbar-brand" src="resources/BOPLEVE.png" alt="">
@@ -61,10 +58,21 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
+      <?php if(!empty($_SESSION["email"])){?>
+      <div class="dropleft" style = "margin-right:1%;">
+        <img src="resources/carrello.png" class=" carrello dropdown-toggle" data-toggle="dropdown" alt=""> 
+        <div class="dropdown-menu">
+          <div class="dropdown-item"> Olimpiade</div>
+        </div>
+      </div>
+      <p style="margin-bottom:0;"><?php echo $_SESSION["nome"]. " ". $_SESSION["cognome"]; ?></p>
+      <img src="<?php echo $_SESSION["ProfileImage"];?>" style="margin-left:2pt;" alt="">
+      <?php }else{ ?>
+        <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
         onclick="window.location.href='login.php'">Login In</button>
-      <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit"
+        <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit"
         onclick="window.location.href='signup.php'">Sign Up</button>
+      <?php } ?>    
     </div>
   </nav>
   <?php

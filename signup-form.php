@@ -1,4 +1,4 @@
-<form class="form col-sm-12 col-lg-6" method="GET" action="signup.php">
+<form class="form col-sm-12 col-lg-6" method="POST" action="signup.php" enctype="multipart/form-data">
     <h1>Benvenuto,effetua la registrazione in BOPLEVE!</h1>
     <div class="form-group">
       <label for="labelEmail">Email address:</label>
@@ -33,5 +33,9 @@
         Cliente
       </label>
     </div>
-    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <label for="ProfileFoto">Inserisci una foto di Profilo:</label>
+        <input type="file" class="form-control-file" id="CaricaFoto" name="ProfileFoto" required>
+    </div>
+    <button id="submit" type="submit" name="submit"class="btn btn-primary">Submit</button>
   </form>

@@ -1,5 +1,5 @@
 
-p, h1, li {
+p, h1, h2, li, button, input.submit {
     font-family: 'Permanent Marker', cursive;
 }
 img.altern{
@@ -7,10 +7,30 @@ img.altern{
     max-height:720px;
     
 }
+button.login{
+    border:solid;
+    background: transparent;
+    height:50px;
+    width:50px;
+    border: 1pt solid black;
+    border-radius: 5pt;
+}
+.icons{
+    height:35px;
+    width:35px; 
+}
 img.arrows{
     width:100px;
     height:100px;
 
+}
+img.carrello{
+    height:25pt;
+    width:25pt;
+    border: 1pt solid black;
+    border-radius: 5pt;
+    padding:2px;
+    margin-right:1%;
 }
 div.col {
     margin-left:10pt;
@@ -107,13 +127,19 @@ form#searchbar{
 small{
     margin-left: 10%;
 }
-div.postit{
-    margin-top: 5%;
-    height: 255px;
+.container-post{
     background-color: rgb(255,255,165);
+    margin-top: 5pt;
+    margin-right:5pt;
 }
+
+
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
+}
+div.carousel{
+    width:80%;
+    margin-left:10%;
 }
 div.submessages{
     display: none;
@@ -138,6 +164,9 @@ button#signup{
     form.form{
         padding:50pt;
         margin-left:0;
+    }
+    div.carousel{
+        width:100%;
     }
     iframe{
         margin-top: 5%;
