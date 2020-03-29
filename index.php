@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("database-entrance.php");
 $page ="home.php";
 $TemplateParam = $db->get_random_posts(4);

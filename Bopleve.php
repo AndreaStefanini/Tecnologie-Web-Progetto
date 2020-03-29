@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -66,7 +66,14 @@
         </div>
       </div>
       <p style="margin-bottom:0;"><?php echo $_SESSION["nome"]. " ". $_SESSION["cognome"]; ?></p>
-      <img src="<?php echo $_SESSION["ProfileImage"];?>" style="margin-left:2pt;" alt="">
+      <div class="dropdown">
+      <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"];?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
+      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-item">Main Page</div>  
+      <div class="dropdown-item">Profilo</div>
+      <button id= "logout"> <div class="dropdown-item">Logout</div></button>
+      </div>
+      </div>
       <?php }else{ ?>
         <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
         onclick="window.location.href='login.php'">Login In</button>

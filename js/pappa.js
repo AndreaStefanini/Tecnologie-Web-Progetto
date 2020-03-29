@@ -1,19 +1,29 @@
 
 $(document).ready(function(){
+    $("#logout").click(function(){
+            console.log("time to logout")
+            let logout = "true";
+            $.post("logout.php", {
+                logout:logout},function(data,status){
+                    alert(status);
+                });
+           console.log("logout should be done by now");
+           window.location.replace("index.php");
+    });
     function move(){
-       let images=$("img.arrows");
-       images.each(function(){
-           $(this).animate({
-               marginLeft: '20%'
-           },250).delay(600);
-       });
-       images.each(function(){
-           $(this).animate({
+        let images=$("img.arrows");
+        images.each(function(){
+            $(this).animate({
+                marginLeft: '20%'
+            },250).delay(600);
+        });
+        images.each(function(){
+            $(this).animate({
                 marginLeft: '0%'
-           },250).delay(600);
-       });
+            },250).delay(600);
+        });
     };
     // a variabile use to set a timer an repeat the move function.. a sort of an infinte loop
     var interval = self.setInterval(function(){move()},600);
-
+    
 });
