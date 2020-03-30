@@ -51,7 +51,6 @@ nav > img{
     height:45px;
 }
 nav.navbar{
-    height: 10%;
     width:100%;
     background:white;
 }
@@ -114,6 +113,10 @@ input#submit{
     float:right;
     margin-left: 10%;
 }
+p.title{
+    color: rgb(204, 255, 153);
+    font-size: 22pt;
+}
 iframe{
     margin-top: 5%;
     align-items: center;
@@ -154,9 +157,22 @@ input.input:hover +div.submessages{
 button#signup{
     margin-left:1%;
 }
+div.logged{
+    margin-left:10%;
+    margin-top:10%
+}
 @media only screen and (max-width:600px){
+    div.logged{
+        width:100%;
+        margin:0;
+    }
+    p.hiding{
+        display:none;
+    }
     img.shared{
         margin-left:1%;
+        width:98%;
+        margin-right:1%; 
     }
     h1{
         font-size: 24pt;
@@ -166,7 +182,9 @@ button#signup{
         margin-left:0;
     }
     div.carousel{
+        position: relative;
         width:100%;
+        margin-left:0;
     }
     iframe{
         margin-top: 5%;
@@ -182,7 +200,7 @@ button#signup{
     p#description{
         display:none;
     }
-    p#title{
+    p.title{
         display:inline;
     }
 }
