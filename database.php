@@ -86,5 +86,10 @@ class database {
         $remove->bind_param("s", $title);
         $remove->execute();
     }
+    public function remove_outdated_articles($date){
+        $remove_outdated=$this->connection->prepare("DELETE FROM articles WHERE Date_Event< ?");
+        $remove_outdated->bind_param("s", $date);
+        $remove_outdated->execute();
+    }
 }
 ?>

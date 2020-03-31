@@ -1,5 +1,5 @@
 <h1 class="display-4">Evento: <?php echo $articolo["Article_Title"]; ?></h1>
-    <div class="container">
+    <div class="container col-lg-10">
         <div clas="row">
             <div class=" event col-sm-12"><a class="col-md-10" href="#">
                     <img class="col-12 altern" id="polaroid" src="<?php echo $articolo['Image_Path']; ?>" alt="">
@@ -7,21 +7,21 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container col-lg-12">
         <div class="row">
-            <div class="container-post col-md-3 col-xs-6 col-lg-3">
+            <div class="container-post  col-xs-6" style="margin-left:10%">
                     <h2>Quando</h2>
                     <p><?php echo $articolo["Date_Event"];  ?></p>
             </div>
-            <div class="container-post col-md-3 col-xs-6 col-lg-3">
+            <div class="container-post  col-xs-6 ">
                     <h2>Dove</h2>
                     <p><?php echo $articolo["Location_Event"]; ?></p>
             </div>
-            <div class="container-post col-md-3 col-xs-6 col-lg-3">
+            <div class="container-post  col-xs-6 ">
                     <h2>Descrizione evento</h2>
                     <p><?php echo $articolo["Event_Description"]; ?></p>
             </div>
-            <div class="container-post col-md-3 col-xs-6 col-lg-3">
+            <div class="container-post col-xs-6 ">
                     <h2>Costo del Ticket</h2>
                     <p><?php echo $articolo["Costo_Ticket"]; ?></p>
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
