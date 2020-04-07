@@ -20,7 +20,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <script src="js/pappa.js" type="text/javascript"></script>
+  <script src="js/frontend.js" type="text/javascript"></script>
   <title>
     BOPLEVE
   </title>
@@ -55,7 +55,9 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" id="searchbar" method= "GET" action="search_backend.php">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
+        <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search" name="title" list="event-suggestion">
+        <datalist id="event-suggestion">
+        </datalist>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
