@@ -6,7 +6,7 @@ $articles = $db->get_by_author($result[0]["ID"]);
 
 foreach ($articles as $article):
 ?>
-<div class="row" style = "margin-left:10%; margin-top:10%">
+<div class="row logged" >
     <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared">
     <div> <?php echo $article["Article_Title"] ?></div>
     <button class="login"><img src="resources/matita.png" class="icons"  alt=""></button>

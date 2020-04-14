@@ -86,5 +86,18 @@ class database {
         $remove->bind_param("s", $title);
         $remove->execute();
     }
+    public function remove_outdated_articles($date){
+        $remove_outdated=$this->connection->prepare("DELETE FROM articles WHERE Date_Event< ?");
+        $remove_outdated->bind_param("s", $date);
+        $remove_outdated->execute();
+    }
+    public function get_content(){
+        $query_suggestion=$this->connection->prepare("SELECT Article_Title FROM articles");
+        $query_suggestion->execute();
+        $result = $query_suggestion->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+
+    }
 }
 ?>

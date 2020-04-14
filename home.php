@@ -38,7 +38,7 @@
         </a>
         </div>
         <div class="col">
-          <p id="title"><?php echo $article["Article_Title"];?></p>
+          <p class="title"><?php echo $article["Article_Title"];?></p>
           <img class="arrows" src="resources/arrows.png"  alt="">
           <p id="description">Per saperne di più, clicca l'immagine</p>
         </div>
