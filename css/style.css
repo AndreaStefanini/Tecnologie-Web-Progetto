@@ -1,11 +1,36 @@
+
+p, h1, h2, li, button, input.submit {
+    font-family: 'Permanent Marker', cursive;
+}
 img.altern{
     width:100%;
     max-height:720px;
     
 }
+button.login{
+    border:solid;
+    background: transparent;
+    height:50px;
+    width:50px;
+    border: 1pt solid black;
+    border-radius: 5pt;
+}
+.icons{
+    height:35px;
+    width:35px; 
+}
 img.arrows{
     width:100px;
     height:100px;
+
+}
+img.carrello{
+    height:25pt;
+    width:25pt;
+    border: 1pt solid black;
+    border-radius: 5pt;
+    padding:2px;
+    margin-right:1%;
 }
 div.col {
     margin-left:10pt;
@@ -46,12 +71,6 @@ footer > div > div> img{
 body{
     background-image: url("../resources/bacheca.jpg");
 }
-
-input#signup{
-    margin-left:2%;
-    
-}
-
 hr{
     display: block;
   margin-left: 10px;
@@ -102,28 +121,25 @@ iframe{
     height:600px;
 
 }
+form#searchbar{
+    margin-right:auto;
+}
 small{
     margin-left: 10%;
 }
-div.postit{
-    margin-top: 5%;
-    height: 255px;
+.container-post{
     background-color: rgb(255,255,165);
+    margin-top: 5pt;
+    margin-right:5pt;
 }
-/*div.container-post{
-    width: 250px;
-    height: 500px;
-}*/
+
+
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
-/*input.input{
-    width:100%;
-    border-radius: 30px;
-}*/
-button#login{
-    margin-left: 31%;
-    margin-right: 1%;
+div.carousel{
+    width:80%;
+    margin-left:10%;
 }
 div.submessages{
     display: none;
@@ -134,6 +150,9 @@ div.submessages{
 }
 input.input:hover +div.submessages{
     display: block;
+}
+button#signup{
+    margin-left:1%;
 }
 @media only screen and (max-width:600px){
     img.shared{
@@ -146,6 +165,9 @@ input.input:hover +div.submessages{
         padding:50pt;
         margin-left:0;
     }
+    div.carousel{
+        width:100%;
+    }
     iframe{
         margin-top: 5%;
         align-items: center;
@@ -154,7 +176,15 @@ input.input:hover +div.submessages{
     div.event{
         margin-left:1pt;
     }
-
+    img.arrows{
+        display:none;
+    }
+    p#description{
+        display:none;
+    }
+    p#title{
+        display:inline;
+    }
 }
 
 

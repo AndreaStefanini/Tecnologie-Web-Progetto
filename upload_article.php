@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("database-entrance.php");
 function resizeImage($resourceType,$image_width,$image_height) {
     $resizeWidth = 1020;
@@ -13,8 +14,8 @@ if(is_array($_FILES)) {
 $fileName = $_FILES['EventFoto']['tmp_name']; 
 $sourceProperties = getimagesize($fileName);
 $resizeFileName = $_POST["ArticleTitle"];
-$uploadPath = "./resources/";
-$newpath = "resources/";
+$uploadPath = "resources/Users/".$_SESSION["nome"].$_SESSION["cognome"]."/Articoli/";
+$newpath = "resources/Users/".$_SESSION["nome"].$_SESSION["cognome"]."/Articoli/";
 $fileExt = pathinfo($_FILES['EventFoto']['name'], PATHINFO_EXTENSION);
 $uploadImageType = $sourceProperties[2];
 $sourceImageWidth = $sourceProperties[0];
@@ -48,7 +49,13 @@ $location =$_POST["EventLocation"];
 $time=$_POST["TimeEvent"];
 $description = $_POST["EventArticle"];
 $image_path = strval($resizeFileName);
-$db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,1,0);
+$categorie = $_POST["Categorie"];
+$db->add_article($titolo,$data,$costo,$location,$description,$time,$image_path,$_SESSION["ID"],0,$categorie);
+header("Location: index.php");
+}
+}else{
+    $page="article-form.php";
+}
 
-}
-}
+require("Bopleve.php");
+

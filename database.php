@@ -8,22 +8,22 @@ class database {
             die("An error occurred during the connection to the database, please retry". $this->connection->connect_error);
         }
     }
-    public function add_user($nome, $cognome, $email, $userpassword, $data_nascita, $usertype){
-       $insertquery=$this->connection->prepare("INSERT INTO users(Nome,Cognome,email,password,Data_Nascita,Tipo_User) VALUES(?,?,?,?,?,?)");
-       $insertquery->bind_param('ssssss',$nome,$cognome,$email,$userpassword,$data_nascita,$usertype);
+    public function add_user($nome, $cognome, $email, $userpassword, $data_nascita, $usertype, $profileimage){
+       $insertquery=$this->connection->prepare("INSERT INTO users(Nome,Cognome,email,password,Data_Nascita,Tipo_User, ProfileImage) VALUES(?,?,?,?,?,?,?)");
+       $insertquery->bind_param('sssssss',$nome,$cognome,$email,$userpassword,$data_nascita,$usertype,$profileimage);
        $insertquery->execute();
 
     }
     public function login($email, $password){
-        $login=$this->connection->prepare("SELECT Nome, Cognome FROM Users WHERE email= ? and password= ?");
+        $login=$this->connection->prepare("SELECT ID ,Nome, Cognome, Tipo_User, ProfileImage FROM users WHERE email= ? and password= ?");
         $login->bind_param("ss", $email, $password);
         $login->execute();
         $result = $login->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click) VALUES(?,?,?,?,?,?,?,?,?)");
-        $add_article -> bind_param("ssdssssii", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click);
+    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click,$categoria){
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category) VALUES(?,?,?,?,?,?,?,?,?,?)");
+        $add_article -> bind_param("ssdssssiis", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click,$categoria);
         $add_article-> execute();
     }
     public function get_article($idarticle){
@@ -59,6 +59,32 @@ class database {
         $querytop ->execute();
         $result = $querytop -> get_result();
         return $result -> fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_by_categories($categoria){
+        $querycat = $this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path, Category FROM articles WHERE Category = ?");
+        $querycat->bind_param("s",$categoria);
+        $querycat->execute();
+        $result = $querycat->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_by_name($title){
+        $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE Article_Title=?");
+        $get->bind_param("s",$title);
+        $get->execute();
+        $result=$get->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_by_author($author){
+        $get=$this->connection->prepare("SELECT Article_Title,Image_Path FROM articles WHERE Author_COD=?");
+        $get->bind_param("i",$author);
+        $get->execute();
+        $result=$get->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function remove_article($title){
+        $remove = $this->connection->prepare("DELETE FROM articles WHERE Article_Title = ?");
+        $remove->bind_param("s", $title);
+        $remove->execute();
     }
 }
 ?>
