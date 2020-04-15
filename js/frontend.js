@@ -14,7 +14,6 @@ $(document).ready(function(){
             let logout = "true";
             $.post("logout.php", {
                 logout:logout},function(data,status){
-                    alert(status);
                 });
            console.log("logout should be done by now");
            window.location.replace("index.php");
