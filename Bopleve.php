@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <svg class="icon"><use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-tool"></use></svg>
   <link rel="icon" href="resources/BOPLEVE-MINI.png" type="image/png" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome.min.js">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -88,7 +90,14 @@
     require_once($page);
   ?>
   <footer>
-    <div class="row"></div>
+   <div class="container">
+      <div class="row text-center">
+        <div class="col-sm-6">
+            <p>&copy; Rossi A, Baroni E, Stefanini A -2020</p>
+        </div>
+      </div>
+  </div> 
+    <!-- <div class="row"></div>
     <div class="row col-4">
       <div class="col">
         <p>Termini e Condizioni di Utilizzo</p>
@@ -101,7 +110,7 @@
       <div class="col"><img src="resources/facebook-icon.png" alt=""></div>
       <div class="col"><img src="resources/instagram.png" alt=""></div>
       <div class="col"><img src="resources/twitter.png" alt=""></div>
-    </div>
+    </div>  -->
   </footer>
 </body>
 
