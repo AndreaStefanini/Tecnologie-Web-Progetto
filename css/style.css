@@ -60,6 +60,7 @@ div.col{
 footer{
     background: white;
     width:100%;
+    padding: 30px;
     margin-top:10%;
 
 }
@@ -159,8 +160,11 @@ button#signup{
     margin-left:1%;
 }
 div.logged{
-    margin-left:10%;
-    margin-top:10%
+    margin-top:5%;
+    width:100%;
+}
+button.icon{       
+    margin-top:5%;
 }
 @media only screen and (max-width:600px){
     div.logged{
