@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <svg class="icon"><use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-tool"></use></svg>
   <link rel="icon" href="resources/BOPLEVE-MINI.png" type="image/png" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome.min.js">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -89,29 +89,48 @@
   <?php
     require_once($page);
   ?>
-  <footer>
-   <div class="container">
-      <div class="row text-center">
-        <div class="col-sm-6">
-            <p>&copy; Rossi A, Baroni E, Stefanini A -2020</p>
-        </div>
-      </div>
-  </div> 
-    <!-- <div class="row"></div>
-    <div class="row col-4">
-      <div class="col">
-        <p>Termini e Condizioni di Utilizzo</p>
-      </div>
-    </div>
-    <div class="row col-4">
-      <div class="col">
-        <p>Seguici su social: </p>
-      </div>
-      <div class="col"><img src="resources/facebook-icon.png" alt=""></div>
-      <div class="col"><img src="resources/instagram.png" alt=""></div>
-      <div class="col"><img src="resources/twitter.png" alt=""></div>
-    </div>  -->
-  </footer>
+ <!-- Footer -->
+<footer class="page-footer font-small special-color-white pt-4">
+
+<!-- Footer Elements -->
+<div class="container">
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1">
+        <i class="fab fa-facebook-f fa-3x"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1">
+        <i class="fab fa-twitter fa-3x"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1">
+        <i class="fab fa-google-plus-g fa-3x"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1">
+        <i class="fab fa-linkedin-in fa-3x"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+
+</div>
+<!-- Footer Elements -->
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2020 Copyright:
+  <p> Rossi A, Baroni E, Stefanini A</p>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </body>
 
 </html>
