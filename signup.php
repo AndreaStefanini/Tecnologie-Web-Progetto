@@ -47,8 +47,12 @@ if(isset($_POST["submit"])){
             } 
             
             $db->add_user($_POST["nome"],$_POST["cognome"],$_POST["email"],$_POST["password"],$_POST["datanascita"],$_POST["tipouser"],$resizeFileName);
-            //header("Location: index.php");
+            header("Location: index.php");
         }
+    }else{
+        echo "<script type='text/javascript'>alert('La Password inserita non è abbastanza forte per favore inserire una password che contega A-Z,a-z,0-9,,-');</script>";
+        unset($_POST);
+        header("Location: signup.php");
     }
 }else{
         
@@ -65,6 +69,6 @@ function ContainsUpperCase($String){
     return preg_match('/[A-Z]/', $String) >0;
 }
 function ContainsPunctuation($String){
-    return preg_match('/[,.;-]/',$String) > 0;
+    return preg_match('/[,.-]/',$String) > 0;
 }
 ?>
