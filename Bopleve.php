@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <script src="js/pappa.js" type="text/javascript"></script>
+  <script src="js/frontend.js" type="text/javascript"></script>
   <title>
     BOPLEVE
   </title>
@@ -55,25 +55,34 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" id="searchbar" method= "GET" action="search_backend.php">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
+        <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search" name="title" list="event-suggestion">
+        <datalist id="event-suggestion">
+        </datalist>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      <?php if(!empty($_SESSION["email"])){?>
-      <div class="dropleft" style = "margin-right:1%;">
-        <img src="resources/carrello.png" class=" carrello dropdown-toggle" data-toggle="dropdown" alt=""> 
-        <div class="dropdown-menu">
-          <div class="dropdown-item"> Olimpiade</div>
-        </div>
-      </div>
-      <p style="margin-bottom:0;"><?php echo $_SESSION["nome"]. " ". $_SESSION["cognome"]; ?></p>
-      <img src="<?php echo $_SESSION["ProfileImage"];?>" style="margin-left:2pt;" alt="">
-      <?php }else{ ?>
-        <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
-        onclick="window.location.href='login.php'">Login In</button>
-        <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit"
-        onclick="window.location.href='signup.php'">Sign Up</button>
-      <?php } ?>    
     </div>
+    <?php if(!empty($_SESSION["email"])){?>
+    <div class="dropleft" style = "margin-right:1%;">
+      <img src="resources/carrello.png" class=" carrello dropdown-toggle" data-toggle="dropdown" alt=""> 
+      <div class="dropdown-menu">
+        <div class="dropdown-item"> Olimpiade</div>
+      </div>
+    </div>
+    <p  class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"]. " ". $_SESSION["cognome"]; ?></p>
+    <div class="dropdown">
+    <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"];?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
+    <div class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-item">Main Page</div>  
+    <div class="dropdown-item">Profilo</div>
+    <button id= "logout"> <div class="dropdown-item">Logout</div></button>
+    </div>
+    </div>
+    <?php }else{ ?>
+      <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit"
+      onclick="window.location.href='login.php'">Login In</button>
+      <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit"
+      onclick="window.location.href='signup.php'">Sign Up</button>
+    <?php } ?>    
   </nav>
   <?php
     require_once($page);

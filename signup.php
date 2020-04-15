@@ -1,8 +1,8 @@
 <?php
 require_once("database-entrance.php");
 function resizeImage($resourceType,$image_width,$image_height) {
-    $resizeWidth = 20;
-    $resizeHeight = 20;
+    $resizeWidth = 35;
+    $resizeHeight = 35;
     $imageLayer = imagecreatetruecolor($resizeWidth,$resizeHeight);
     imagecopyresampled($imageLayer,$resourceType,0,0,0,0,$resizeWidth,$resizeHeight, $image_width,$image_height);
 return $imageLayer;

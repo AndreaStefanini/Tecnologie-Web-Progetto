@@ -6,7 +6,7 @@ if(!empty($result)){
     $page="evento.php";
     require("Bopleve.php");
 }else{
-    echo "<script type='text/javascript'> Alert('Nessun evento è stato trovato sotto quel nome, riprova');</script>";
+    echo "<script type='text/javascript'> alert('Nessun evento è stato trovato sotto quel nome, riprova');</script>";
     header("location: index.php");
 }
 
