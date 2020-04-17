@@ -50,9 +50,9 @@ if(isset($_POST["submit"])){
             header("Location: index.php");
         }
     }else{
-        echo "<script type='text/javascript'>alert('La Password inserita non è abbastanza forte per favore inserire una password che contega A-Z,a-z,0-9,,-');</script>";
         unset($_POST);
-        header("Location: signup.php");
+        echo "<script type='text/javascript'>alert('La Password inserita non è abbastanza forte per favore inserire una password che contega A-Z,a-z,0-9,,-');\n
+        window.location.assign('signup.php');</script>";
     }
 }else{
         
