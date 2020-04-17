@@ -90,8 +90,7 @@
     require_once($page);
   ?>
  <!-- Footer -->
-<footer class="page-footer font-small special-color-white pt-4">
-
+<footer class="page-footer font-small special-color-white pt-4" style="padding-bottom:1pt;">
 <!-- Footer Elements -->
 <div class="container">
 
