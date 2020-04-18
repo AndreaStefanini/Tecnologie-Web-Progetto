@@ -9,19 +9,16 @@
     </div>
     <div class="container col-lg-12">
         <div class="row">
-            <div class="container-post  col-xs-6" style="margin-left:10%">
+            <div class="container-post  col-sm-3">
                     <h2>Quando</h2>
                     <p><?php echo $articolo["Date_Event"];  ?></p>
             </div>
-            <div class="container-post  col-xs-6 ">
+            <div class="container-post  col-sm-3 ">
                     <h2>Dove</h2>
                     <p><?php echo $articolo["Location_Event"]; ?></p>
             </div>
-            <div class="container-post  col-xs-6 ">
-                    <h2>Descrizione evento</h2>
-                    <p><?php echo $articolo["Event_Description"]; ?></p>
-            </div>
-            <div class="container-post col-xs-6 ">
+           
+            <div class="container-post col-sm-3 ">
                     <h2>Costo del Ticket</h2>
                     <p><?php echo $articolo["Costo_Ticket"]; ?></p>
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -31,8 +28,14 @@
                         <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
                     </form>
             </div>
+            <div class="container-post  col-sm-5 ">
+                    <h2>Descrizione evento</h2>
+                    <p><?php echo $articolo["Event_Description"]; ?></p>
+            </div>
         </div>
 
+
+<!-- Card -->
         <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d813.3483819864376!2d12.263349521575542!3d44.33721150585204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cb2ae1a8413df%3A0xe9cd019d306b5891!2sMirabilandia!5e0!3m2!1sit!2sit!4v1580719266044!5m2!1sit!2sit" frameborder="0" style="border:0;" allowfullscreen=""></iframe>-->
 
     </div>
