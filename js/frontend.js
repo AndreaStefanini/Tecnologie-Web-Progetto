@@ -10,13 +10,13 @@ $(document).ready(function(){
     });
 
     $("#logout").click(function(){
-            console.log("time to logout")
             let logout = "true";
             $.post("logout.php", {
                 logout:logout},function(data,status){
-                });
-           console.log("logout should be done by now");
-           window.location.replace("index.php");
+                    if(status == "success"){
+                        window.location.replace("index.php");
+                    }
+                });    
     });
     $("#search").on("input",function(){
         let testo = $("#search").val();

@@ -75,7 +75,7 @@
     <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"];?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
     <div class="dropdown-menu dropdown-menu-right">
     <div class="dropdown-item">Main Page</div>  
-    <div class="dropdown-item">Profilo</div>
+    <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
     <button id= "logout"> <div class="dropdown-item">Logout</div></button>
     </div>
     </div>
