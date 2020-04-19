@@ -79,6 +79,114 @@
       <p><?php echo $articolo["Location_Event"]; ?></p>
       </div>
     </div>
+    <div class="card z-depth-0 bordered">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h2>Costo </h2>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+      <p><?php echo $articolo["Costo_Ticket"]; ?></p>
+      <!-- Button trigger modal-->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart">Aggiungi al Carrello</button>
+<!-- Modal: modalAbandonedCart-->
+<div class="modal fade right" id="modalAbandonedCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading">Aggiunto al carrello con successo
+        </p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-3">
+            <p></p>
+            <p class="text-center"><i class="fas fa-shopping-cart fa-4x"></i></p>
+          </div>
+
+          <div class="col-9">
+            <p>Hai bisogno di puù tempo per prendere la tua decisione?</p>
+            <p>non ti preoccupare il tuo biglietto ti aspetta nel carrello.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn btn-info">Vai al carrello</a>
+        <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Cancel</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Acquista
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+
+  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Procedi all'acquisto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+          <h1>Dati Fatturazione</h1>
+            <div class="form-group">
+              <label for="labelNomeCognome">Nome Cognome</label>
+              <input placeholder="Nome Cognome:" type="nomecognome" class="form-control frm" id="nomecognome" name="nome">
+            </div>
+            <div class="form-group">
+              <label for="labelCarta">Numero carta:</label>
+              <input placeholder="n° carta:" type="numerocarta" class="form-control frm" id="numeroCarta" name="numero carta">
+            </div>
+            <div class="form-group">
+              <label for="labelScadenza">Scade:</label>
+              <input placeholder="MM/AA" type="scadenza" class="form-control frm" id="scadenza" name="scadenza">
+            </div>
+            <div class="form-group">
+              <label for="labelCvv">Cvv:</label>
+              <input placeholder="000" type="CVV" class="form-control frm" id="cvv" name="cvv">
+            </div>
+            
+            
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Acquista</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal: modalAbandonedCart-->
+      </div>
+    </div>
   </div>
 </div>
 
