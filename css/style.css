@@ -135,13 +135,21 @@ form#searchbar{
 small{
     margin-left: 10%;
 }
-.container-post{
+ .container-post{
     background-color: rgb(255,255,165);
     margin-top: 5pt;
     margin-right:5pt;
-    width:20%;
+    width:20%; 
 }
-
+.card-header, .card-body{
+    background-color: rgb(255,255,165);
+}
+.accordion{
+    margin-top: 30px;
+    
+    padding: 2%;
+}
+ 
 
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
