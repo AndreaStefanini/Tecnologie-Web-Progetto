@@ -57,4 +57,4 @@
         </div>
         <button id="submit" type="submit" name="submit" class="btn btn-primary">Crea Evento</button>
       </form>
-      <footer>
+      
