@@ -2,18 +2,19 @@
     require_once("database-entrance.php");
     if(!empty($_POST["submit"])){
         //da aggiornare i paramentri per matchare l'ordine, inoltre penso di voler spostare le funzioni per ridimensionare l'immagine in una pagina di function utility
-        $db->update_article($_POST["ArticleTitle"],$_POST["EventArticle"],$_POST["Ticket_Cost"],$_POST["TimeEvent"],$_POST["EventLocation"],$_POST["dataevento"],$_POST["categorie"],$_POST["foto"]);
+        $db->update_article($_POST["ArticleTitle"],$_POST["dataevento"],$_POST["Ticket_Cost"],$_POST["EventArticle"],$_POST["TimeEvent"],$NewImg,$_POST["EventDescription"],$_POST["foto"], $id);
         header("Location: login.php");
     }else{
         $id = $_GET["ID"];
         $result = $db->get_article($id);
+       
     }
 ?>
 <form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="#" enctype="multipart/form-data" >
-        <h1>Inserisci tutti i dettagli per il nuovo Articolo/Evento</h1>
+        <h1>Inserisci tutti i dettagli per Modificare il tuo Articolo/Evento</h1>
         <div class="form-group">
           <label for="labelEmail">Titolo Articolo:</label>
-          <input type="title" name="ArticleTitle" class="input form-control" id="ArticleTitle" placeholder="Titolo..." required>
+          <input type="title" name="ArticleTitle" class="input form-control" id="ArticleTitle" placeholder="Titolo..." value="<?php echo $result[0]["Article_Title"]; ?>" required >
           <div class="submessages">Inserisci qui il titolo dell'articolo...</div>
           <div class="invalid-feedback">
             Per favore inserisci il titolo dell'articolo.
@@ -68,3 +69,7 @@
         </div>
         <button id="submit" type="submit" name="submit" class="btn btn-primary">Crea Evento</button>
       </form>
+
+<?php 
+ $page = "modify_article.php";
+require_once("Bopleve.php"); ?>      

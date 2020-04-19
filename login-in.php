@@ -11,7 +11,7 @@ foreach ($articles as $article):
 <div class="row logged"  >
     <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared">
     <div style="margin-top:5%;"> <?php echo $article["Article_Title"] ?></div>
-    <button class="login icon"><img src="resources/matita.png" class="icons"  alt=""></button>
+    <button class="login icon"><img src="resources/matita.png" class="icons"  alt="" onclick="window.location.replace('modify_article.php?ID=<?php echo $article['ID'];?>')"></button>
     <button class="login icon"><img src="resources/bidone.png"  class= " icons" onClick="" alt=""></button>
     
 </div>
