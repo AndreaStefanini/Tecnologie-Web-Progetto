@@ -1,5 +1,4 @@
 <?php
-session_start();
 function resizeImage($resourceType, $image_width, $image_height, $newwidth, $newheight)
 {
     $resizeWidth = $newwidth;
@@ -23,20 +22,38 @@ function saveImage($image, $fotoname,$subfolder, $newwidth, $newheight)
         case IMAGETYPE_JPEG:
             $resourceType = imagecreatefromjpeg($fileName);
             $imageLayer = resizeImage($resourceType, $sourceImageWidth, $sourceImageHeight,$newwidth, $newheight);
-            imagejpeg($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
-            $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
+            
+            if($subfolder=="/Profilo/"){
+                imagejpeg($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
+                $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
+            }else{
+                imagejpeg($imageLayer, $uploadPath . '.' . $fileExt);
+                $resizeFileName = $newpath . '.' . $fileExt;
+            }
             break;
         case IMAGETYPE_GIF:
             $resourceType = imagecreatefromgif($fileName);
             $imageLayer = resizeImage($resourceType, $sourceImageWidth, $sourceImageHeight,$newwidth, $newheight);
-            imagegif($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
-            $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
+           
+            if($subfolder=="/Profilo/"){
+                imagegif($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
+                $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
+            }else{
+                imagegif($imageLayer, $uploadPath . '.' . $fileExt);
+                $resizeFileName = $newpath . '.' . $fileExt;
+            }
             break;
         case IMAGETYPE_PNG:
             $resourceType = imagecreatefrompng($fileName);
             $imageLayer = resizeImage($resourceType, $sourceImageWidth, $sourceImageHeight,$newwidth, $newheight);
-            imagepng($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
-            $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
+            
+            if($subfolder=="/Profilo/"){
+                imagepng($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
+                $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
+            }else{
+                imagepng($imageLayer, $uploadPath . '.' . $fileExt);
+                $resizeFileName = $newpath . '.' . $fileExt;
+            }
             break;
         default:
             break;
