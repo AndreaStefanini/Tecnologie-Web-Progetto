@@ -21,9 +21,8 @@
     <div class="form-group">
       <button type="button" onclick="window.location.href='login-in.php'">modifica i tuoi eventi</button>
     </div>
-  <?php }else{?>
     <div class="form-group">
-      <button type="button" onclick="window.location.href='login.php'">modifica il tuo account</button>
+      <button type="button" onclick="window.location.href='edit_profile.php'">modifica il tuo account</button>
       <!-- da sistemare il link-->
     </div>
   <?php } ?>
