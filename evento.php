@@ -119,15 +119,15 @@
           </div>
 
           <div class="col-9">
-            <p>Hai bisogno di puù tempo per prendere la tua decisione?</p>
-            <p>non ti preoccupare il tuo biglietto ti aspetta nel carrello.</p>
+            Hai bisogno di puù tempo per prendere la tua decisione?
+            non ti preoccupare il tuo biglietto ti aspetta nel carrello.
           </div>
         </div>
       </div>
       
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a type="button" class="btn btn-info">Vai al carrello</a>
+        <a type="button" class="btn btn-primary">Vai al carrello</a>
         <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Cancel</a>
       </div>
     </div>
