@@ -118,7 +118,7 @@ input#submit{
     float:right;
     margin-left: 10%;
 }
-p.title{
+p.title,p.titolo{
     color: rgb(204, 255, 153);
     font-size: 22pt;
 }
@@ -192,9 +192,7 @@ div.profilo{
 p.titolo{
     display: none;
 }
-p.title{
-    display: inline;
-}
+
 @media only screen and (max-width:600px){
     p.titolo{
         display: inline;
