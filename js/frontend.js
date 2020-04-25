@@ -30,6 +30,9 @@ $(document).ready(function(){
         let testo = $("#search").val();
         testo += "%";
     });
+    $("#delete_article").click(function(){
+        
+    });
     function move(){
         let images=$("img.arrows");
         images.each(function(){
@@ -45,5 +48,4 @@ $(document).ready(function(){
     };
     // a variabile use to set a timer an repeat the move function.. a sort of an infinte loop
     var interval = self.setInterval(function(){move()},600);
-    
 });
