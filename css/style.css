@@ -70,6 +70,8 @@ footer{
     width:100%;
     padding: 30px;
     margin-top:10%;
+    bottom: 0;
+    position: absolute;
 
 }
 body{
@@ -94,10 +96,9 @@ img.shared{
     background-size: 50px, auto;
     display: inline-block;
     max-width: 500px;
-    max-height: 380px;
-    
-   
+    max-height: 380px; 
 }
+
 input.frm{
     width:80%;
     margin-left: 10%;
