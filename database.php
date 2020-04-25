@@ -104,5 +104,10 @@ class database {
         
 
     }
+    public function edit_profile($id,$email,$userpassword,$usertype,$profileimage){
+        $editquery=$this->connection->prepare("UPDATE users SET email = ?, password= ?, Tipo_User = ?, ProfileImage = ? WHERE ID = ?");
+        $editquery->bind_param('sssss',$email,$userpassword,$usertype,$profileimage,$id);
+        $editquery->execute();
+    }
 }
 ?>
