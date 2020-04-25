@@ -118,7 +118,7 @@ input#submit{
     float:right;
     margin-left: 10%;
 }
-p.title{
+p.title,p.titolo{
     color: rgb(204, 255, 153);
     font-size: 22pt;
 }
@@ -189,7 +189,17 @@ div.profilo{
     padding-right: 150px;
     border-radius: 5px;
 }
+p.titolo{
+    display: none;
+}
+
 @media only screen and (max-width:600px){
+    p.titolo{
+        display: inline;
+    }
+    p.title{
+        display: none;
+    }
     div.logged{
         width:100%;
         margin:0;
@@ -198,6 +208,7 @@ div.profilo{
         display:none;
     }
     img.shared{
+        float:right;
         margin-left:1%;
         width:98%;
         margin-right:1%; 
@@ -228,8 +239,11 @@ div.profilo{
     p#description{
         display:none;
     }
-    p.title{
-        display:inline;
+    .ordering-arrow{
+        float:left;
+    }
+    .ordering-image{
+        float:right;
     }
 }
 

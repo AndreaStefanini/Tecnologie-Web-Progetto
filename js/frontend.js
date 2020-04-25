@@ -8,7 +8,15 @@ $(document).ready(function(){
             all_content=response; 
         }
     });
-
+    if($(window).width<=600){
+        let content = $(".ordering");
+        let cont =0;
+        for(cont=cont; cont<content.lenght; cont+=2){
+            let newpos = cont +1;
+            $(".ordering:nth-child("+cont+")").css({"order": newpos});
+            $(".ordering:nth-child("+newpos+")").css({"order" : cont});
+        }
+    }
     $("#logout").click(function(){
             let logout = "true";
             $.post("logout.php", {

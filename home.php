@@ -31,18 +31,19 @@
   <div class="container-fluid">
     <div class="row">
       <?php foreach($TemplateParam as $article):?>
-        <div class="col-md-2">
-          <p class="title"><?php echo $article["Article_Title"];?></p>
-          <img class="arrows" src="resources/arrows.png"  alt="">
-          <p id="description">Per saperne di più, clicca l'immagine</p>
-        </div>
-      <div class="col-md-4 col-xs-10 col-xs-push-4">
+      <div class="col-md-4 ordering-image">
+      <p class="titolo"><?php echo $article["Article_Title"];?></p>
         <a href="obtain_article.php?id=<?php echo $article['ID_Articles'];?>">
           <img height="auto" class="col-12 shared img-responsive" src="<?php echo $article['Image_Path']; ?>" alt=""
             class="rounded float-left">
         </a>
         </div>
+        <div class="col-md-2 ordering-arrow">
+          <p class="title"><?php echo $article["Article_Title"];?></p>
+          <img class="arrows" src="resources/arrows.png"  alt="">
+          <p id="description">Per saperne di più, clicca l'immagine</p>
+        </div>
         
-    <?php endforeach?>
-  </div>
+        <?php endforeach?>
+      </div>
   </div>
