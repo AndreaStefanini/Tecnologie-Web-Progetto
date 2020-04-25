@@ -43,7 +43,6 @@
           <img class="arrows" src="resources/arrows.png"  alt="">
           <p id="description">Per saperne di più, clicca l'immagine</p>
         </div>
-        
         <?php endforeach?>
       </div>
   </div>

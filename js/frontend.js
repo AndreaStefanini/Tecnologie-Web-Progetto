@@ -30,9 +30,6 @@ $(document).ready(function(){
         let testo = $("#search").val();
         testo += "%";
     });
-    $("#delete_article").click(function(){
-        
-    });
     function move(){
         let images=$("img.arrows");
         images.each(function(){

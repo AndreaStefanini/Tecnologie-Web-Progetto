@@ -76,7 +76,7 @@
     <div class="dropdown-menu dropdown-menu-right">
     <div class="dropdown-item">Main Page</div>  
     <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
-    <button id= "logout"> <div class="dropdown-item">Logout</div></button>
+    <div class="dropdown-item" id= "logout">Logout</div>
     </div>
     </div>
     <?php }else{ ?>
