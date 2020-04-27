@@ -24,14 +24,6 @@ img.arrows{
     height:100px;
 
 }
-img.carrello{
-    height:25pt;
-    width:25pt;
-    border: 1pt solid black;
-    border-radius: 5pt;
-    padding:2px;
-    margin-right:1%;
-}
 img.profile{
     height:100pt;
     width:100pt;
@@ -149,8 +141,6 @@ small{
     
     padding: 2%;
 }
- 
-
 a.carousel-control-next, a.carousel-control-prev{
     width:100px;
 }
@@ -178,6 +168,14 @@ div.logged{
 button.icon{       
     margin-top:5%;
 }
+img.carrello{
+    height:25pt;
+    width:25pt;
+    border: 1pt solid black;
+    border-radius: 5pt;
+    padding:2px;
+    margin-right:1%;
+}
 div.profilo{
     margin-left: 25%;
     margin-right: 25%; 
@@ -192,7 +190,20 @@ div.profilo{
 p.titolo{
     display: none;
 }
-
+div#cart{
+    background:url('../resources/shopping-cart.png') no-repeat;
+    background-size:cover; 
+    background-position: center center; 
+    width:25pt; 
+    height:25pt; 
+    text-align:center; 
+    color:white;
+    /*border: 1pt solid black;*/
+    /*border-radius: 5pt;*/
+    padding: 3pt 1pt 1pt 4pt;
+    font-size: small;
+    margin-right:1%;    
+}
 @media only screen and (max-width:600px){
     p.titolo{
         display: inline;
