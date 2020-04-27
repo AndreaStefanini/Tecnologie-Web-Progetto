@@ -1,4 +1,6 @@
-
+<?php 
+require_once("database-entrance.php");
+ ?>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -63,11 +65,14 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
-    <?php if(!empty($_SESSION["email"])){?>
+    <?php if(!empty($_SESSION["email"])){
+      $purchases =$db->get_purchase($_SESSION["ID"]);?>
     <div class="dropleft" style = "margin-right:1%;">
       <img src="resources/carrello.png" class=" carrello dropdown-toggle" data-toggle="dropdown" alt=""> 
       <div class="dropdown-menu">
-        <div class="dropdown-item"> Olimpiade</div>
+        <?php foreach($purchases as $purchase): ?>
+          <div class="dropdown-item"><?php echo $purchase["Article_Title"];?></div>
+        <?php endforeach; ?>
       </div>
     </div>
     <p  class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"]. " ". $_SESSION["cognome"]; ?></p>

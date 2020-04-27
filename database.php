@@ -27,7 +27,7 @@ class database {
         $add_article-> execute();
     }
     public function get_article($idarticle){
-        $get=$this->connection->prepare("SELECT Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE ID_Articles=?");
+        $get=$this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE ID_Articles=?");
         $get->bind_param("i",$idarticle);
         $get->execute();
         $result=$get->get_result();
@@ -101,13 +101,23 @@ class database {
         $updatequery = $this->connection->prepare("UPDATE articles SET Article_Title = ?, Date_Event = ?, Costo_Ticket = ?, Location_Event = ?, Time_Event = ?, Image_Path = ?, Event_Description = ? WHERE ID=?");
         $updatequery->bind_param("ssissssi",$title,$date,$costo,$location,$time,$image_path,$description,$id );
         $updatequery->execute();
-        
-
     }
     public function edit_profile($id,$email,$userpassword,$usertype,$profileimage){
         $editquery=$this->connection->prepare("UPDATE users SET email = ?, password= ?, Tipo_User = ?, ProfileImage = ? WHERE ID = ?");
         $editquery->bind_param('sssss',$email,$userpassword,$usertype,$profileimage,$id);
         $editquery->execute();
+    }
+    public function add_purchase($id_user, $id_event){
+        $add_purchase = $this->connection->prepare("INSERT INTO `acquisti`(`COD_Cliente`, `COD_Evento`) VALUES (?,?)");
+        $add_purchase->bind_param("ii",$id_user,$id_event);
+        $add_purchase->execute();
+    }
+    public function get_purchase($id){
+        $purchasequery= $this->connection->prepare("SELECT Article_Title FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery->bind_param("i",$id);
+        $purchasequery->execute();
+        $result=$purchasequery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>
