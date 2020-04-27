@@ -1,8 +1,8 @@
 <h1 class="display-4">Evento: <?php echo $articolo["Article_Title"]; ?></h1>
 <div class="container col-lg-10">
   <div clas="row">
-    <div class=" event col-sm-12"><a class="col-md-10" href="#">
-        <img class="col-12 altern" id="polaroid" src="<?php echo $articolo['Image_Path']; ?>" alt="">
+    <div class=" event col-sm-12"><a class="col-md-12" href="#">
+        <img class="col-11 altern" id="polaroid" src="<?php echo $articolo['Image_Path']; ?>" alt="">
       </a>
     </div>
   </div>
