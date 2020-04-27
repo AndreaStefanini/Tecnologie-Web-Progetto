@@ -66,7 +66,7 @@ require_once("database-entrance.php");
     </div>
     <?php if (!empty($_SESSION["email"])) {
       $purchases = $db->get_purchase($_SESSION["ID"]); ?>
-      <div id="cart"><?php echo count($purchases); ?></div>
+      <div id="cart" onclick="window.location.href='shopping-cart.php?';"><?php echo count($purchases); ?></div>
       <p class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"] . " " . $_SESSION["cognome"]; ?></p>
       <div class="dropdown">
         <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
