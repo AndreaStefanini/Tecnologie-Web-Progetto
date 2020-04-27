@@ -44,20 +44,21 @@
         </button>
       </h5>
     </div>
+    </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
         <p><?php echo $articolo["Location_Event"]; ?></p>
       </div>
-    </div>
+      </div>
     <div class="card z-depth-0 bordered">
       <div class="card-header" id="headingThree">
         <h5 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             <h2>Costo </h2>
           </button>
         </h5>
       </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
         <div class="card-body">
           <p>€<?php echo $articolo["Costo_Ticket"]; ?></p>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="window.location.href='add_purchase.php?cod=<?php echo $articolo['ID_Articles'];?>'">Aggiungi al Carrello</button>
