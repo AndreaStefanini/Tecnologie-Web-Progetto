@@ -161,6 +161,9 @@ input.input:hover +div.submessages{
 button#signup{
     margin-left:1%;
 }
+div.row{
+    width:100%;
+}
 div.logged{
     margin-top:5%;
     width:100%;

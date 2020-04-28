@@ -113,11 +113,16 @@ class database {
         $add_purchase->execute();
     }
     public function get_purchase($id){
-        $purchasequery= $this->connection->prepare("SELECT Article_Title FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function delete_purchase($id_cliente, $id_ticket){
+        $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? and COD_Evento = ?");
+        $deletequery->bind_param("ii", $id_cliente,$id_ticket);
+        $deletequery->execute();
     }
 }
 ?>
