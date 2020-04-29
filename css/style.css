@@ -24,6 +24,9 @@ img.arrows{
     height:100px;
 
 }
+li{
+    margin-left: 6px;
+}
 img.profile{
     height:100pt;
     width:100pt;
@@ -111,7 +114,7 @@ input#submit{
     margin-left: 10%;
 }
 p.title,p.titolo{
-    color: rgb(204, 255, 153);
+    color: rgb(42, 189, 13);
     font-size: 22pt;
 }
 iframe{
