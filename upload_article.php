@@ -5,7 +5,7 @@ require_once("utilities/utility-functions.php");
 
 if (isset($_POST["submit"])) {
     $titolo = $_POST["ArticleTitle"];
-    $data = strtotime($_POST["dataevento"]);
+    $data = $_POST["dataevento"];
     $costo = (float) $_POST["Ticket_Cost"];
     $location = $_POST["EventLocation"];
     $time = $_POST["TimeEvent"];

@@ -22,7 +22,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click,$categoria){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category,Status) VALUES(?,?,?,?,?,?,?,?,?,?,0)");
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category) VALUES(?,?,?,?,?,?,?,?,?,?)");
         $add_article -> bind_param("ssdssssiis", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click,$categoria);
         $add_article-> execute();
     }
@@ -35,11 +35,10 @@ class database {
     }
 
     public function get_random_posts($n){
-        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_Title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
+        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_Title, Image_Path FROM articles WHERE Status=1 ORDER BY RAND() LIMIT ?");
         $get_post->bind_param("i", $n);
         $get_post->execute();
         $result = $get_post->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function update_number_of_clicks($idarticle){
@@ -55,13 +54,13 @@ class database {
         $queryupdate->execute();
     }
     public function get_top_three_events(){
-        $querytop = $this->connection->prepare("SELECT ID_Articles, Image_Path FROM articles ORDER BY num_click DESC LIMIT 3");
+        $querytop = $this->connection->prepare("SELECT ID_Articles, Image_Path FROM articles WHERE Status=1 ORDER BY num_click DESC LIMIT 3");
         $querytop ->execute();
         $result = $querytop -> get_result();
         return $result -> fetch_all(MYSQLI_ASSOC);
     }
     public function get_by_categories($categoria){
-        $querycat = $this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path, Category FROM articles WHERE Category = ?");
+        $querycat = $this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path, Category FROM articles WHERE Category = ? AND Status=1");
         $querycat->bind_param("s",$categoria);
         $querycat->execute();
         $result = $querycat->get_result();
@@ -140,6 +139,11 @@ class database {
         $approvequery->execute();
         $result = $approvequery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function update_status($id_article){
+        $statusquery = $this->connection->prepare("UDPATE article SET Status = 1 WHERE ID_Articles = ?");
+        $statusquery->bind_param("i",$id_article);
+        $statusquery->execute();
     }
 }
 ?>
