@@ -22,7 +22,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click,$categoria){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category) VALUES(?,?,?,?,?,?,?,?,?,?)");
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category,Status) VALUES(?,?,?,?,?,?,?,?,?,?,0)");
         $add_article -> bind_param("ssdssssiis", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click,$categoria);
         $add_article-> execute();
     }
@@ -123,6 +123,23 @@ class database {
         $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? and COD_Evento = ?");
         $deletequery->bind_param("ii", $id_cliente,$id_ticket);
         $deletequery->execute();
+    }
+    public function is_admin($id){
+        $adminquery = $this->connection->prepare("SELECT * FROM Users WHERE ID = ?");
+        $adminquery->bind_param("i",$id);
+        $adminquery->execute();
+        $result = $adminquery->get_result();
+        $condition = $result->fetch_all(MYSQLI_ASSOC);
+        if($condition[0]["Tipo_User"] == "Admin"){
+            return True;
+        }
+        return False;
+    }
+    public function articles_to_approve(){
+        $approvequery = $this->connection->prepare("SELECT * FROM articles WHERE Status = 0");
+        $approvequery->execute();
+        $result = $approvequery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>
