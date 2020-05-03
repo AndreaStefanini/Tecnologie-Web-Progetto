@@ -211,6 +211,9 @@ div#cart{
     margin-right:1%;    
 }
 @media only screen and (max-width:600px){
+    button.btn{
+        max-width: 100%;
+    }
     p.titolo{
         display: inline;
     }
