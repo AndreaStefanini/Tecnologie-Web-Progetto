@@ -210,6 +210,19 @@ div#cart{
     font-size: small;
     margin-right:1%;    
 }
+div#bell{
+    background:url('../resources/bell-icon.png') no-repeat;
+    background-size:cover; 
+    background-position: center center; 
+    width:25pt; 
+    height:25pt; 
+    text-align:center; 
+    color:white;
+    padding: 3pt 1pt 1pt 4pt;
+    font-size: small;
+    margin-right:1%; 
+
+}
 @media only screen and (max-width:600px){
     p.titolo{
         display: inline;

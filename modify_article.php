@@ -10,7 +10,7 @@
        
     }
 ?>
-<form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="#" enctype="multipart/form-data" >
+<form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="#" enctype="multipart/form-data">
         <h1>Inserisci tutti i dettagli per Modificare il tuo Articolo/Evento</h1>
         <div class="form-group">
           <label for="labelEmail">Titolo Articolo:</label>
@@ -70,6 +70,8 @@
         <button id="submit" type="submit" name="submit" class="btn btn-primary">Crea Evento</button>
       </form>
 
+
 <?php 
  $page = "modify_article.php";
-require_once("Bopleve.php"); ?>      
+require_once("Bopleve.php"); 
+?>      

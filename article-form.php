@@ -1,4 +1,4 @@
-<form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="upload_article.php" enctype="multipart/form-data" >
+<form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="upload_article.php" enctype="multipart/form-data">
         <h1>Inserisci tutti i dettagli per il nuovo Articolo/Evento</h1>
         <div class="form-group">
           <label for="labelEmail">Titolo Articolo:</label>
@@ -55,6 +55,8 @@
             <label for="fotoEvento">Inserisci un foto dell'Evento:</label>
             <input type="file" class="form-control-file" id="CaricaFoto" name="EventFoto" required>
         </div>
-        <button id="submit" type="submit" name="submit" class="btn btn-primary">Crea Evento</button>
+        <button id="submit" type="submit" name="submit" class="btn btn-primary" >Crea Evento</button>
       </form>
+
+
       
