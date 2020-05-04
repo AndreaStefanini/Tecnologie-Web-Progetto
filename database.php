@@ -35,11 +35,10 @@ class database {
     }
 
     public function get_random_posts($n){
-        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_Title, Image_Path FROM articles ORDER BY RAND() LIMIT ?");
+        $get_post = $this->connection->prepare("SELECT ID_Articles, Article_Title, Image_Path FROM articles WHERE Status=1 ORDER BY RAND() LIMIT ?");
         $get_post->bind_param("i", $n);
         $get_post->execute();
         $result = $get_post->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function update_number_of_clicks($idarticle){
@@ -55,13 +54,13 @@ class database {
         $queryupdate->execute();
     }
     public function get_top_three_events(){
-        $querytop = $this->connection->prepare("SELECT ID_Articles, Image_Path FROM articles ORDER BY num_click DESC LIMIT 3");
+        $querytop = $this->connection->prepare("SELECT ID_Articles, Image_Path FROM articles WHERE Status=1 ORDER BY num_click DESC LIMIT 3");
         $querytop ->execute();
         $result = $querytop -> get_result();
         return $result -> fetch_all(MYSQLI_ASSOC);
     }
     public function get_by_categories($categoria){
-        $querycat = $this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path, Category FROM articles WHERE Category = ?");
+        $querycat = $this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path, Category FROM articles WHERE Category = ? AND Status=1");
         $querycat->bind_param("s",$categoria);
         $querycat->execute();
         $result = $querycat->get_result();
@@ -124,6 +123,7 @@ class database {
         $deletequery->bind_param("ii", $id_cliente,$id_ticket);
         $deletequery->execute();
     }
+<<<<<<< HEAD
     public function get_new_event(){
         $Qquery= $this->connection->prepare("SELECT Article_Title,Date_Event From articles WHERE notifications_status = 0");
         $Qquery->execute();
@@ -139,6 +139,29 @@ class database {
     public function set_new_status(){
         $query= $this->connection->prepare("UPDATE articles SET notifications_status = 1 WHERE notifications_status = 0");
         $query->execute();
+=======
+    public function is_admin($id){
+        $adminquery = $this->connection->prepare("SELECT * FROM Users WHERE ID = ?");
+        $adminquery->bind_param("i",$id);
+        $adminquery->execute();
+        $result = $adminquery->get_result();
+        $condition = $result->fetch_all(MYSQLI_ASSOC);
+        if($condition[0]["Tipo_User"] == "Admin"){
+            return True;
+        }
+        return False;
+    }
+    public function articles_to_approve(){
+        $approvequery = $this->connection->prepare("SELECT * FROM articles WHERE Status = 0");
+        $approvequery->execute();
+        $result = $approvequery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function update_status($id_article){
+        $statusquery = $this->connection->prepare("UPDATE articles SET Status = 1 WHERE ID_Articles = ?;");
+        $statusquery->bind_param("i",$id_article);
+        $statusquery->execute();
+>>>>>>> 4494515b543c369e3867fab49ccfb0a375957a85
     }
 }
 ?>

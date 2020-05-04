@@ -76,15 +76,20 @@ require_once("database-entrance.php");
       <p class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"] . " " . $_SESSION["cognome"]; ?></p>
       <div class="dropdown">
         <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
+<<<<<<< HEAD
            <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-item">Main Page</div>
+=======
+        <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>
+>>>>>>> 4494515b543c369e3867fab49ccfb0a375957a85
           <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
           <div class="dropdown-item" id="logout">Logout</div>
         </div>
       </div>
     <?php } else { ?>
       <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit" onclick="window.location.href='login.php'">Login In</button>
-      <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit" onclick="window.location.href='signup.php'">Sign Up</button>
+      <!-- <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit" onclick="window.location.href='signup.php'">Sign Up</button> -->
     <?php } ?>
   </nav>
   <?php
