@@ -13,5 +13,5 @@
               <label class="form-check-label" for="exampleCheck1">Ricordati chi sono</label>
             </div>
             <button id="submit" type="submit" class="btn btn-primary">Accedi</button>
-            <a href="signup.php"> Se non sei ancora registrato clicca qui </a>
+            <div class="row">Se non sei ancora registrato, <a href="signup.php">  clicca qui. </a></div> 
           </form>

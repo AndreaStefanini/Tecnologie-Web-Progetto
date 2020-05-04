@@ -8,7 +8,7 @@ if($db->is_admin($_SESSION["ID"])){
     <div class="row logged">
         <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared">
         <div style="margin-top:5%;"> <?php echo $article["Article_Title"] ?></div>
-        <button class="login icon"><img src="resources/approved.png" class="icons" alt="" onclick=""></button>
+        <button class="login icon"><img src="resources/approved.png" class="icons" alt="" onclick="window.location.href='approve_article.php?article=<?php echo intval($article['ID_Articles']); ?>'"></button>
         <button class="login icon" id="delete_article"><img src="resources/not-approved.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title'];?>'" alt=""></button>
 
     </div>

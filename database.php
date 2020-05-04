@@ -141,7 +141,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function update_status($id_article){
-        $statusquery = $this->connection->prepare("UDPATE article SET Status = 1 WHERE ID_Articles = ?");
+        $statusquery = $this->connection->prepare("UPDATE articles SET Status = 1 WHERE ID_Articles = ?;");
         $statusquery->bind_param("i",$id_article);
         $statusquery->execute();
     }
