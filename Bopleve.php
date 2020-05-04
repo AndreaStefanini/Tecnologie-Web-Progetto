@@ -78,7 +78,7 @@ require_once("database-entrance.php");
       </div>
     <?php } else { ?>
       <button class="btn btn-outline-dark my-2 my-sm-0" id="login" type="submit" onclick="window.location.href='login.php'">Login In</button>
-      <!-- <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit" onclick="window.location.href='signup.php'">Sign Up</button> -->
+      <button class="btn btn-outline-dark my-2 my-sm-0" id="signup" type="submit" onclick="window.location.href='signup.php'">Sign Up</button> 
     <?php } ?>
   </nav>
   <?php

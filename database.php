@@ -140,9 +140,9 @@ class database {
         $result = $approvequery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function update_status($id_article){
-        $statusquery = $this->connection->prepare("UPDATE articles SET Status = 1 WHERE ID_Articles = ?;");
-        $statusquery->bind_param("i",$id_article);
+    public function update_status($id_article,$newstatus){
+        $statusquery = $this->connection->prepare("UPDATE articles SET Status = ? WHERE ID_Articles = ?;");
+        $statusquery->bind_param("ii",$newstatus,$id_article);
         $statusquery->execute();
     }
 }
