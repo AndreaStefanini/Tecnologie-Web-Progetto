@@ -237,6 +237,9 @@ label#bell{
     button.btn{
         max-width: 100%;
     }
+    button#signup{
+        display:none;
+    }
     p.titolo{
         display: inline;
     }

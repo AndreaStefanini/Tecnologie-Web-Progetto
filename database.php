@@ -96,9 +96,9 @@ class database {
         $result = $query_suggestion->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function update_article($id,$title,$date,$costo,$location,$description,$time,$image_path){
-        $updatequery = $this->connection->prepare("UPDATE articles SET Article_Title = ?, Date_Event = ?, Costo_Ticket = ?, Location_Event = ?, Time_Event = ?, Image_Path = ?, Event_Description = ? WHERE ID=?");
-        $updatequery->bind_param("ssissssi",$title,$date,$costo,$location,$time,$image_path,$description,$id );
+    public function update_article($id,$title,$date,$costo,$location,$description,$time,$image_path,$author,$category){
+        $updatequery = $this->connection->prepare("UPDATE articles SET Article_Title = ?, Date_Event = ?, Costo_Ticket = ?, Location_Event = ?, Time_Event = ?, Image_Path = ?, Event_Description = ?, Author_COD =?, Category = ? Status = 0 WHERE ID=?");
+        $updatequery->bind_param("ssissssi",$title,$date,$costo,$location,$time,$image_path,$description, $author, $category,$id );
         $updatequery->execute();
     }
     public function edit_profile($id,$email,$userpassword,$usertype,$profileimage){
@@ -156,9 +156,9 @@ class database {
         $result = $approvequery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function update_status($id_article){
-        $statusquery = $this->connection->prepare("UPDATE articles SET Status = 1 WHERE ID_Articles = ?;");
-        $statusquery->bind_param("i",$id_article);
+    public function update_status($id_article,$newstatus){
+        $statusquery = $this->connection->prepare("UPDATE articles SET Status = ? WHERE ID_Articles = ?;");
+        $statusquery->bind_param("ii",$newstatus,$id_article);
         $statusquery->execute();
     }
 }
