@@ -65,10 +65,11 @@ require_once("database-entrance.php");
       </form>
     </div>
     <?php if (!empty($_SESSION["email"])) {
-      $purchases = $db->get_purchase($_SESSION["ID"]); ?>
+      $purchases = $db->get_purchase($_SESSION["ID"]); 
+      $num_noti = $db->get_num_unseen_noti(); ?>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown"></label></div>
+          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown"><label id="bell"><?php echo count($num_noti); ?></label></div>
           <ul class="dropdown-menu" id="notification"></ul>
         </li>
       </ul>
@@ -76,13 +77,10 @@ require_once("database-entrance.php");
       <p class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"] . " " . $_SESSION["cognome"]; ?></p>
       <div class="dropdown">
         <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
-<<<<<<< HEAD
            <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-item">Main Page</div>
-=======
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>
->>>>>>> 4494515b543c369e3867fab49ccfb0a375957a85
           <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
           <div class="dropdown-item" id="logout">Logout</div>
         </div>
@@ -136,16 +134,13 @@ require_once("database-entrance.php");
                 dataType:"json",
                 success:function(data){
                   document.getElementById("notification").innerHTML= data.notification;
-                    if(data.unseen_notification > 0){
-                      $('.count').html(data.unseen_notification);
-                    }
-                  }
+                }
                });
           };
           load_unseen_notification();
 
-          $(document).on('click', '.dropdown-toggle', function(){
-            $('.count').html('');
+         $(document).on('click', '#bell', function(){
+            $('#bell').html('');
             load_unseen_notification('yes');
           });
 
