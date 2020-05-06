@@ -123,6 +123,22 @@ class database {
         $deletequery->bind_param("ii", $id_cliente,$id_ticket);
         $deletequery->execute();
     }
+    public function get_new_event(){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE notifications_status = 0");
+        $Qquery->execute();
+        $result = $Qquery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_num_unseen_noti(){
+       $query= $this->connection->prepare("SELECT * from articles WHERE notifications_status = 0"); 
+       $query->execute();
+       $result = $query->get_result();
+       return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function set_new_status(){
+        $query= $this->connection->prepare("UPDATE articles SET notifications_status = 1 WHERE notifications_status = 0");
+        $query->execute();
+    }
     public function is_admin($id){
         $adminquery = $this->connection->prepare("SELECT * FROM Users WHERE ID = ?");
         $adminquery->bind_param("i",$id);

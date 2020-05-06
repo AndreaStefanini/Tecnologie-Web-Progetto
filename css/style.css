@@ -210,6 +210,30 @@ div#cart{
     font-size: small;
     margin-right:1%;    
 }
+div#bell{
+    background:url('../resources/bell-icon.png') no-repeat;
+    background-size:cover; 
+    background-position: center center; 
+    width:30pt; 
+    height:30pt; 
+    text-align:center; 
+    padding: 3pt 1pt 1pt 4pt;
+    font-size: small;
+ 
+}
+div#bell.dropdown-toggle::after {
+    display:none;
+}
+label#bell{
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: 15%;
+    margin-right: 40%;
+    font-size: xx-small;
+}
 @media only screen and (max-width:600px){
     button.btn{
         max-width: 100%;
