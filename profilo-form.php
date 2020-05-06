@@ -19,8 +19,10 @@
   </div>
   <?php if($_SESSION["User"] == $tipo){?>
     <div class="form-group">
-      <button type="button" onclick="window.location.href='login-in.php'">modifica i tuoi eventi</button>
-      <!--da sistemare il link-->
+      <button type="button" onclick="window.location.href='upload_article.php'">crea i tuoi eventi</button>
+    </div>
+    <div class="form-group">
+      <button type="button" onclick="window.location.href='modify_article.php'">modifica i tuoi eventi</button>
     </div>
   <?php } ?>
     <div class="form-group">
