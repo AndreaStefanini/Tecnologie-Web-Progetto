@@ -3,7 +3,7 @@
     require_once("database-entrance.php");
     require_once("utilities/utility-functions.php");
     if(!empty($_POST["submit"])){
-        $result = $db->get_article($id);
+        $id = $db->get_id_by_name_and_author($_POST["ArticleTitle"],$_SESSION["ID"]);
         if(!empty($_POST["EventFoto"])){
             $subfolder = "/Articoli/".$_POST["ArticleTitle"];
             $newimg = saveImage($_FILES['EventFoto'],$_SESSION["nome"].$_SESSION["cognome"],$subfolder,1020,780);
