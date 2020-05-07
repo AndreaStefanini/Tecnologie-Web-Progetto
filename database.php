@@ -161,5 +161,13 @@ class database {
         $statusquery->bind_param("ii",$newstatus,$id_article);
         $statusquery->execute();
     }
+    public function get_id_by_name_and_author($articletitle, $author){
+        $idquery = $this->connection->prepare("SELECT ID_Articles FROM articles WHERE Article_Title = ? AND Author_COD = ?");
+        $idquery ->bind_param("si", $articletitle, $author);
+        $idquery -> execute();
+        $result = $idquery -> get_result();
+        return $result -> fetch_all(MYSQLI_ASSOC);
+
+    }
 }
 ?>

@@ -1,6 +1,6 @@
-<form > 
+<form class="form col-sm-12 col-lg-6"> 
 <?php $tipo= "Promotore"; ?>
-<div class="profilo">
+
   <h1>Questo è il tuo profilo di Bopleve</h2>
   <div class="form-group">
       <img class="profile dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"];?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
@@ -28,6 +28,6 @@
     <div class="form-group">
       <button type="button" onclick="window.location.href='edit_profile.php'">modifica il tuo account</button>
     </div>
-</div>
+
 
 </form>
