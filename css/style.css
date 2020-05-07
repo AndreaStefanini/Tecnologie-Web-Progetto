@@ -103,10 +103,10 @@ form.form{
     margin-right: 25%;
     margin-top:5%;
     background-color: white;
-    padding-top:150px;
-    padding-left: 150px; 
-    padding-bottom: 100px;
-    padding-right: 150px;
+    padding-top:50px;
+    padding-left: 50px; 
+    padding-bottom: 50px;
+    padding-right: 50px;
     border-radius:5px;
 }
 input#submit{
