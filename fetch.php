@@ -19,7 +19,7 @@ if(!empty($data)){
     foreach($data as $row){
         $output .= '
         <li>
-        <a href="obtain_article.php?id='.$row['ID_Articles'].'" style="color: black" style="border-style: solid">
+        <a href="obtain_article.php?id='.$row['ID_Articles'].'" style="color: black">
         <strong>'.$row["Article_Title"].'</strong><br />
         <small><em>'.$row["Date_Event"].'</em></small>
         </a>

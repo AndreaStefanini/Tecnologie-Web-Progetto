@@ -69,7 +69,7 @@ require_once("database-entrance.php");
       $num_noti = $db->get_num_unseen_noti(); ?>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown"><label id="bell"><?php echo count($num_noti); ?></label></div>
+          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown" ><label id="labelbell"><?php echo count($num_noti); ?></label></div>
           <ul class="dropdown-menu" id="notification"></ul>
         </li>
       </ul>
@@ -133,14 +133,17 @@ require_once("database-entrance.php");
                 data:{view:view},
                 dataType:"json",
                 success:function(data){
+                  
                   document.getElementById("notification").innerHTML= data.notification;
                 }
                });
+               //document.getElementById("labelbell").style.display=' inherit ';
           };
           load_unseen_notification();
 
          $(document).on('click', '#bell', function(){
             $('#bell').html('');
+            //document.getElementById("labelbell").style.display='none';
             load_unseen_notification('yes');
           });
 
