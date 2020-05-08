@@ -1,0 +1,19 @@
+Prenotare entro il 7/06 (da consegnare entro il 9/06)
+Cose da fare:
+ -fare la hash della password (MD5 un opzione)
+ -notifiche:
+	1) evento che sta per scadere (solo a chi ha il biglietto)
+	2) modifica evento (a tutti)
+	3) articolo accettato/respinto/buttato via (al promotore)
+	4) email conferma biglietto (A NE SO BURDEL)
+	5) evento sold-out (al promotore)
+ - il numero di biglietto per evento ()
+ - carrello da finire e programmare la rimozione 
+ - modile side (aspetto)
+ - togliere il main page (per cliente)
+ - dopo il login, il cliente reindirizzare alla index 
+ - login-in, aspetto penoso 
+ - footer da sistemare 
+ - modifica pagina principale aspetto 
+ - aggiungi la pagine degli acquisti 
+ - modificare dimensioni immagini per il profilo

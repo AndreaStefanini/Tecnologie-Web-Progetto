@@ -77,12 +77,10 @@ require_once("database-entrance.php");
       <p class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"] . " " . $_SESSION["cognome"]; ?></p>
       <div class="dropdown">
         <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
-           <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-item">Main Page</div>
-        <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>
-          <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
-          <div class="dropdown-item" id="logout">Logout</div>
+            <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>
+            <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
+            <div class="dropdown-item" id="logout">Logout</div>
         </div>
       </div>
     <?php } else { ?>
