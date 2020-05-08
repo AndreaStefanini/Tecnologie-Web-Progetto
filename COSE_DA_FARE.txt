@@ -14,3 +14,6 @@ Cose da fare:
  - dopo il login, il cliente reindirizzare alla index 
  - login-in, aspetto penoso 
  - footer da sistemare 
+ - modifica pagina principale aspetto 
+ - aggiungi la pagine degli acquisti 
+ - modificare dimensioni immagini per il profilo
