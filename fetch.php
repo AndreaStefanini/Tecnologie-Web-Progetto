@@ -29,7 +29,7 @@ if(!empty($data)){
 
 }
 else{
-    $output .= '<li><a href="#" class="text-bold text-italic">No notifications Found</a></li>';
+    $output .= '<li><p style="color: black">No notifications</p></li>';
 }
 $count=$db->get_num_unseen_noti();
 $notifiche = array(

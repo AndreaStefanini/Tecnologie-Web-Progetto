@@ -224,7 +224,6 @@ div#bell.dropdown-toggle::after {
     display:none;
 }
 label#labelbell{
-
     background-color: red;
     color: white;
     border-radius: 50%;

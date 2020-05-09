@@ -67,12 +67,10 @@ require_once("database-entrance.php");
     <?php if (!empty($_SESSION["email"])) {
       $purchases = $db->get_purchase($_SESSION["ID"]); 
       $num_noti = $db->get_num_unseen_noti(); ?>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
+        <div class="dropdown ">
           <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown" ><label id="labelbell"><?php echo count($num_noti); ?></label></div>
-          <ul class="dropdown-menu" id="notification"></ul>
-        </li>
-      </ul>
+          <div class=" dropdown-menu dropdown-menu-right" id="notification"></div>
+        </div>
       <div id="cart" onclick="window.location.href='cart-manager.php'"><?php echo count($purchases); ?></div>
       <p class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"] . " " . $_SESSION["cognome"]; ?></p>
       <div class="dropdown">
@@ -123,34 +121,34 @@ require_once("database-entrance.php");
 
   <script>
     $(document).ready(function(){
-
-          function load_unseen_notification(view = ''){
+        function load_unseen_notification(view = ''){
               $.ajax({
                 url:"fetch.php",
                 method:"POST",
                 data:{view:view},
                 dataType:"json",
                 success:function(data){
-                  
-                  document.getElementById("notification").innerHTML= data.notification;
+                   document.getElementById("notification").innerHTML= data.notification;
+                   if(data.unseen_notification > 0){
+                     document.getElementById("labelbell").style.display = 'inherit';
+                   }
                 }
                });
-               //document.getElementById("labelbell").style.display=' inherit ';
-          };
+
+        };
+
           load_unseen_notification();
 
-         $(document).on('click', '#bell', function(){
-            $('#bell').html('');
-            //document.getElementById("labelbell").style.display='none';
-            load_unseen_notification('yes');
-          });
-
-          setInterval(function(){
-            load_unseen_notification();;
-          }, 5000);
+        $(document).on('click', '#bell', function(){
+          document.getElementById("labelbell").style.display = 'none';
+          //load_unseen_notification('yes');    
+        });
+         
+        setInterval(function(){
+          load_unseen_notification();;
+        }, 5000);
 
     });
-
   </script>
 </body>
 
