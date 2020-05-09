@@ -2,18 +2,11 @@ function add_to_cart(ticket){
     $.post("add_purchase.php",{
         ticket:ticket},function(data,status){
             if(status=="success"){
-                alert("hello");
+                let newcount =parseInt($("#cart").html());
+                newcount += 1;
+                $("#cart").html(newcount);
             }
         });
-    /*$.ajax({
-        type: "POST",
-        data: ticket,
-        url: "add_purchase.php",
-        success: function(){
-            //window.location.reload();
-            //alert("success");
-        }
-    });*/
     return 0;
 }
 function delete_purchase(delete_ticket){
