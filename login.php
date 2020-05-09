@@ -19,6 +19,9 @@ if(!empty($_SESSION)){
             $_SESSION["User"] = $result[0]["Tipo_User"];
             $_SESSION["ProfileImage"] = $result[0]["ProfileImage"];
             $_POST = array();
+            if($result[0]["Tipo_User"]=="Cliente"){
+                header("Location: index.php");
+            }
             $page = "login-in.php";
         }
     }else{

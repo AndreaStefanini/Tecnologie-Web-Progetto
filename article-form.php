@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
           <label for="labelNome">Orario di Inizio Evento:</label>
-          <input type="time" name="TimeEvent" class=" input form-control" id="time1" placeholder="Inzio Evento..." value="<?php echo $result[0]["Time_Event"];?>">
+          <input type="time" name="TimeEvent" class=" input form-control" id="time1" placeholder="Inzio Evento..." value="<?php echo date('H:m', strtotime($result[0]["Time_Event"]));?>">
           <div class="submessages">Inserisci l'orario dell'inzio dell'evento nel seguente formato hr:min:sec (secondi solo se necessario)</div>
           <div class="invalid-feedback">
             Inserisci l'inizio orario evento.
@@ -74,6 +74,14 @@
           <textarea name="EventArticle" class="form-control" id="EventDescription" rows ="4" placeholder="Descrivi brevemente il tipo di Evento che vuoi publicizzare " required></textarea>
           <div class="invalid-feedback">
             Per favore inserisci una descrizione dell'evento.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="labelNome">Numero di ticket disponibili:</label>
+          <input type="number" step=1 name="Ticket_Number" class="input form-control" id="1" placeholder="Numero di ticket disponibili...">
+          <div class="submessages">Inserisci il numero di ticket disponibili</div>
+          <div class="invalid-feedback">
+            Inserisci il numero di ticket disponibili.
           </div>
         </div>
         <div class="form-group">

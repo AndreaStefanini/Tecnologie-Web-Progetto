@@ -21,9 +21,9 @@ class database {
         $result = $login->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click,$categoria){
-        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category) VALUES(?,?,?,?,?,?,?,?,?,?)");
-        $add_article -> bind_param("ssdssssiis", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click,$categoria);
+    public function add_article($title,$date,$costo,$location,$description,$time,$image_path,$author,$num_click,$categoria, $tickets){
+        $add_article = $this->connection->prepare("INSERT into articles(Article_Title,Date_Event,Costo_Ticket,Location_Event,Event_Description,Time_Event,Image_Path,Author_COD,num_click,Category,Ticket_Available) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+        $add_article -> bind_param("ssdssssiisi", $title, $date, $costo, $location,$description, $time, $image_path, $author, $num_click,$categoria,$tickets);
         $add_article-> execute();
     }
     public function get_article($idarticle){
