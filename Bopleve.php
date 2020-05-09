@@ -94,6 +94,7 @@ require_once("database-entrance.php");
   <?php
   require_once($page);
   ?>
+  
   <footer class="page-footer font-small special-color-white pt-4" style="padding-bottom:1pt;">
     <div class="container">
       <ul class="list-unstyled list-inline text-center">

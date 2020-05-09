@@ -65,7 +65,8 @@ footer{
     width:100%;
     padding: 30px;
     bottom: 0;
-    margin-top: 10%;
+    margin-top: 10%;   
+    display: block;
 
 }
 body{
@@ -233,6 +234,19 @@ label#bell{
     margin-right: 40%;
     font-size: xx-small;
 }
+div.ordering-arrow{
+    margin-top: 5%;
+    background-color: rgb(255,255,165)
+}
+div.organaized{
+    margin-top: 5%;
+    margin-left: 2%;
+    background-color: rgb(255,255,165)
+}
+div.botton-new{
+    margin-top: 2%;
+    margin-left: 5%;
+}
 @media only screen and (max-width:600px){
     button.btn{
         max-width: 100%;
@@ -293,6 +307,10 @@ label#bell{
     button.navbar-toggler{
         margin-left: 15%;
     }
+    div.organaized{
+        margin-right: 2%;;
+    }
+    
 }
 
 
