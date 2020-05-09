@@ -60,14 +60,23 @@ nav.navbar{
 div.col{
     padding:0;
 }
+html{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 footer{
     background: white;
     width:100%;
     padding: 30px;
-    bottom: 0;
-    margin-top: 10%;   
-    display: block;
-
+    bottom:0;
+    margin-top: auto;   
+}
+div.container-fluid{
+    margin-bottom:10%;
 }
 body{
     background-image: url("../resources/bacheca.jpg");

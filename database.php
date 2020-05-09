@@ -106,10 +106,29 @@ class database {
         $editquery->bind_param('sssss',$email,$userpassword,$usertype,$profileimage,$id);
         $editquery->execute();
     }
-    public function add_purchase($id_user, $id_event){
-        $add_purchase = $this->connection->prepare("INSERT INTO `acquisti`(`COD_Cliente`, `COD_Evento`) VALUES (?,?)");
-        $add_purchase->bind_param("ii",$id_user,$id_event);
+    public function add_purchase($id_user, $id_event, $n_ticket){
+        $add_purchase = $this->connection->prepare("INSERT INTO `acquisti`(`COD_Cliente`, `COD_Evento`, `n_tickets` ) VALUES (?,?,?)");
+        $add_purchase->bind_param("iii",$id_user,$id_event, $n_ticket);
         $add_purchase->execute();
+    }
+    public function is_already_purchased($id_cliente, $cod_evento){
+        $querypurchased = $this->connection->prepare("SELECT COD_CLIENTE, COD_EVENTO FROM acquisti WHERE COD_CLIENTE=? AND COD_EVENTO =? ");
+        $querypurchased->bind_param("ii",$id_cliente, $cod_evento );
+        $querypurchased->execute();
+        $result = $querypurchased->get_result();
+        $value = $result->fetch_all(MYSQLI_ASSOC)[0];
+        return count($value);
+    }
+    public function add_more_tickets($id_cliente, $cod_evento, $new_tickets){
+        $oldtickets = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente = ?, COD_Evento = ?");
+        $oldtickets->bind_param("ii", $id_cliente, $cod_evento);
+        $oldtickets->execute();
+        $result = $oldtickets->get_result();
+        $oldvalue = strval($result->fetch_all(MYSQLI_ASSOC)[0]);
+        $oldvalue += $new_tickets;
+        $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
+        $newtickets->bind_param("iii", $oldvalue, $id_cliente, $cod_evento);
+        $newtickets->execute();
     }
     public function get_purchase($id){
         $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
