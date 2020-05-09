@@ -13,7 +13,8 @@ if (isset($_POST["submit"])) {
     $subfolder = "/Articoli/".$_POST["ArticleTitle"];
     $image_path = saveImage($_FILES['EventFoto'],$_SESSION["nome"].$_SESSION["cognome"],$subfolder,1020,780);
     $categorie = $_POST["Categorie"];
-    $db->add_article($titolo, $data, $costo, $location, $description, $time, $image_path, $_SESSION["ID"], 0, $categorie);
+    $numticket = $_POST["Ticket_Number"];
+    $db->add_article($titolo, $data, $costo, $location, $description, $time, $image_path, $_SESSION["ID"], 0, $categorie,$numticket);
     echo "<script type='text/javascript'>window.location.replace('login.php');</script>";
 } else {
     $page = "article-form.php";

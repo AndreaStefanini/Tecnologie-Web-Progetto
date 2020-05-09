@@ -55,13 +55,20 @@ if ($db->is_admin($_SESSION["ID"])) {
     ?>
         <div class="row logged">
             <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared">
-            <div style="margin-top:5%;"> <?php echo $article["Article_Title"] ?></div>
-            <button class="login icon"><img src="resources/matita.png" class="icons" alt="" onclick="window.location.replace('modify_article.php?ID=<?php echo $article['ID_Articles']; ?>');"></button>
-            <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
-
+            <div class="organaized col-md-3">
+                <h2><div style="margin-top:5%;"> <?php echo $article["Article_Title"] ?></div></h2>
+                <p>Modifica Evento:
+                <button class="login icon"><img src="resources/matita.png" class="icons" alt="" onclick="window.location.replace('modify_article.php?ID=<?php echo $article['ID_Articles']; ?>');"></button>
+                </p>
+                <p>Elimina Evento:
+                <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
+                </p>
+            </div>
         </div>
     <?php endforeach; ?>
-    <div class="row" style="width:100%;">
-        <button class="login" style=" margin-left:80%;" onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
+    <div class="botton-new">
+    <h3>Aggiungi Nuovo Evento:
+        <button class="login" style="" onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
+                </h3>
     </div>
 <?php } ?>

@@ -76,7 +76,10 @@ require_once("database-entrance.php");
       <div class="dropdown">
         <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
             <div class="dropdown-menu dropdown-menu-right">
+            <?php if($_SESSION["User"]!="Cliente"){?>
             <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>
+            <?php } ?>
+            <div class="dropdown-item" onclick="">Acquisti</div>
             <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
             <div class="dropdown-item" id="logout">Logout</div>
         </div>
@@ -89,6 +92,7 @@ require_once("database-entrance.php");
   <?php
   require_once($page);
   ?>
+  
   <footer class="page-footer font-small special-color-white pt-4" style="padding-bottom:1pt;">
     <div class="container">
       <ul class="list-unstyled list-inline text-center">
