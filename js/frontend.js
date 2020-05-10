@@ -1,10 +1,14 @@
 function add_to_cart(ticket){
+    let n_ticket = parseInt($("#n_ticket").val());
     $.post("add_purchase.php",{
-        ticket:ticket},function(data,status){
+        ticket:ticket,
+        n_ticket:n_ticket},function(data,status){
             if(status=="success"){
-                let newcount =parseInt($("#cart").html());
-                newcount += 1;
-                $("#cart").html(newcount);
+                if(data==false){
+                    let newcount =parseInt($("#cart").html());
+                    newcount += 1;
+                    $("#cart").html(newcount);
+                }
             }
         });
     return 0;
