@@ -1,9 +1,11 @@
 <?php
 require_once("database-entrance.php");
 
+
 if ($db->is_admin($_SESSION["ID"])) {
     $articles = $db->articles_to_approve(); ?>
     <h1>Ecco tutti gli eventi in attesa di approvazione:</h1>
+    <div class="container-fluid">
     <?php foreach ($articles as $article) : ?>
         <div class="row logged">
             <div class="col-4">
@@ -45,11 +47,13 @@ if ($db->is_admin($_SESSION["ID"])) {
                 <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
             </div>
             </div>
+            </div>
     <?php endforeach;
 } else {
     $articles = $db->get_by_author($_SESSION["ID"]);
     ?>
     <h1>Ecco tutti gli eventi da te organizzati:</h1>
+    <div class="container-fluid">
     <?php
     foreach ($articles as $article) :
     ?>
@@ -68,7 +72,8 @@ if ($db->is_admin($_SESSION["ID"])) {
     <?php endforeach; ?>
     <div class="botton-new">
     <h3>Aggiungi Nuovo Evento:
-        <button class="login" style="" onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
-                </h3>
+        <button class="login"  onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
+    </h3>
+    </div>
     </div>
 <?php } ?>

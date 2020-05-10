@@ -2,7 +2,6 @@
 require_once("database-entrance.php");
 ?>
 <html lang="it">
-
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -124,35 +123,6 @@ require_once("database-entrance.php");
       <p> Rossi A, Baroni E, Stefanini A</p>
     </div>
   </footer>
-
-  <script>
-    $(document).ready(function(){
-
-          function load_unseen_notification(view = ''){
-              $.ajax({
-                url:"fetch.php",
-                method:"POST",
-                data:{view:view},
-                dataType:"json",
-                success:function(data){
-                  document.getElementById("notification").innerHTML= data.notification;
-                }
-               });
-          };
-          load_unseen_notification();
-
-         $(document).on('click', '#bell', function(){
-            $('#bell').html('');
-            load_unseen_notification('yes');
-          });
-
-          setInterval(function(){
-            load_unseen_notification();;
-          }, 5000);
-
-    });
-
-  </script>
 </body>
 
 </html>
