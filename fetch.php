@@ -38,6 +38,7 @@ $notifiche = array(
  );
  //$db->set_new_status();
  echo json_encode($notifiche);
+ 
 
 
 

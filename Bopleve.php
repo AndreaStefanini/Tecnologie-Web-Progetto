@@ -66,9 +66,10 @@ require_once("database-entrance.php");
     </div>
     <?php if (!empty($_SESSION["email"])) {
       $purchases = $db->get_purchase($_SESSION["ID"]); 
-      $num_noti = $db->get_num_unseen_noti(); ?>
+      $num_noti = $db->get_num_unseen_noti(); 
+      $unseen= $db->get_notifications_status($_SESSION["ID"]);?>
         <div class="dropdown ">
-          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown" ><label id="labelbell"><?php echo count($num_noti); ?></label></div>
+          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="<?php //$db->set_new_status($_SESSION["ID"]); ?> "><label id="labelbell"><?php echo count($num_noti);?></label></div>
           <div class=" dropdown-menu dropdown-menu-right" id="notification"></div>
         </div>
       <div id="cart" onclick="window.location.href='cart-manager.php'"><?php echo count($purchases); ?></div>

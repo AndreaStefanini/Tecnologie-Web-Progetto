@@ -135,9 +135,17 @@ class database {
        $result = $query->get_result();
        return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function set_new_status(){
-        $query= $this->connection->prepare("UPDATE articles SET notifications_status = 1 WHERE notifications_status = 0");
+    public function set_new_status($id){
+      $query=$this->connection->prepare("UPDATE users SET unseen_notifications=1 WHERE ID=?");
+      $query->bind_param("i", $id);
+      $query->execute();
+    }
+    public function get_notifications_status($id){
+        $query= $this->connection->prepare("SELECT unseen_notifications from users WHERE  unseen_notifications= 0 and ID=?"); 
+        $query->bind_param("i", $id);
         $query->execute();
+        $result = $query->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function is_admin($id){
         $adminquery = $this->connection->prepare("SELECT * FROM Users WHERE ID = ?");
