@@ -13,7 +13,8 @@ function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
     $.post("add_purchase.php",{
         ticket:ticket,
-        n_ticket:n_ticket},function(data,status){
+        n_ticket:n_ticket
+        },function(data,status){
             if(status=="success"){
                     alert(data);
                     let newcount =parseInt($("#cart").html());
@@ -25,12 +26,14 @@ function add_to_cart(ticket){
     return 0;
 }
 function delete_purchase(delete_ticket){
-    $.ajax({
-        type: "GET",
-        data: delete_ticket, 
-        url: "delete-purchase.php",
-        success: function(){
-            window.location.reload();
+    let n_delete = parseInt($("input#n_delete"+delete_ticket).val());
+    alert(n_delete);
+    $.post("delete-purchase.php",{
+        delete_ticket:delete_ticket,
+        n_delete:n_delete
+    },function(data,status){
+        if(status=="success"){
+            alert(data);
         }
     });
     return 0;

@@ -7,7 +7,7 @@ Cose da fare:
 	3) articolo accettato/respinto/buttato via (al promotore)
 	4) email conferma biglietto (A NE SO BURDEL)
 	5) evento sold-out (al promotore)
- - il numero di biglietto per evento ()
+ - il numero di biglietto per evento (ho inserito il numero di biglietti all'interno del database, e posso comprare più biglietti dello stesso evento devo fare la possibilità di rimuovere più biglietti comprati)
  - carrello da finire e programmare la rimozione 
  - modile side (aspetto)
  - togliere il main page (per cliente)
