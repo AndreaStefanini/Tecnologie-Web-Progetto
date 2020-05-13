@@ -27,13 +27,16 @@ function add_to_cart(ticket){
 }
 function delete_purchase(delete_ticket){
     let n_delete = parseInt($("input#n_delete"+delete_ticket).val());
-    alert(n_delete);
+    let index =0;
     $.post("delete-purchase.php",{
         delete_ticket:delete_ticket,
         n_delete:n_delete
     },function(data,status){
         if(status=="success"){
-            alert(data);
+            $("div.tickets").forEach(function(){
+                $(this).html(data[index]["n_tickets"]);
+                index+=1;
+            });
         }
     });
     return 0;

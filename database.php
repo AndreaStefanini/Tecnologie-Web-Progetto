@@ -150,7 +150,7 @@ class database {
             $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
             $newtickets->bind_param("iii", $newvalue, $id_cliente, $id_ticket);
             $newtickets->execute();
-        }else{
+        }else if($newvalue==0){
             $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? AND COD_Evento = ?");
             $deletequery->bind_param("ii", $id_cliente,$id_ticket);
             $deletequery->execute();
