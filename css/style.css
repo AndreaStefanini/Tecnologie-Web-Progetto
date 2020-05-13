@@ -231,7 +231,7 @@ div#bell{
 div#bell.dropdown-toggle::after {
     display:none;
 }
-label#bell{
+label#labelbell{
     background-color: red;
     color: white;
     border-radius: 50%;
