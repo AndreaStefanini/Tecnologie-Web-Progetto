@@ -16,10 +16,7 @@ function add_to_cart(ticket){
         n_ticket:n_ticket
         },function(data,status){
             if(status=="success"){
-                    alert(data);
-                    let newcount =parseInt($("#cart").html());
-                    newcount += 1;
-                    $("#cart").html(newcount);
+                    $("#cart").html(data);
                 
             }
         });
@@ -33,10 +30,12 @@ function delete_purchase(delete_ticket){
         n_delete:n_delete
     },function(data,status){
         if(status=="success"){
-            $("div.tickets").forEach(function(){
-                $(this).html(data[index]["n_tickets"]);
-                index+=1;
-            });
+           
+            alert(data);
+            /*for(elem in datas){
+                $("#tickets"+datas[elem]["id_articolo"]).html(datas[elem]["n_tickets"]);
+            }*/
+            $("input#n_delete"+delete_ticket).val("")
         }
     });
     return 0;
