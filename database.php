@@ -142,25 +142,25 @@ class database {
         $deletequery->bind_param("ii", $id_cliente,$id_ticket);
         $deletequery->execute();
     }
-    public function get_new_event(){
-        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE notifications_status = 0");
+    public function get_new_event($datadiieri){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND  date(notification_data)=?");
+        $Qquery->bind_param("s",$datadiieri);
         $Qquery->execute();
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function get_num_unseen_noti(){
-       $query= $this->connection->prepare("SELECT * from articles WHERE notifications_status = 0"); 
-       $query->execute();
-       $result = $query->get_result();
-       return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    public function set_new_status($id){
+    public function set_new_status_visto($id){
       $query=$this->connection->prepare("UPDATE users SET unseen_notifications=1 WHERE ID=?");
       $query->bind_param("i", $id);
       $query->execute();
     }
+    public function set_new_status_non_visto($id){
+        $query=$this->connection->prepare("UPDATE users SET unseen_notifications=0 WHERE ID=?");
+        $query->bind_param("i", $id);
+        $query->execute();
+    }
     public function get_notifications_status($id){
-        $query= $this->connection->prepare("SELECT unseen_notifications from users WHERE  unseen_notifications= 0 and ID=?"); 
+        $query= $this->connection->prepare("SELECT unseen_notifications from users WHERE ID=?"); 
         $query->bind_param("i", $id);
         $query->execute();
         $result = $query->get_result();

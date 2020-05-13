@@ -66,10 +66,14 @@ require_once("database-entrance.php");
     </div>
     <?php if (!empty($_SESSION["email"])) {
       $purchases = $db->get_purchase($_SESSION["ID"]); 
-      $num_noti = $db->get_num_unseen_noti(); 
+      //$num_noti = $db->get_new_event(); 
       $unseen= $db->get_notifications_status($_SESSION["ID"]);?>
         <div class="dropdown ">
-          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="<?php //$db->set_new_status($_SESSION["ID"]); ?> "><label id="labelbell"><?php echo count($num_noti);?></label></div>
+          <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <?php if($unseen[0]["unseen_notifications"] == "0"){ ?>
+          <label id="labelbell"></label>
+          <?php } ?>
+          </div>
           <div class=" dropdown-menu dropdown-menu-right" id="notification"></div>
         </div>
       <div id="cart" onclick="window.location.href='cart-manager.php'"><?php echo count($purchases); ?></div>
@@ -134,9 +138,8 @@ require_once("database-entrance.php");
                 dataType:"json",
                 success:function(data){
                    document.getElementById("notification").innerHTML= data.notification;
-                   if(data.unseen_notification > 0){
-                     document.getElementById("labelbell").style.display = 'inherit';
-                   }
+                   document.getElementById("labelbell").innerHTML= data.unseen_notification;
+
                 }
                });
 
@@ -146,7 +149,7 @@ require_once("database-entrance.php");
 
         $(document).on('click', '#bell', function(){
           document.getElementById("labelbell").style.display = 'none';
-          //load_unseen_notification('yes');    
+          load_unseen_notification('yes');    
         });
          
         setInterval(function(){
