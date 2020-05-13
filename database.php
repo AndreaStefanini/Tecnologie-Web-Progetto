@@ -116,31 +116,45 @@ class database {
         $querypurchased->bind_param("ii",$id_cliente, $cod_evento );
         $querypurchased->execute();
         $result = $querypurchased->get_result();
-        $value = $result->fetch_all(MYSQLI_ASSOC)[0];
-        return count($value);
+        $value = $result->fetch_all(MYSQLI_ASSOC);
+        return count($value[0]);
     }
     public function add_more_tickets($id_cliente, $cod_evento, $new_tickets){
-        $oldtickets = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente = ?, COD_Evento = ?");
+        $oldtickets = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente = ? AND COD_Evento = ?");
         $oldtickets->bind_param("ii", $id_cliente, $cod_evento);
         $oldtickets->execute();
         $result = $oldtickets->get_result();
-        $oldvalue = strval($result->fetch_all(MYSQLI_ASSOC)[0]);
-        $oldvalue += $new_tickets;
+        $oldvalue = $result->fetch_all(MYSQLI_ASSOC);
+        $update_tickets= $oldvalue[0]["n_tickets"];
+        $update_tickets += $new_tickets;
         $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
-        $newtickets->bind_param("iii", $oldvalue, $id_cliente, $cod_evento);
+        $newtickets->bind_param("iii", $update_tickets, $id_cliente, $cod_evento);
         $newtickets->execute();
     }
     public function get_purchase($id){
-        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, n_tickets FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function delete_purchase($id_cliente, $id_ticket){
-        $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? and COD_Evento = ?");
-        $deletequery->bind_param("ii", $id_cliente,$id_ticket);
-        $deletequery->execute();
+    public function delete_purchase($id_cliente, $id_ticket, $n_tickets){
+        $current_ticket=$this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente = ? AND COD_Evento = ?");
+        $current_ticket->bind_param("ii", $id_cliente,$id_ticket);
+        $current_ticket->execute();
+        $result=$current_ticket->get_result();
+        $tickets= $result->fetch_all(MYSQLI_ASSOC);
+        $newvalue = $tickets[0]["n_tickets"];
+        $newvalue -= $n_tickets;
+        if($newvalue!=0){
+            $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
+            $newtickets->bind_param("iii", $newvalue, $id_cliente, $id_ticket);
+            $newtickets->execute();
+        }else{
+            $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? AND COD_Evento = ?");
+            $deletequery->bind_param("ii", $id_cliente,$id_ticket);
+            $deletequery->execute();
+        }
     }
     public function get_new_event($datadiieri){
         $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND  date(notification_data)=?");

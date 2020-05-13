@@ -1,25 +1,39 @@
+function load_unseen_notification(view = ''){
+    $.ajax({
+      url:"fetch.php",
+      method:"POST",
+      data:{view:view},
+      dataType:"json",
+      success:function(data){
+        document.getElementById("notification").innerHTML= data.notification;
+      }
+     });
+};
 function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
     $.post("add_purchase.php",{
         ticket:ticket,
-        n_ticket:n_ticket},function(data,status){
+        n_ticket:n_ticket
+        },function(data,status){
             if(status=="success"){
-                if(data==false){
+                    alert(data);
                     let newcount =parseInt($("#cart").html());
                     newcount += 1;
                     $("#cart").html(newcount);
-                }
+                
             }
         });
     return 0;
 }
 function delete_purchase(delete_ticket){
-    $.ajax({
-        type: "GET",
-        data: delete_ticket, 
-        url: "delete-purchase.php",
-        success: function(){
-            window.location.reload();
+    let n_delete = parseInt($("input#n_delete"+delete_ticket).val());
+    alert(n_delete);
+    $.post("delete-purchase.php",{
+        delete_ticket:delete_ticket,
+        n_delete:n_delete
+    },function(data,status){
+        if(status=="success"){
+            alert(data);
         }
     });
     return 0;
@@ -38,6 +52,10 @@ function move(){
     });
 };
 $(document).ready(function(){
+    $('#bell').click(function(){
+        $('#bell').html('');
+        load_unseen_notification('yes');
+      });
     let all_content = null;
     $.ajax({    //create an ajax request to display.php
         type: "GET",
@@ -63,5 +81,12 @@ $(document).ready(function(){
     
   
     // a variabile use to set a timer an repeat the move function.. a sort of an infinte loop
-    var interval = self.setInterval(function(){move()},600);
+    var interval = self.setInterval(function(){
+        move()
+    },600);
+    setInterval(function(){
+        load_unseen_notification();;
+    }, 5000);
 });
+
+

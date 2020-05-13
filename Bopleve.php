@@ -2,7 +2,6 @@
 require_once("database-entrance.php");
 ?>
 <html lang="it">
-
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
