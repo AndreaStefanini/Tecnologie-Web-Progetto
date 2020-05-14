@@ -7,6 +7,7 @@
     <div id="delete_purchase" style="margin-left:10%;" onclick="delete_purchase(<?php echo $purchase['ID_Articles'];?>);">Rimuovi</div>
     <input type="number" name="n_delete" id="n_delete<?php echo $purchase['ID_Articles'];?>" step=1>
 </div>
+<?php foreach($purchases as $purchase): ?>
 <div class="row">
     <div class = "col-md-10 col-xs-10">
         <table class="table table-striped table-dark table-sm">
@@ -18,6 +19,7 @@
                     <th scope="col">Numero Biglietti</th>
                 </tr>
             </thead>
+            
              <tbody>
                 <tr>
                  <th scope="row">1</th>
@@ -42,4 +44,4 @@
 </button> -->
 
 
-</div>
+
