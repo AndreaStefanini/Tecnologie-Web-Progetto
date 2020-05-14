@@ -132,7 +132,7 @@ class database {
         $newtickets->execute();
     }
     public function get_purchase($id){
-        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, n_tickets FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Costo_Ticket, n_tickets FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
