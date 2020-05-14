@@ -22,20 +22,15 @@ function add_to_cart(ticket){
         });
     return 0;
 }
-function delete_purchase(delete_ticket){
-    let n_delete = parseInt($("input#n_delete"+delete_ticket).val());
+function update_number_ticket(id_event){
+    let n_ticket = parseInt($("input#n_ticket"+id_event).val());
     let index =0;
-    $.post("delete-purchase.php",{
-        delete_ticket:delete_ticket,
-        n_delete:n_delete
+    $.post("update-ticket.php",{
+        id: id_event,
+        n_ticket:n_ticket
     },function(data,status){
         if(status=="success"){
-           
-            alert(data);
-            /*for(elem in datas){
-                $("#tickets"+datas[elem]["id_articolo"]).html(datas[elem]["n_tickets"]);
-            }*/
-            $("input#n_delete"+delete_ticket).val("")
+           alert(data);
         }
     });
     return 0;

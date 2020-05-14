@@ -4,8 +4,9 @@ require_once("database-entrance.php");
 if(($_SESSION["ID"]=="")){
     echo "non puoi aggiungere il prodotto al carrello se non esegui l'accesso con il tuo account";
 }else{
-    $db->delete_purchase($_SESSION["ID"], $_POST["delete_ticket"], $_POST["n_delete"]);
-    $return_value =$db->get_purchase($_SESSION["ID"]);
+    echo "hai fatto l'accesso e puoi togliere dei ticket di troppo"
+    //$db->update_tickets($_SESSION["ID"], $_POST["id"], $_POST["n_ticket"]);
+    /*$return_value =$db->get_purchase($_SESSION["ID"]);
     $result = array();
     $arraysize =0;
     while($arraysize < count($return_value)){
@@ -18,6 +19,6 @@ if(($_SESSION["ID"]=="")){
                         "n_tickets" => $n_tickets
                         );
     }
-    print_r($result);
+    print_r($result);*/
 }
 ?>

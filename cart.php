@@ -19,7 +19,7 @@
                     <td>
                         <div class="def-number-input number-input safari_only">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="0" name="tickets" value=<?php echo $purchase["n_tickets"]; ?> type="number">
+                            <input class="quantity" min="0" name="tickets" id="n_ticket<?php echo $purchase["ID_Articles"]; ?>" onchange="update_number_ticket(<?php echo $purchase["ID_Articles"]; ?>);" value=<?php echo $purchase["n_tickets"]; ?> type="number">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                         </div>
                     </td>
@@ -27,7 +27,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary btn-buy" data-toggle="button" aria-pressed="false">
+    <button type="button" class="btn btn-primary btn-buy" data-toggle="button" aria-pressed="false" onclick>
         Acquista
     </button>
 
