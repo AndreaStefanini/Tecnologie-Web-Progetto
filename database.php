@@ -132,7 +132,7 @@ class database {
         $newtickets->execute();
     }
     public function get_purchase($id){
-        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, n_tickets FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Costo_Ticket, n_tickets FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
@@ -150,7 +150,7 @@ class database {
             $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
             $newtickets->bind_param("iii", $newvalue, $id_cliente, $id_ticket);
             $newtickets->execute();
-        }else{
+        }else if($newvalue==0){
             $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? AND COD_Evento = ?");
             $deletequery->bind_param("ii", $id_cliente,$id_ticket);
             $deletequery->execute();

@@ -14,4 +14,3 @@
         }
         echo (count($db->get_purchase($_SESSION["ID"])));
     }
-?>
