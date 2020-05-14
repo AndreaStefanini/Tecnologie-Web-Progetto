@@ -51,6 +51,18 @@ function move(){
         },250).delay(600);
     });
 };
+function sendEmail(){
+
+    $.ajax({
+        url:'sendEmail.php',
+        method:'POST',
+        data:{action:'call_email'},
+        success: function(response){
+            console.log(response);
+        }
+
+    });
+}
 $(document).ready(function(){
     $('#bell').click(function(){
         $('#bell').html('');
