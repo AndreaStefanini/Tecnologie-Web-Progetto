@@ -48,12 +48,14 @@ function move(){
         },250).delay(600);
     });
 };
-function sendEmail(){
-
+function sendEmail(titolo){
+    let n_tickets = $("#n_ticket").val();
     $.ajax({
         url:'sendEmail.php',
         method:'POST',
-        data:{action:'call_email'},
+        data:{action:'call_email',
+              n_tickets: n_tickets,
+              event: titolo},
         success: function(response){
             console.log(response);
         }
