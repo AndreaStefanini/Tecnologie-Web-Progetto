@@ -23,16 +23,16 @@ function add_to_cart(ticket){
     return 0;
 }
 function update_number_ticket(id_event){
-    let n_ticket = parseInt($("input#n_ticket"+id_event).val());
-    let index =0;
-    $.post("update-ticket.php",{
+    let n_ticket = parseInt($("#n_ticket"+id_event).val());
+    alert(n_ticket);
+    /*$.post("update-ticket.php",{
         id: id_event,
         n_ticket:n_ticket
     },function(data,status){
         if(status=="success"){
            alert(data);
         }
-    });
+    });*/
     return 0;
 }
 function move(){

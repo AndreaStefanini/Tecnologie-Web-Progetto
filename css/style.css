@@ -343,7 +343,9 @@ button.btn-buy{
     }
     }
     
-
+    button.btn-Cont{
+        margin-left: 40%;
+    }
 @media only screen and (max-width:600px){
     button.btn{
         max-width: 100%;
@@ -407,12 +409,9 @@ button.btn-buy{
     div.organaized{
         margin-right: 2%;;
     }
-    table.table{
-        text-align: center;
-        width: 100%;
-        margin-left: 5%;
-    }
-    
+   button.btn-Cont{
+       margin-left: 10%;
+   }
 }
 
 
