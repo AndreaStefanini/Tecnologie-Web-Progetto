@@ -1,3 +1,14 @@
+function get_final_amount(){
+    let somma=0;
+    $("td.total_price").each(function(){
+        somma += parseInt($(this).html());
+    });
+    $("h3.total_amount").html(somma);
+}
+
+function buy_from_cart(spese){
+    alsert(spese);
+}
 function load_unseen_notification(view = ''){
     $.ajax({
       url:"fetch.php",
@@ -22,23 +33,27 @@ function add_to_cart(ticket){
         });
     return 0;
 }
-function delete_purchase(delete_ticket){
-    let n_delete = parseInt($("input#n_delete"+delete_ticket).val());
-    let index =0;
-    $.post("delete-purchase.php",{
-        delete_ticket:delete_ticket,
-        n_delete:n_delete
+function update_number_ticket(id_event,steptype){
+    let n_ticket = parseInt($("#n_ticket"+id_event).val());
+    let single_price = parseInt($("td#total_price"+id_event).html())/n_ticket;
+    if(steptype=="plus"){
+        n_ticket++;
+    }else{
+        n_ticket--;
+    }
+    let total_price = single_price*n_ticket;
+    $("#n_ticket"+id_event).val(n_ticket)
+    $("td#total_price"+id_event).html(total_price);
+    $.post("update-ticket.php",{
+        id: id_event,
+        n_ticket:n_ticket
     },function(data,status){
         if(status=="success"){
-           
-            alert(data);
-            /*for(elem in datas){
-                $("#tickets"+datas[elem]["id_articolo"]).html(datas[elem]["n_tickets"]);
-            }*/
-            $("input#n_delete"+delete_ticket).val("")
+           if(n_ticket==0){
+               window.location.reload();
+           }
         }
     });
-    return 0;
 }
 function move(){
     let images=$("img.arrows");
@@ -53,12 +68,14 @@ function move(){
         },250).delay(600);
     });
 };
-function sendEmail(){
-
+function sendEmail(titolo){
+    let n_tickets = $("#n_ticket").val();
     $.ajax({
         url:'sendEmail.php',
         method:'POST',
-        data:{action:'call_email'},
+        data:{action:'call_email',
+              n_tickets: n_tickets,
+              event: titolo},
         success: function(response){
             console.log(response);
         }

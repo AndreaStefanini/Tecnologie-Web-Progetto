@@ -126,37 +126,6 @@ require_once("database-entrance.php");
       <p> Rossi A, Baroni E, Stefanini A</p>
     </div>
   </footer>
-
-  <script>
-    $(document).ready(function(){
-        function load_unseen_notification(view = ''){
-              $.ajax({
-                url:"fetch.php",
-                method:"POST",
-                data:{view:view},
-                dataType:"json",
-                success:function(data){
-                   document.getElementById("notification").innerHTML= data.notification;
-                   document.getElementById("labelbell").innerHTML= data.unseen_notification;
-
-                }
-               });
-
-        };
-
-          load_unseen_notification();
-
-        $(document).on('click', '#bell', function(){
-          document.getElementById("labelbell").style.display = 'none';
-          load_unseen_notification('yes');    
-        });
-         
-        setInterval(function(){
-          load_unseen_notification();;
-        }, 5000);
-
-    });
-  </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
             <tr>
                 <th scope="col"># Evento</th>
                 <th scope="col">Titolo</th>
-                <th scope="col">Prezzo Totale</th>
+                <th scope="col">Prezzo Totale (€)</th>
                 <th scope="col">Numero Biglietti</th>
             </tr>
         </thead>
@@ -15,19 +15,19 @@
                     <td scope="row">
                         </th><?php echo $purchase["ID_Articles"]; ?></td>
                     <td><a href="obtain_article.php?id=<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Article_Title"]; ?></a></td>
-                    <td>€ <?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></td>
+                    <td class="total_price" id="total_price<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></td>
                     <td>
                         <div class="def-number-input number-input safari_only">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                            <input class="quantity" min="0" name="tickets" value=<?php echo $purchase["n_tickets"]; ?> type="number">
-                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                            <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>, 'minus');" class="minus" ></button>
+                            <input class="quantity" min="0" max="<?php echo $purchase['n_tickets'];?>" name="tickets" id="n_ticket<?php echo $purchase["ID_Articles"]; ?>" disabled="disabled" value="<?php echo $purchase['n_tickets'];?>" type="number">
+                            <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>,'plus');" class="plus"></button>
                         </div>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary btn-Cont" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" class="btn btn-primary btn-Cont" data-toggle="modal" data-target="#exampleModalCenter" onclick="get_final_amount();">
             Acquista
           </button>
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -42,7 +42,6 @@
                 <div class="modal-body">
                   <h1>Dati Fatturazione</h1>
                   <div class="form-group">
-                      
                     <label for="labelNomeCognome">Nome Cognome</label>
                     <input placeholder="Nome Cognome:" type="nomecognome" class="form-control frm" id="nomecognome" name="nome">
                   </div>
@@ -57,17 +56,15 @@
                   <div class="form-group">
                     <label for="labelCvv">Cvv:</label>
                     <input placeholder="000" type="CVV" class="form-control frm" id="cvv" name="cvv">
-                    
                   </div>
-                  <h3>Il costo dei biglietti è € <?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></h3>
+                  <h3 >Il costo dei biglietti è € <h3 class="total_amount"></h3> </h3>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Acquista</button>
+                  <button type="button" class="btn btn-primary" onclick="buy_from_cart();">Acquista</button>
                 </div>
               </div>
             </div>
           </div>
           <a href="index.php" class="btn-Cont"><button type="button" class="btn btn-secondary" data-dismiss="modal">Scegli altri biglietti</button></a>
-
 </div>
