@@ -140,13 +140,13 @@ class database {
     }
     public function update_tickets($id_cliente, $id_ticket, $n_tickets){
         if($n_tickets==0){
-            $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
-            $newtickets->bind_param("iii", $n_tickets, $id_cliente, $id_ticket);
-            $newtickets->execute();
-        }else{
             $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? AND COD_Evento = ?");
             $deletequery->bind_param("ii", $id_cliente,$id_ticket);
             $deletequery->execute();
+        }else{
+            $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
+            $newtickets->bind_param("iii", $n_tickets, $id_cliente, $id_ticket);
+            $newtickets->execute();
         }
     }
     public function get_new_event($datadiieri){

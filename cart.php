@@ -57,7 +57,7 @@
                     <label for="labelCvv">Cvv:</label>
                     <input placeholder="000" type="CVV" class="form-control frm" id="cvv" name="cvv">
                   </div>
-                  <h3 class="total_amount">Il costo dei biglietti è € </h3>
+                  <h3 >Il costo dei biglietti è € <h3 class="total_amount"></h3> </h3>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

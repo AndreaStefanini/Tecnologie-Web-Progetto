@@ -3,7 +3,7 @@ function get_final_amount(){
     $("td.total_price").each(function(){
         somma += parseInt($(this).html());
     });
-    $(".total_amount").append(somma);
+    $("h3.total_amount").html(somma);
 }
 
 function buy_from_cart(spese){
@@ -44,14 +44,16 @@ function update_number_ticket(id_event,steptype){
     let total_price = single_price*n_ticket;
     $("#n_ticket"+id_event).val(n_ticket)
     $("td#total_price"+id_event).html(total_price);
-    /*$.post("update-ticket.php",{
+    $.post("update-ticket.php",{
         id: id_event,
         n_ticket:n_ticket
-    },function(status){
+    },function(data,status){
         if(status=="success"){
-           window.location.reload();
+           if(n_ticket==0){
+               window.location.reload();
+           }
         }
-    });*/
+    });
 }
 function move(){
     let images=$("img.arrows");
