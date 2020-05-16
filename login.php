@@ -5,7 +5,7 @@ if(!empty($_SESSION)){
     $page= "login-in.php";
 }else{
     if(isset($_POST["email"])&& isset($_POST["password"])){
-        $result=$db->login($_POST["email"],$_POST["password"]);
+        $result=$db->login($_POST["email"], md5($_POST["password"]));
         if(count($result)==0){
            echo "<script type ='text/javascript'> alert('I dati inseriti non sono corretti, riprova'); </script> ";
            $_POST = array();

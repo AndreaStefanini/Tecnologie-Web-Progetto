@@ -117,7 +117,7 @@ class database {
         $querypurchased->execute();
         $result = $querypurchased->get_result();
         $value = $result->fetch_all(MYSQLI_ASSOC);
-        return count($value[0]);
+        return !empty($value);
     }
     public function add_more_tickets($id_cliente, $cod_evento, $new_tickets){
         $oldtickets = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente = ? AND COD_Evento = ?");

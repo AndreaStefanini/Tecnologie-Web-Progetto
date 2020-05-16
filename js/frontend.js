@@ -1,7 +1,7 @@
 function get_final_amount(){
     let somma=0;
     $("td.total_price").each(function(){
-        somma += parseInt($(this).html());
+        somma += parseFloat($(this).html());
     });
     $("h3.total_amount").html(somma);
 }
@@ -35,7 +35,7 @@ function add_to_cart(ticket){
 }
 function update_number_ticket(id_event,steptype){
     let n_ticket = parseInt($("#n_ticket"+id_event).val());
-    let single_price = parseInt($("td#total_price"+id_event).html())/n_ticket;
+    let single_price = parseFloat($("td#total_price"+id_event).html())/n_ticket;
     if(steptype=="plus"){
         n_ticket++;
     }else{
@@ -50,6 +50,7 @@ function update_number_ticket(id_event,steptype){
     },function(data,status){
         if(status=="success"){
            if(n_ticket==0){
+               alert("l'evento verrà rimosso dal carrello");
                window.location.reload();
            }
         }
