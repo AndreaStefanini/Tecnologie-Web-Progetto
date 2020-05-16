@@ -1,3 +1,14 @@
+function get_final_amount(){
+    let somma=0;
+    $("td.total_price").each(function(){
+        somma += parseInt($(this).html());
+    });
+    document.write(somma);
+}
+
+function buy_from_cart(spese){
+    alsert(spese);
+}
 function load_unseen_notification(view = ''){
     $.ajax({
       url:"fetch.php",

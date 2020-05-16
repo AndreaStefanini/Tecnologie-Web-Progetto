@@ -5,7 +5,7 @@
             <tr>
                 <th scope="col"># Evento</th>
                 <th scope="col">Titolo</th>
-                <th scope="col">Prezzo Totale</th>
+                <th scope="col">Prezzo Totale (€)</th>
                 <th scope="col">Numero Biglietti</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
                     <td scope="row">
                         </th><?php echo $purchase["ID_Articles"]; ?></td>
                     <td><a href="obtain_article.php?id=<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Article_Title"]; ?></a></td>
-                    <td>€ <?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></td>
+                    <td class="total_price"><?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></td>
                     <td>
                         <div class="def-number-input number-input safari_only">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();update_number_ticket(<?php echo $purchase['ID_Articles'];?>);" class="minus" ></button>
@@ -57,13 +57,12 @@
                   <div class="form-group">
                     <label for="labelCvv">Cvv:</label>
                     <input placeholder="000" type="CVV" class="form-control frm" id="cvv" name="cvv">
-                    
                   </div>
-                  <h3>Il costo dei biglietti è € <?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></h3>
+                  <h3>Il costo dei biglietti è € <script type="text/javascript">get_final_amount();</script></h3>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Acquista</button>
+                  <button type="button" class="btn btn-primary" onclick="buy_from_cart();">Acquista</button>
                 </div>
               </div>
             </div>

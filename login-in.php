@@ -20,7 +20,8 @@ if ($db->is_admin($_SESSION["ID"])) {
                     <li style="margin-top:3%;">Luogo dell'evento: <?php echo $article["Location_Event"] ?></li>
                     <li style="margin-top:3%;">Orario di inizio: <?php echo $article["Time_Event"] ?></li>
                     <li style="margin-top:3%;">Categoria dell'evento: <?php echo $article["Category"] ?></li>
-                    <button class="login icon"><img src="resources/approved.png" class="icons" alt="" onclick="window.location.href='approve_article.php?article=<?php echo intval($article['ID_Articles']); ?>&status=1'"></button>
+                </ul>
+                <button class="login icon"><img src="resources/approved.png" class="icons" alt="" onclick="window.location.href='approve_article.php?article=<?php echo intval($article['ID_Articles']); ?>&status=1'"></button>
                 <button class="login icon" id="delete_article" data-toggle="modal" data-target="#deleteModal"><img src="resources/not-approved.png" class=" icons"  alt=""></button>
                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -43,15 +44,13 @@ if ($db->is_admin($_SESSION["ID"])) {
                 </div>
                 <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
             </div>
-                </ul>
                 
             </div>
-            <div class="col-4">
-                
-            </div>
-            </div>
-    <?php endforeach;
-} else {
+           
+            
+    <?php endforeach;?>
+    </div>
+<?php } else {
     $articles = $db->get_by_author($_SESSION["ID"]);
     ?>
     <h1>Ecco tutti gli eventi da te organizzati:</h1>
