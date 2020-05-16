@@ -3,7 +3,7 @@ function get_final_amount(){
     $("td.total_price").each(function(){
         somma += parseInt($(this).html());
     });
-    document.write(somma);
+    $(".total_amount").append(somma);
 }
 
 function buy_from_cart(spese){
@@ -33,18 +33,25 @@ function add_to_cart(ticket){
         });
     return 0;
 }
-function update_number_ticket(id_event){
+function update_number_ticket(id_event,steptype){
     let n_ticket = parseInt($("#n_ticket"+id_event).val());
-    alert(n_ticket);
+    let single_price = parseInt($("td#total_price"+id_event).html())/n_ticket;
+    if(steptype=="plus"){
+        n_ticket++;
+    }else{
+        n_ticket--;
+    }
+    let total_price = single_price*n_ticket;
+    $("#n_ticket"+id_event).val(n_ticket)
+    $("td#total_price"+id_event).html(total_price);
     /*$.post("update-ticket.php",{
         id: id_event,
         n_ticket:n_ticket
-    },function(data,status){
+    },function(status){
         if(status=="success"){
-           alert(data);
+           window.location.reload();
         }
     });*/
-    return 0;
 }
 function move(){
     let images=$("img.arrows");

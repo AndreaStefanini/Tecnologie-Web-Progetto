@@ -5,7 +5,7 @@ if(($_SESSION["ID"]=="")){
     echo "non puoi aggiungere il prodotto al carrello se non esegui l'accesso con il tuo account";
 }else{
     echo "hai fatto l'accesso e puoi togliere dei ticket di troppo"
-    //$db->update_tickets($_SESSION["ID"], $_POST["id"], $_POST["n_ticket"]);
+    $db->update_tickets($_SESSION["ID"], $_POST["id"], $_POST["n_ticket"]);
     /*$return_value =$db->get_purchase($_SESSION["ID"]);
     $result = array();
     $arraysize =0;
