@@ -56,6 +56,7 @@ if ($db->is_admin($_SESSION["ID"])) {
     ?>
     <h1>Ecco tutti gli eventi da te organizzati:</h1>
     <div class="container-fluid">
+    
     <?php
     foreach ($articles as $article) :
     ?>
@@ -73,9 +74,9 @@ if ($db->is_admin($_SESSION["ID"])) {
         </div>
     <?php endforeach; ?>
     <div class="botton-new">
-    <h3>Aggiungi Nuovo Evento:
+    <h2 class="add">Aggiungi Nuovo Evento:
         <button class="login"  onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
-    </h3>
+    </h2>
     </div>
     </div>
 <?php } ?>

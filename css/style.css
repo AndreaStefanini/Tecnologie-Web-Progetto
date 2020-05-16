@@ -175,7 +175,7 @@ div.row{
     width:100%;
 }
 div.logged{
-    margin-top:5%;
+    margin-top:0;
     width:100%;
 }
 button.icon{       
@@ -346,6 +346,8 @@ button.btn-buy{
     button.btn-Cont{
         margin-left: 40%;
     }
+    
+    
 @media only screen and (max-width:600px){
     button.btn{
         max-width: 100%;
