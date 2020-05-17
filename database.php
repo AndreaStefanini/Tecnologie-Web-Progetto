@@ -218,7 +218,17 @@ class database {
         $DeleteFromCart->bind_param("i",$id_cliente);
         $DeleteFromCart->execute();
     }
-    public function get_purchase_from_acquisti(){
+    public function get_purchase_from_acquisti($id_cliente, $numero_acquisti){
+        $retrievePurchase = $this->connection->prepare("SELECT TOP(?) * FROM acquisti WHERE COD_Cliente = ? ORDER BY data_acquisto DESC");
+        $retrievePurchase->bind_param("ii", $numero_acquisti, $id_cliente);
+        $retrievePurchase->execute();
+        $result = $retrievePurchase->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets){
+        $add_to_puchase = $this->connection->prepare("INSERT INTO acquisti(COD_Cliente,COD_Evento,n_tickets) VALUES (?,?,?)");
+        $add_to_puchase->bind_param("iii",$id_cliente, $id_evento, $n_tickets);
+        $add_to_puchase->execute();
 
     }
 }
