@@ -107,12 +107,12 @@ class database {
         $editquery->execute();
     }
     public function add_purchase($id_user, $id_event, $n_ticket){
-        $add_purchase = $this->connection->prepare("INSERT INTO `acquisti`(`COD_Cliente`, `COD_Evento`, `n_tickets` ) VALUES (?,?,?)");
+        $add_purchase = $this->connection->prepare("INSERT INTO `carrello`(`COD_Cliente`, `COD_Evento`, `n_tickets` ) VALUES (?,?,?)");
         $add_purchase->bind_param("iii",$id_user,$id_event, $n_ticket);
         $add_purchase->execute();
     }
     public function is_already_purchased($id_cliente, $cod_evento){
-        $querypurchased = $this->connection->prepare("SELECT COD_CLIENTE, COD_EVENTO FROM acquisti WHERE COD_CLIENTE=? AND COD_EVENTO =? ");
+        $querypurchased = $this->connection->prepare("SELECT COD_CLIENTE, COD_EVENTO FROM carrello WHERE COD_CLIENTE=? AND COD_EVENTO =? ");
         $querypurchased->bind_param("ii",$id_cliente, $cod_evento );
         $querypurchased->execute();
         $result = $querypurchased->get_result();
@@ -120,19 +120,19 @@ class database {
         return !empty($value);
     }
     public function add_more_tickets($id_cliente, $cod_evento, $new_tickets){
-        $oldtickets = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente = ? AND COD_Evento = ?");
+        $oldtickets = $this->connection->prepare("SELECT n_tickets FROM carrello WHERE COD_Cliente = ? AND COD_Evento = ?");
         $oldtickets->bind_param("ii", $id_cliente, $cod_evento);
         $oldtickets->execute();
         $result = $oldtickets->get_result();
         $oldvalue = $result->fetch_all(MYSQLI_ASSOC);
         $update_tickets= $oldvalue[0]["n_tickets"];
         $update_tickets += $new_tickets;
-        $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
+        $newtickets = $this->connection->prepare("UPDATE carrello SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
         $newtickets->bind_param("iii", $update_tickets, $id_cliente, $cod_evento);
         $newtickets->execute();
     }
     public function get_purchase($id){
-        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Costo_Ticket, n_tickets FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Costo_Ticket, n_tickets FROM articles,carrello WHERE articles.ID_Articles=carrello.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
@@ -140,11 +140,11 @@ class database {
     }
     public function update_tickets($id_cliente, $id_ticket, $n_tickets){
         if($n_tickets==0){
-            $deletequery = $this->connection->prepare("DELETE FROM `acquisti` WHERE COD_Cliente = ? AND COD_Evento = ?");
+            $deletequery = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ? AND COD_Evento = ?");
             $deletequery->bind_param("ii", $id_cliente,$id_ticket);
             $deletequery->execute();
         }else{
-            $newtickets = $this->connection->prepare("UPDATE acquisti SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
+            $newtickets = $this->connection->prepare("UPDATE carrello SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
             $newtickets->bind_param("iii", $n_tickets, $id_cliente, $id_ticket);
             $newtickets->execute();
         }
@@ -234,6 +234,34 @@ class database {
         $idquery -> execute();
         $result = $idquery -> get_result();
         return $result -> fetch_all(MYSQLI_ASSOC);
+
+    }
+    public function move_to_acquisti($id_cliente){
+        $retrievecart= $this->connection->prepare("SELECT * FROM carrello WHERE COD_Cliente = ?");
+        $retrievecart->bind_param("i",$id_cliente);
+        $retrievecart->execute();
+        $oggetti = $retrievecart->get_result();
+        $list = $oggetti->fetch_all(MYSQLI_ASSOC);
+        foreach($list as $elem):
+            $add_to_puchase =$this->connection->prepare("INSERT INTO acquisti(COD_Cliente, COD_Evento, n_tickets) VALUES (?,?,?)");
+            $add_to_purchase->bind_param("iii", $elem["COD_Cliente"],$elem["COD_Evento"],$elem["n_tickets"]);
+            $add_purchase->execute();
+        endforeach;    
+        $DeleteFromCart = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ?");
+        $DeleteFromCart->bind_param("i",$id_cliente);
+        $DeleteFromCart->execute();
+    }
+    public function get_purchase_from_acquisti($id_cliente, $numero_acquisti){
+        $retrievePurchase = $this->connection->prepare("SELECT TOP(?) * FROM acquisti WHERE COD_Cliente = ? ORDER BY data_acquisto DESC");
+        $retrievePurchase->bind_param("ii", $numero_acquisti, $id_cliente);
+        $retrievePurchase->execute();
+        $result = $retrievePurchase->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets){
+        $add_to_puchase = $this->connection->prepare("INSERT INTO acquisti(COD_Cliente,COD_Evento,n_tickets) VALUES (?,?,?)");
+        $add_to_puchase->bind_param("iii",$id_cliente, $id_evento, $n_tickets);
+        $add_to_puchase->execute();
 
     }
 }

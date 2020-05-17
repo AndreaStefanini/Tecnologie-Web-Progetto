@@ -125,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="sendEmail('<?php echo $articolo['Article_Title'];?>');">Acquista</button>
+                  <button type="button" class="btn btn-primary" onclick="confirmPurchase_and_sendEmail('<?php echo $articolo['Article_Title'];?>');">Acquista</button>
                 </div>
               </div>
             </div>

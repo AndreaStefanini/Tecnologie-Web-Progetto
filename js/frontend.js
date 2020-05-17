@@ -6,8 +6,8 @@ function get_final_amount(){
     $("h3.total_amount").html(somma);
 }
 
-function buy_from_cart(spese){
-    alsert(spese);
+function buy_from_cart(){
+   
 }
 function load_unseen_notification(view = ''){
     $.ajax({
@@ -71,12 +71,12 @@ function move(){
         },250).delay(600);
     });
 };
-function sendEmail(titolo){
+function confirmPurchase_and_sendEmail(titolo){
     let n_tickets = $("#n_ticket").val();
     $.ajax({
         url:'sendEmail.php',
         method:'POST',
-        data:{action:'call_email',
+        data:{n_eventi:1,
               n_tickets: n_tickets,
               event: titolo},
         success: function(response){
@@ -123,5 +123,3 @@ $(document).ready(function(){
         load_unseen_notification();;
     }, 5000);
 });
-
-

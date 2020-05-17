@@ -12,8 +12,7 @@
         <tbody>
             <?php foreach ($purchases as $purchase) : ?>
                 <tr>
-                    <td scope="row">
-                        </th><?php echo $purchase["ID_Articles"]; ?></td>
+                    <td scope="row"><?php echo $purchase["ID_Articles"]; ?></td>
                     <td><a href="obtain_article.php?id=<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Article_Title"]; ?></a></td>
                     <td class="total_price" id="total_price<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></td>
                     <td>
