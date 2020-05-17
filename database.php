@@ -156,6 +156,18 @@ class database {
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_evento_respinto($datadiieri1, $id){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=0 AND  date(notification_data)=? AND Author_COD=?");
+        $Qquery->bind_param("si",$datadiieri1, $id);
+        $Qquery->execute();
+        $result = $Qquery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function set_new_status_evento_respinto($id){
+        $query=$this->connection->prepare("UPDATE articles SET notifications_status=1 WHERE ID=? AND notifications_status=0");
+        $query->bind_param("i", $id);
+        $query->execute();
+    }
     public function set_new_status_visto($id){
       $query=$this->connection->prepare("UPDATE users SET unseen_notifications=1 WHERE ID=?");
       $query->bind_param("i", $id);
