@@ -149,9 +149,9 @@ class database {
             $newtickets->execute();
         }
     }
-    public function get_new_event($datadiieri){
-        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND  date(notification_data)=?");
-        $Qquery->bind_param("s",$datadiieri);
+    public function get_evento_accettato($datadiieri,$id){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND  date(notification_data)=? AND Author_COD=?");
+        $Qquery->bind_param("si",$datadiieri,$id);
         $Qquery->execute();
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -159,6 +159,27 @@ class database {
     public function get_evento_respinto($datadiieri1, $id){
         $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=0 AND  date(notification_data)=? AND Author_COD=?");
         $Qquery->bind_param("si",$datadiieri1, $id);
+        $Qquery->execute();
+        $result = $Qquery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_evento_soldout($id){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND Ticket_Available=0 AND Author_COD=?");
+        $Qquery->bind_param("i",$id);
+        $Qquery->execute();
+        $result = $Qquery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_evento_scadere($datadioggi){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND DATEDIFF(Date_Event,?)=7");
+        $Qquery->bind_param("s",$datadioggi);
+        $Qquery->execute();
+        $result = $Qquery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_aquisti($id){
+        $Qquery= $this->connection->prepare("SELECT COD_Evento From acquisti WHERE COD_Cliente=?");
+        $Qquery->bind_param("i",$id);
         $Qquery->execute();
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
