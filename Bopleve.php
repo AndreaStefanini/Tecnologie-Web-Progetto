@@ -65,7 +65,6 @@ require_once("database-entrance.php");
     </div>
     <?php if (!empty($_SESSION["email"])) {
       $purchases = $db->get_purchase($_SESSION["ID"]); 
-      //$num_noti = $db->get_new_event(); 
       $unseen= $db->get_notifications_status($_SESSION["ID"]);?>
         <div class="dropdown ">
           <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown">

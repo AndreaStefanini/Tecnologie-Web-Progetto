@@ -17,8 +17,9 @@ function load_unseen_notification(view = ''){
       dataType:"json",
       success:function(data){
         document.getElementById("notification").innerHTML= data.notification;
-        document.getElementById("labelbell").innerHTML= data.unseen_notification;
-
+        if(data.unseen_notification>0){
+            document.getElementById("labelbell").innerHTML= data.unseen_notification;
+        }
       }
      });
 };

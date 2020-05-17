@@ -150,14 +150,14 @@ class database {
         }
     }
     public function get_evento_accettato($datadiieri,$id){
-        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND  date(notification_data)=? AND Author_COD=?");
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND notifications_status=0 AND date(notification_data)=? AND Author_COD=?");
         $Qquery->bind_param("si",$datadiieri,$id);
         $Qquery->execute();
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function get_evento_respinto($datadiieri1, $id){
-        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=0 AND  date(notification_data)=? AND Author_COD=?");
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=0 AND  notifications_status=0 AND date(notification_data)=? AND Author_COD=?");
         $Qquery->bind_param("si",$datadiieri1, $id);
         $Qquery->execute();
         $result = $Qquery->get_result();
@@ -185,7 +185,17 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function set_new_status_evento_respinto($id){
-        $query=$this->connection->prepare("UPDATE articles SET notifications_status=1 WHERE ID=? AND notifications_status=0");
+        $query=$this->connection->prepare("UPDATE articles SET notifications_status=1 WHERE Author_COD=? AND notifications_status=0");
+        $query->bind_param("i", $id);
+        $query->execute();
+    }
+    public function set_new_status_evento_accettato($id){
+        $query=$this->connection->prepare("UPDATE articles SET notifications_status=1 WHERE Author_COD=? AND notifications_status=0");
+        $query->bind_param("i", $id);
+        $query->execute();
+    }
+    public function set_new_status_evento_soldout($id){
+        $query=$this->connection->prepare("UPDATE articles SET Ticket_Available=-1 WHERE Author_COD=? AND Ticket_Available=0");
         $query->bind_param("i", $id);
         $query->execute();
     }

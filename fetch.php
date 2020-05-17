@@ -6,6 +6,8 @@ if($_POST["view"] != '')
 {
     $db->set_new_status_visto($_SESSION["ID"]);
     $db->set_new_status_evento_respinto($_SESSION["ID"]);
+    $db->set_new_status_evento_accettato($_SESSION["ID"]);
+    $db->set_new_status_evento_soldout($_SESSION["ID"]);
 }
 
  //notifiche personalizzate evento accettato "promotore"
@@ -91,6 +93,9 @@ if(!empty($acquistatoilBiglietto)){
 $count3=count($notificapersobalizzata3);
 
 $outputfinale= $output.''.$output1.''.$output2.''.$output3;
+if($countfinale != ''){
+    $db->set_new_status_non_visto($_SESSION["ID"]);  //controllo da rivedere perche output3 e sepre "pieno"
+}
 $countfinale = $count + $count1+ $count2 + $count3;
 $notifiche = array(
     'notification' => $outputfinale,
