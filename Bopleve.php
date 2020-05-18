@@ -65,12 +65,11 @@ require_once("database-entrance.php");
     </div>
     <?php if (!empty($_SESSION["email"])) {
       $purchases = $db->get_purchase($_SESSION["ID"]); 
-      //$num_noti = $db->get_new_event(); 
       $unseen= $db->get_notifications_status($_SESSION["ID"]);?>
         <div class="dropdown ">
           <div id="bell" href="#" class="dropdown-toggle" data-toggle="dropdown">
           <?php if($unseen[0]["unseen_notifications"] == "0"){ ?>
-          <label id="labelbell"></label>
+          <span id="labelbell" class="badge"></span>
           <?php } ?>
           </div>
           <div class=" dropdown-menu dropdown-menu-right" id="notification"></div>
@@ -127,5 +126,4 @@ require_once("database-entrance.php");
     </div>
   </footer>
 </body>
-
 </html>

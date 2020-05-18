@@ -30,6 +30,9 @@ function load_unseen_notification(view = ''){
       dataType:"json",
       success:function(data){
         document.getElementById("notification").innerHTML= data.notification;
+        if(data.unseen_notification>0){
+            document.getElementById("labelbell").innerHTML= data.unseen_notification;
+        }
       }
      });
 };
@@ -97,6 +100,7 @@ function confirmPurchase_and_sendEmail(titolo){
     });
 }
 $(document).ready(function(){
+    load_unseen_notification();
     $('#bell').click(function(){
         $('#bell').html('');
         load_unseen_notification('yes');
