@@ -1,13 +1,13 @@
 function get_final_amount(){
     let somma=0;
     $("td.total_price").each(function(){
-        somma += parseInt($(this).html());
+        somma += parseFloat($(this).html());
     });
     $("h3.total_amount").html(somma);
 }
 
-function buy_from_cart(spese){
-    alsert(spese);
+function buy_from_cart(){
+   
 }
 function load_unseen_notification(view = ''){
     $.ajax({
@@ -17,6 +17,9 @@ function load_unseen_notification(view = ''){
       dataType:"json",
       success:function(data){
         document.getElementById("notification").innerHTML= data.notification;
+        if(data.unseen_notification>0){
+            document.getElementById("labelbell").innerHTML= data.unseen_notification;
+        }
       }
      });
 };
@@ -35,7 +38,7 @@ function add_to_cart(ticket){
 }
 function update_number_ticket(id_event,steptype){
     let n_ticket = parseInt($("#n_ticket"+id_event).val());
-    let single_price = parseInt($("td#total_price"+id_event).html())/n_ticket;
+    let single_price = parseFloat($("td#total_price"+id_event).html())/n_ticket;
     if(steptype=="plus"){
         n_ticket++;
     }else{
@@ -50,6 +53,7 @@ function update_number_ticket(id_event,steptype){
     },function(data,status){
         if(status=="success"){
            if(n_ticket==0){
+               alert("l'evento verrà rimosso dal carrello");
                window.location.reload();
            }
         }
@@ -68,12 +72,12 @@ function move(){
         },250).delay(600);
     });
 };
-function sendEmail(titolo){
+function confirmPurchase_and_sendEmail(titolo){
     let n_tickets = $("#n_ticket").val();
     $.ajax({
         url:'sendEmail.php',
         method:'POST',
-        data:{action:'call_email',
+        data:{n_eventi:1,
               n_tickets: n_tickets,
               event: titolo},
         success: function(response){
@@ -83,6 +87,7 @@ function sendEmail(titolo){
     });
 }
 $(document).ready(function(){
+    load_unseen_notification();
     $('#bell').click(function(){
         $('#bell').html('');
         load_unseen_notification('yes');
@@ -119,5 +124,3 @@ $(document).ready(function(){
         load_unseen_notification();;
     }, 5000);
 });
-
-

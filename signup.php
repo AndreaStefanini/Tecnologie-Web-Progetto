@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
         mkdir("resources/Users/" . $NewFolderName . "/Profilo", 7000);
         $subfolder = "/Profilo/";
         $resizeFileName = saveImage($_FILES["ProfileFoto"], $NewFolderName,$subfolder, 20, 20);
-        $db->add_user($_POST["nome"], $_POST["cognome"], $_POST["email"], $_POST["password"], $_POST["datanascita"], $_POST["tipouser"], $resizeFileName);
+        $db->add_user($_POST["nome"], $_POST["cognome"], $_POST["email"], md5($_POST["password"]), $_POST["datanascita"], $_POST["tipouser"], $resizeFileName);
         header("Location: index.php");
     } else {
         unset($_POST);
