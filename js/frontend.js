@@ -7,7 +7,20 @@ function get_final_amount(){
 }
 
 function buy_from_cart(){
-   
+    let numero_eventi = $("tbody tr").length;
+    alert(numero_eventi);
+   $.post("move_to_acquisti.php",{},function(data,status){
+       if (status=="success"){
+           alert(data);
+           $.post("sendEmail.php",{
+               numero_eventi:numero_eventi
+           },function(status){
+               if (status=="success"){
+                   alert("ti è stata inviata un email con i dettagli dei biglietti degli eventi comprati.")
+               }
+           });
+       }
+   });
 }
 function load_unseen_notification(view = ''){
     $.ajax({
