@@ -82,7 +82,7 @@ require_once("database-entrance.php");
             <?php if($_SESSION["User"]!="Cliente"){?>
             <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>
             <?php } ?>
-            <div class="dropdown-item" onclick="">Acquisti</div>
+            <div class="dropdown-item" onclick="window.location.href='Acquist-manager.php'">Acquisti</div>
             <div class="dropdown-item" onclick="window.location.href='profilo.php'">Profilo</div>
             <div class="dropdown-item" id="logout">Logout</div>
         </div>
