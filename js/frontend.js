@@ -11,7 +11,7 @@ function buy_from_cart(){
     alert(numero_eventi);
    $.post("move_to_acquisti.php",{},function(data,status){
        if (status=="success"){
-           alert(data);
+           console.log(data);
            $.post("sendEmail.php",{
                numero_eventi:numero_eventi
            },function(status){
