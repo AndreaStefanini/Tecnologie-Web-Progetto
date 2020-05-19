@@ -6,7 +6,7 @@ $to_email = $_SESSION["email"];
 $subject = "BOPLEVE";
 
 if($_POST["numero_eventi"]>1){
-    $acquisti = get_purchase_from_acquisti($_SESSION["ID"],$_POST["numero_evneti"]);
+    $acquisti = get_latest_purchases($_SESSION["ID"],$_POST["numero_evneti"]);
     $body= "Salve, ". $_SESSION["nome"]. " ". $_SESSION["cognome"].". Hai comprati i seguenti biglietti:".<br>;
     $lista ="";
     foreach($acquisti as $acquisto):
