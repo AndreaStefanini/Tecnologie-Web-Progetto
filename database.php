@@ -246,23 +246,8 @@ class database {
         return $result -> fetch_all(MYSQLI_ASSOC);
 
     }
-    public function move_to_acquisti($id_cliente){
-        $retrievecart= $this->connection->prepare("SELECT * FROM carrello WHERE COD_Cliente = ?");
-        $retrievecart->bind_param("i",$id_cliente);
-        $retrievecart->execute();
-        $oggetti = $retrievecart->get_result();
-        $list = $oggetti->fetch_all(MYSQLI_ASSOC);
-        foreach($list as $elem):
-            $add_to_puchase =$this->connection->prepare("INSERT INTO acquisti(COD_Cliente, COD_Evento, n_tickets) VALUES (?,?,?)");
-            $add_to_purchase->bind_param("iii", $elem["COD_Cliente"],$elem["COD_Evento"],$elem["n_tickets"]);
-            $add_purchase->execute();
-        endforeach;    
-        $DeleteFromCart = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ?");
-        $DeleteFromCart->bind_param("i",$id_cliente);
-        $DeleteFromCart->execute();
-    }
     public function get_purchase_from_acquisti($id_cliente, $numero_acquisti){
-        $retrievePurchase = $this->connection->prepare("SELECT TOP(?) * FROM acquisti WHERE COD_Cliente = ? ORDER BY data_acquisto DESC");
+        $retrievePurchase = $this->connection->prepare("SELECT TOP(?) n_tickets,Article_Title,data_acquisto  FROM acquisti,articles WHERE COD_Cliente = ? AND articles.ID_Articles=COD_Evento ORDER BY data_acquisto DESC");
         $retrievePurchase->bind_param("ii", $numero_acquisti, $id_cliente);
         $retrievePurchase->execute();
         $result = $retrievePurchase->get_result();
@@ -273,6 +258,45 @@ class database {
         $add_to_puchase->bind_param("iii",$id_cliente, $id_evento, $n_tickets);
         $add_to_puchase->execute();
 
+    }
+    public function already_bought($id_cliente, $id_evento, $date ){
+        $alreadybought = $this->connection->prepare("SELECT * FROM acquisti WHERE COD_Cliente=? AND COD_Evento=? AND data_acquisto=? ");
+        $alreadybought -> bind_param("iid",$id_cliente, $id_evento, $date );
+        $alreadybought->execute();
+        $result = $alreadybought->get_result();
+        $value = $result->fetch_all(MYSQLI_ASSOC);
+        return !empty($value);
+    }
+    public function update_bought_product($id_cliente, $id_evento, $date, $moretickets){
+        $getoldnumber = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente =? AND COD_Evento =? AND data_acquisto =?");
+        $getoldnumber->bind_param("iid",$id_cliente, $id_evento, $date);
+        $getoldnumber->execute();
+        $firstqueryresult = $getoldnumber->get_result();
+        $updateTickets = $firstqueryresult->fetch_all(MYSQLI_ASSOC)[0]["n_tickets"];
+        $updateTickets+=$moretickets;
+        $setTickets = $this->connection->prepare("UPDATE acquisti SET n_tickets =? WHERE COD_Cliente =? AND COD_Evento =? AND data_acquisto =?");
+        $setTickets->bind_param("iiid",$updateTickets,$id_cliente, $id_evento, $date);
+        $setTickets->execute();
+    }
+    public function move_to_acquisti($id_cliente){
+        $retrievecart= $this->connection->prepare("SELECT * FROM carrello WHERE COD_Cliente = ?");
+        $retrievecart->bind_param("i",$id_cliente);
+        $retrievecart->execute();
+        $oggetti = $retrievecart->get_result();
+        $list = $oggetti->fetch_all(MYSQLI_ASSOC);
+        $currentDate=date("Y/m/d");
+        foreach($list as $elem):
+            if(already_bought($elem["COD_Cliente"],$elem["COD_Evento"],$currentDate)){
+                update_bought_product($elem["COD_Cliente"],$elem["COD_Evento"],$currentDate,$elem["n_tickets"]);
+            }else{
+                $add_to_purchase =$this->connection->prepare("INSERT INTO acquisti(COD_Cliente, COD_Evento, n_tickets, data_acquisto) VALUES (?,?,?,?)");
+                $add_to_purchase->bind_param("iiid", $elem["COD_Cliente"],$elem["COD_Evento"],$elem["n_tickets"], $currentDate);
+                $add_to_purchase->execute();
+            }
+        endforeach;    
+        $DeleteFromCart = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ?");
+        $DeleteFromCart->bind_param("i",$id_cliente);
+        $DeleteFromCart->execute();
     }
 }
 ?>
