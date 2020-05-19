@@ -138,6 +138,13 @@ class database {
         $result=$purchasequery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_purchase_acquisti($id){
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Event_Description, Location_Event, n_tickets, Image_Path FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery->bind_param("i",$id);
+        $purchasequery->execute();
+        $result=$purchasequery->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function update_tickets($id_cliente, $id_ticket, $n_tickets){
         if($n_tickets==0){
             $deletequery = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ? AND COD_Evento = ?");
