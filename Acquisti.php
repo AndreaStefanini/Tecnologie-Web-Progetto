@@ -1,5 +1,4 @@
-
-    <h1 style="text-align: center;"> I tuoi acquisti</h1>
+<h1 style="text-align: center;"> I tuoi acquisti</h1>
 <?php
 if(empty($purchases)){?>
 <p style="text-align: center;">Non hai acquistato nulla</p>
@@ -18,7 +17,7 @@ if(empty($purchases)){?>
         
         <ul style ="margin-top:5%; margin-left:20px; background-color: rgb(255,255,165);" class="col-md-5">
           <li><?php echo $purchase["Article_Title"]; ?></li>
-          <li><?php echo $purchase["Costo_Ticket"]; ?></li>
+          <li><?php echo $purchase["data_acquisto"]; ?></li>
           <li><?php echo $purchase["Location_Event"]; ?></li>
           <li><?php echo $purchase["Date_Event"]; ?></li>
           <li><?php echo $purchase["Event_Description"]; ?></li>

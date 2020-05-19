@@ -139,7 +139,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function get_purchase_acquisti($id){
-        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Event_Description, Location_Event, n_tickets, Image_Path FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Event_Description, Location_Event, n_tickets, Image_Path,n_tickets,data_acquisto FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
