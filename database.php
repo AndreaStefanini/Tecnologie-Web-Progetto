@@ -247,8 +247,8 @@ class database {
 
     }
     public function get_latest_purchases($id_cliente, $numero_acquisti){
-        $retrievePurchase = $this->connection->prepare("SELECT TOP(?) n_tickets,Article_Title,data_acquisto  FROM acquisti,articles WHERE COD_Cliente = ? AND articles.ID_Articles=COD_Evento ORDER BY data_acquisto DESC");
-        $retrievePurchase->bind_param("ii", $numero_acquisti, $id_cliente);
+        $retrievePurchase = $this->connection->prepare("SELECT n_tickets,Article_Title,data_acquisto  FROM acquisti,articles WHERE COD_Cliente = ? AND articles.ID_Articles=COD_Evento ORDER BY data_acquisto DESC LIMIT ?");
+        $retrievePurchase->bind_param("ii", $id_cliente, $numero_acquisti);
         $retrievePurchase->execute();
         $result = $retrievePurchase->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

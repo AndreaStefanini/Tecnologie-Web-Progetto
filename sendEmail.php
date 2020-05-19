@@ -6,6 +6,15 @@ $to_email = $_SESSION["email"];
 $subject = "BOPLEVE";
 
 if($_POST["numero_eventi"]>1){
+    $acquisti = $db->get_latest_purchases($_SESSION["ID"],$_POST["numero_eventi"]);
+    $lista="";
+    foreach($acquisti as $acquisto){
+        $lista += " - ".$acquisto["n_tickets"]. " biglietto/i per l'evento: ". $acquisto["Article_Title"];      
+    }
+    
+    echo $lista;
+}
+/*if($_POST["numero_eventi"]>1){
     $acquisti = get_latest_purchases($_SESSION["ID"],$_POST["numero_evneti"]);
     $body= "Salve, ". $_SESSION["nome"]. " ". $_SESSION["cognome"].". Hai comprati i seguenti biglietti:".<br>;
     $lista ="";
@@ -34,6 +43,6 @@ if (mail($to_email, $subject, $body)) {
 }
 
 exit(json_encode(array("status" => $status, "response" => $response)));
-
+*/
 
 ?>
