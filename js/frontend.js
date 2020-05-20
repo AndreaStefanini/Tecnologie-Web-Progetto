@@ -83,14 +83,15 @@ function move(){
         },250).delay(600);
     });
 };
-function confirmPurchase_and_sendEmail(titolo){
+function confirmPurchase_and_sendEmail(titolo,id_evento){
     let n_tickets = $("#n_ticket").val();
     $.ajax({
         url:'sendEmail.php',
         method:'POST',
-        data:{n_eventi:1,
+        data:{numero_eventi:1,
               n_tickets: n_tickets,
-              event: titolo},
+              event: titolo,
+              id:id_evento},
         success: function(response){
             console.log(response);
         }

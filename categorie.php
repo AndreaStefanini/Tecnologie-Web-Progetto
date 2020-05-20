@@ -21,7 +21,7 @@ if(empty($categoria)){?>
           <li><?php echo $cat["Location_Event"]; ?></li>
           <li><?php echo $cat["Date_Event"]; ?></li>
           <li><?php echo $cat["Event_Description"]; ?></li>
-        </p>
+        </ul>
         </div>
         <?php endforeach; ?>
     </div>

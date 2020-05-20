@@ -15,6 +15,8 @@ if($_POST["numero_eventi"]>1){
     $body.=$lista;
     echo $body;
 }else{
+    $currentDate = date("Y-m-d");
+    $db->add_purchase_to_acquisti($_SESSION["ID"],$_POST["id"],$_POST["n_tickets"],$currentDate);
     if($_POST["n_tickets"]>1){
         $body = "Salve, ".$_SESSION["nome"] ." ".$_SESSION["cognome"].". I ". $_POST["n_tickets"]." biglietti per l'evento: ".$_POST["event"]. " sono stati comprati con successo ";
     }else{

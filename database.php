@@ -139,7 +139,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function get_purchase_acquisti($id){
-        $purchasequery= $this->connection->prepare("SELECT ID_Articles, Article_Title, Event_Description, Location_Event, n_tickets, Image_Path,n_tickets,data_acquisto FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
+        $purchasequery= $this->connection->prepare("SELECT articles.ID_Articles, articles.Article_Title, articles.Event_Description, articles.Location_Event, acquisti.n_tickets, articles.Image_Path,acquisti.data_acquisto FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND COD_Cliente=? ");
         $purchasequery->bind_param("i",$id);
         $purchasequery->execute();
         $result=$purchasequery->get_result();
@@ -260,10 +260,14 @@ class database {
         $result = $retrievePurchase->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets){
-        $add_to_puchase = $this->connection->prepare("INSERT INTO acquisti(COD_Cliente,COD_Evento,n_tickets) VALUES (?,?,?)");
-        $add_to_puchase->bind_param("iii",$id_cliente, $id_evento, $n_tickets);
-        $add_to_puchase->execute();
+    public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets, $data_acquisto){
+        if($this->already_bought($id_cliente, $id_evento,$data_acquisto)){
+            $this->add_purchase_to_acquisti($id_cliente, $id_evento, $data_acquisto, $n_tickets);
+        }else{
+            $add_to_puchase = $this->connection->prepare("INSERT INTO acquisti(COD_Cliente,COD_Evento,n_tickets,data_acquisto) VALUES (?,?,?,?)");
+            $add_to_puchase->bind_param("iiis",$id_cliente, $id_evento, $n_tickets, $data_acquisto);
+            $add_to_puchase->execute();
+        }
 
     }
     public function already_bought($id_cliente, $id_evento, $date){
