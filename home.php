@@ -1,5 +1,5 @@
 
-<h1>Eventi più cliccati:</h1>
+<h1 class="titolo_pagina">Eventi più cliccati:</h1>
   <div id="carouselExampleIndicators" class="carousel slide pointer-event" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -27,15 +27,14 @@
     </a>
   </div>
   <hr>
-  <h1>Prossimi eventi disponibili:</h1>
+  <h1 class="titolo_pagina">Prossimi eventi disponibili:</h1>
   <div class="container-fluid">
     <div class="row">
       <?php foreach($TemplateParam as $article):?>
       <div class="col-md-4 col-xs-10 ordering-image">
       <p class="titolo"><?php echo $article["Article_Title"];?></p>
         <a href="obtain_article.php?id=<?php echo $article['ID_Articles'];?>">
-          <img height="auto" class="col-12 shared img-responsive" src="<?php echo $article['Image_Path']; ?>" alt=""
-            class="rounded float-left">
+          <img height="auto" class="col-12 shared img-responsive rounded float-left" src="<?php echo $article['Image_Path']; ?>" alt="">
         </a>
         </div>
         <div class="col-md-2 ordering-arrow">

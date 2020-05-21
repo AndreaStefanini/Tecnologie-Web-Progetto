@@ -1,4 +1,4 @@
-<h1 class="display-4">Evento: <?php echo $articolo["Article_Title"]; ?></h1>
+<h1 class="titolo_pagina">Evento: <?php echo $articolo["Article_Title"]; ?></h1>
 <div class="container col-lg-10">
   <div clas="row">
     <div class=" event col-sm-12"><a class="col-md-12" href="#">

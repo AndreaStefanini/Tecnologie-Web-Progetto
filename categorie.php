@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"> Categoria: <?php echo $_GET["categories"]; ?></h1>
+<h1 class="titolo_pagina"> Categoria: <?php echo $_GET["categories"]; ?></h1>
 <?php
 if(empty($categoria)){?>
 <p style="text-align: center;">Non ci sono ancora eventi questa categoria,<br> se sei un promotore ti inviamo a crearne nuovi, se sei un cliente ti preghiamo di riprovare in un altro momento.</p>
@@ -10,8 +10,7 @@ if(empty($categoria)){?>
           <div class="row">
         <div class="col-md-5 col-xs-10">
           <a href="obtain_article.php?id=<?php echo $cat["ID_Articles"];?>">
-            <img height="auto" class="col-12 shared img-responsive" src="<?php echo $cat["Image_Path"]; ?>" alt=""
-              class="rounded float-left">
+            <img height="auto" class="col-12 shared img-responsive rounded float-left" src="<?php echo $cat["Image_Path"]; ?>" alt="">
           </a>
         </div>
         

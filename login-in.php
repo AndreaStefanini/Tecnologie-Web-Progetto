@@ -4,13 +4,12 @@ require_once("database-entrance.php");
 
 if ($db->is_admin($_SESSION["ID"])) {
     $articles = $db->articles_to_approve(); ?>
-    <h1>Ecco tutti gli eventi in attesa di approvazione:</h1>
+    <h1 class="titolo_pagina">Ecco tutti gli eventi in attesa di approvazione:</h1>
     <div class="container-fluid">
     <?php foreach ($articles as $article) : ?>
         <div class="row logged">
             <div class="col-md-5">
-            <img height="auto" class="col-12 shared img-responsive" src="<?php echo $article["Image_Path"]; ?>" alt=""
-              class="rounded float-left">
+            <img height="auto" class="col-12 shared img-responsive rounded float-left" src="<?php echo $article["Image_Path"]; ?>" alt="">
             </div>
             <div class="col-4">
                 <ul style ="margin-top:10%; background-color: rgb(255,255,165);" class="col-md-12">
@@ -53,7 +52,7 @@ if ($db->is_admin($_SESSION["ID"])) {
 <?php } else {
     $articles = $db->get_by_author($_SESSION["ID"]);
     ?>
-    <h1>Ecco tutti gli eventi da te organizzati:</h1>
+    <h1 class="titolo_pagina">Ecco tutti gli eventi da te organizzati:</h1>
     <div class="container-fluid">
     
     <?php

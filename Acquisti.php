@@ -1,4 +1,4 @@
-<h1 style="text-align: center; background-color: rgb(255,255,165);"> I tuoi acquisti</h1>
+<h1 class="titolo_pagina"> I tuoi acquisti</h1>
 <?php 
 if(empty($acquisti)){?>
 <p style="text-align: center;"> Non hai ancora effettuato acquisti, fatti un giro per il sito e vedi se qualcosa ti attrae!</p>

@@ -231,6 +231,13 @@ div#bell{
 div#bell.dropdown-toggle::after {
     display:none;
 }
+h1.titolo_pagina{
+    text-align: center;
+    background-color: #ff7214;
+    width:fit-content;  
+    margin-top:1%;
+    margin-left:30%;
+}
 span#labelbell{
     background-color: red;
     color: white;
@@ -349,6 +356,10 @@ button.btn-buy{
     
     
 @media only screen and (max-width:600px){
+    h1.titolo_pagina{
+        margin-left:0%;
+        width:100%;
+    }
     button.btn{
         max-width: 100%;
     }
