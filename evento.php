@@ -61,7 +61,7 @@
       <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
         <div class="card-body">
           <p>€<?php echo $articolo["Costo_Ticket"]; ?></p>
-          N° biglietti: <input type="number" name="n_ticket" id="n_ticket" step=1>
+          N° biglietti: <input type="number" name="n_ticket" min="1" max="<?php $articolo['Ticket_Available']; ?>" id="n_ticket" step=1>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="add_to_cart(<?php echo $articolo['ID_Articles'] ;?>);">Aggiungi al Carrello</button>
           <div class="modal fade right" id="modalAbandonedCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
             <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">

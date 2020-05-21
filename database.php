@@ -27,7 +27,7 @@ class database {
         $add_article-> execute();
     }
     public function get_article($idarticle){
-        $get=$this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path FROM articles WHERE ID_Articles=?");
+        $get=$this->connection->prepare("SELECT ID_Articles,Article_Title,Costo_Ticket,Date_Event,Time_Event,Location_Event,Event_Description,Image_Path,Ticket_Available FROM articles WHERE ID_Articles=?");
         $get->bind_param("i",$idarticle);
         $get->execute();
         $result=$get->get_result();
@@ -261,6 +261,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets, $data_acquisto){
+        $this->decrease_ticket_available($id_evento,$n_tickets);
         if($this->already_bought($id_cliente, $id_evento,$data_acquisto)){
             $this->add_purchase_to_acquisti($id_cliente, $id_evento, $data_acquisto, $n_tickets);
         }else{
@@ -297,6 +298,7 @@ class database {
         $currentDate=date("Y-m-d");
         $list = $oggetti->fetch_all(MYSQLI_ASSOC);
         foreach($list as $elem){
+            $this->decrease_ticket_available($elem["COD_Evento"],$elem["n_tickets"]);
             if($this->already_bought($elem["COD_Cliente"],$elem["COD_Evento"],$currentDate)){
                 $this->update_bought_product($elem["COD_Cliente"],$elem["COD_Evento"],$currentDate,$elem["n_tickets"]);
             }else{
@@ -308,6 +310,17 @@ class database {
         $DeleteFromCart = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ?");
         $DeleteFromCart->bind_param("i",$id_cliente);
         $DeleteFromCart->execute();
+    }
+    public function decrease_ticket_available($id_evento, $tickets){
+        $oldtickets = $this->connection->prepare("SELECT Ticket_Available FROM articles WHERE ID_Articles=?");
+        $oldtickets->bind_param("i",$id_evento);
+        $oldtickets->execute();
+        $result = $oldtickets->get_result();
+        $original_ticket = $result->fetch_all(MYSQLI_ASSOC)[0]["Ticket_Available"];
+        $original_ticket-=$tickets;
+        $updatequery = $this->connection->prepare("UPDATE articles SET Ticket_Available = ? WHERE ID_Articles =?");
+        $updatequery->bind_param("ii",$original_ticket,$id_evento);
+        $updatequery->execute();
     }
 }
 ?>

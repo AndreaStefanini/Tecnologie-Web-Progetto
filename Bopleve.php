@@ -34,7 +34,7 @@ require_once("database-entrance.php");
         <li class="nav-item active">
           <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorie
           </a>
@@ -46,7 +46,7 @@ require_once("database-entrance.php");
             <a class="dropdown-item" href="obtain-category.php?categories=Altro">Altro</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contattaci
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
