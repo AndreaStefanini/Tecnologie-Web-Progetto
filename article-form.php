@@ -34,7 +34,7 @@
         <div class="form-group">
           <label for="labelNome">Orario di Inizio Evento:</label>
           <input type="time" name="TimeEvent" class=" input form-control" id="time1" placeholder="Inzio Evento...">
-          <div class="submessages">Inserisci l'orario dell'inzio dell'evento nel seguente formato hr:min:sec (secondi solo se necessario)</div>
+          <div class="submessages">Inserisci l'orario dell'inzio dell'evento nel seguente formato hr:min</div>
           <div class="invalid-feedback">
             Inserisci l'inizio orario evento.
           </div>
