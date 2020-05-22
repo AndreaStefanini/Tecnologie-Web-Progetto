@@ -98,7 +98,7 @@ class database {
     }
     public function update_article($id,$date,$costo,$location,$time,$n_ticket){
         $updatequery = $this->connection->prepare("UPDATE articles SET Date_Event = ?, Costo_Ticket = ?, Location_Event = ?, Time_Event = ?, Ticket_Available=?, Status = 0 WHERE ID_Articles=?");
-        $updatequery->bind_param("sissii",$date,$costo,$location,$time,$n_ticket,$id );
+        $updatequery->bind_param("sdssii",$date,$costo,$location,$time,$n_ticket,$id );
         $updatequery->execute();
     }
     public function edit_profile($id,$email,$userpassword,$usertype,$profileimage){

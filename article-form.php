@@ -63,5 +63,5 @@
             <label for="fotoEvento">Inserisci un foto dell'Evento:</label>
             <input type="file" class="form-control-file" id="CaricaFoto" name="EventFoto" required>
         </div>
-        <button id="submit" type="submit" name="submit" class="btn btn-primary" >Crea Evento</button>
+        <input id="submit" type="submit" name="submit" class="btn btn-primary" value="Crea Evento">
       </form>

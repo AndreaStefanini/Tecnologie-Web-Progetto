@@ -36,5 +36,5 @@
           <label for="labelDataEvent">Data dell'Evento:</label>
           <input type="date" name="dataevento" class="form-control" id="date1" placeholder="gg/mm/aa" value="<?php echo $result[0]["Date_Event"]; ?>" >
         </div>
-        <input id="submit" type="submit" name="submit" value="Modifica articolo">
+        <input id="submit" type="submit" name="submit"class="btn btn-primary" value="Modifica articolo">
       </form>
