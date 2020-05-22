@@ -14,7 +14,7 @@ function buy_from_cart(){
                numero_eventi:numero_eventi
            },function(data,status){
                if (status=="success"){
-                   console.log(data);
+                   window.location.reload();
                }
            });
        }
