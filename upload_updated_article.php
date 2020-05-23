@@ -6,6 +6,7 @@ if($_POST["submit"]){
         $price= number_format($_POST["Ticket_Cost"], 2, '.', '');
         echo "<script type='text/javascript'>alert(".$price."); </script>";
         $db->update_article($_SESSION["id_change"],$_POST["dataevento"],$price ,$_POST["EventLocation"],$_POST["TimeEvent"],$_POST["Ticket_Number"]);
+        $_SESSION["id_change"]="";
     }
     header("Location: login.php");
 }

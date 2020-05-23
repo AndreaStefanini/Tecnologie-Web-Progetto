@@ -1,3 +1,25 @@
+function reject_article(id_article,author){
+    let astatus =2;
+    let messagge = $("textarea#reasons").val();
+    $.post("admin_operation.php",{
+        id_articolo:id_article,
+        status:astatus,
+        author:author,
+        messagge:messagge
+    },function(){
+            window.location.reload();
+    });   
+}
+function approve_article(id_article,author){
+    let astatus =1;
+    $.post("admin_operation.php",{
+        id_articolo:id_article,
+        status:astatus,
+        author:author
+    },function(){
+            window.location.reload();
+    });
+}
 function get_final_amount(){
     let somma=0;
     $("td.total_price").each(function(){

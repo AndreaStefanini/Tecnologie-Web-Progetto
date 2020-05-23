@@ -17,10 +17,10 @@ if ($db->is_admin($_SESSION["ID"])) {
                     <li style="margin-top:3%;">Descrizione dell'evento: <?php echo $article["Event_Description"] ?></li>
                     <li style="margin-top:3%;">Costo del ticket: €<?php echo $article["Costo_Ticket"] ?></li>
                     <li style="margin-top:3%;">Luogo dell'evento: <?php echo $article["Location_Event"] ?></li>
-                    <li style="margin-top:3%;">Orario di inizio: <?php echo $article["Time_Event"] ?></li>
+                    <li style="margin-top:3%;">Orario di inizio: <?php echo date("H:i",strtotime($article["Time_Event"])) ?></li>
                     <li style="margin-top:3%;">Categoria dell'evento: <?php echo $article["Category"] ?></li>
                 </ul>
-                <button class="login icon"><img src="resources/approved.png" class="icons" alt="" onclick="window.location.href='approve_article.php?article=<?php echo intval($article['ID_Articles']); ?>&status=1'"></button>
+                <button class="login icon"><img src="resources/approved.png" class="icons" alt="" onclick="approve_article(<?php echo intval($article['ID_Articles']); ?>,<?php echo $article['Author_COD'];?>);"></button>
                 <button class="login icon" id="delete_article" data-toggle="modal" data-target="#deleteModal"><img src="resources/not-approved.png" class=" icons"  alt=""></button>
                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -36,7 +36,7 @@ if ($db->is_admin($_SESSION["ID"])) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href='approve_article.php?article=<?php echo intval($article['ID_Articles']); ?>&status=2'">Respingi articolo</button>
+                                <button type="button" class="btn btn-primary" onclick="reject_article(<?php echo intval($article['ID_Articles']);?>,<?php echo $article['Author_COD'];?>);">Respingi articolo</button>
                             </div>
                         </div>
                     </div>

@@ -322,5 +322,10 @@ class database {
         $updatequery->bind_param("ii",$original_ticket,$id_evento);
         $updatequery->execute();
     }
+    public function insert_new_notification($id_cliente,$testo){
+        $querynotif = $this->connection->prepare("INSERT INTO notifiche(COD_Cliente, notific_content,status_lettura) VALUES(?,?,0)");
+        $querynotif->bind_param("is", $id_cliente,$testo);
+        $querynotif->execute();
+    }
 }
 ?>
