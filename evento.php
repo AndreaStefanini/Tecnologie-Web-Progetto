@@ -60,9 +60,16 @@
       </div>
       <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
         <div class="card-body">
+          <?php if($articolo['Ticket_Available']==0){?>
+          <h1> SOLD-OUT </h1>
+          <?php }else{ ?>
           <p>€<?php echo $articolo["Costo_Ticket"]; ?></p>
-          N° biglietti: <input type="number" name="n_ticket" min="1" max="<?php $articolo['Ticket_Available']; ?>" id="n_ticket" step=1>
+          N° biglietti: <input type="number" name="n_ticket" min="1" max="<?php $articolo['Ticket_Available']; ?>" id="n_ticket" step=1 value="1">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="add_to_cart(<?php echo $articolo['ID_Articles'] ;?>);">Aggiungi al Carrello</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Acquista
+          </button>
+          <?php } ?>
           <div class="modal fade right" id="modalAbandonedCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
             <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
               <div class="modal-content">
@@ -92,9 +99,6 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Acquista
-          </button>
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">

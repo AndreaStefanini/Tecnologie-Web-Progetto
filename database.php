@@ -73,6 +73,13 @@ class database {
         $result=$get->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_author($id_article){
+        $get=$this->connection->prepare("SELECT Author_COD FROM articles WHERE ID_Articles=?");
+        $get->bind_param("i",$id_article);
+        $get->execute();
+        $result=$get->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function get_by_author($author){
         $get=$this->connection->prepare("SELECT ID_Articles,Article_Title,Image_Path FROM articles WHERE Author_COD=?");
         $get->bind_param("i",$author);
@@ -318,6 +325,10 @@ class database {
         $result = $oldtickets->get_result();
         $original_ticket = $result->fetch_all(MYSQLI_ASSOC)[0]["Ticket_Available"];
         $original_ticket-=$tickets;
+        if($original_ticket==0){
+            $author = $this->get_author($id_evento);
+            $this->insert_new_notification($author[0]["Author_COD"],"Complimenti un tuo evento ha ottenuto completamente il SOLD-OUT");
+        }
         $updatequery = $this->connection->prepare("UPDATE articles SET Ticket_Available = ? WHERE ID_Articles =?");
         $updatequery->bind_param("ii",$original_ticket,$id_evento);
         $updatequery->execute();
