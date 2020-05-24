@@ -81,7 +81,7 @@ class database {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function get_by_author($author){
-        $get=$this->connection->prepare("SELECT ID_Articles,Article_Title,Image_Path FROM articles WHERE Author_COD=?");
+        $get=$this->connection->prepare("SELECT ID_Articles,Article_Title,Image_Path,Status FROM articles WHERE Author_COD=?");
         $get->bind_param("i",$author);
         $get->execute();
         $result=$get->get_result();
@@ -327,7 +327,7 @@ class database {
         $original_ticket-=$tickets;
         if($original_ticket==0){
             $author = $this->get_author($id_evento);
-            $this->insert_new_notification($author[0]["Author_COD"],"Complimenti un tuo evento ha ottenuto completamente il SOLD-OUT");
+            $this->insert_new_notification($author[0]["Author_COD"],"Complimenti un tuo evento ha ottenuto il SOLD-OUT");
         }
         $updatequery = $this->connection->prepare("UPDATE articles SET Ticket_Available = ? WHERE ID_Articles =?");
         $updatequery->bind_param("ii",$original_ticket,$id_evento);
@@ -337,6 +337,18 @@ class database {
         $querynotif = $this->connection->prepare("INSERT INTO notifiche(COD_Cliente, notific_content,status_lettura) VALUES(?,?,0)");
         $querynotif->bind_param("is", $id_cliente,$testo);
         $querynotif->execute();
+    }
+    public function fetch_notification($id){
+        $notif = $this->connection->prepare("SELECT * FROM notifiche WHERE COD_Cliente = ?");
+        $notif -> bind_param("i", $id);
+        $notif -> execute();
+        $result = $notif -> get_result();
+        return $result -> fetch_all(MYSQLI_ASSOC);
+    }
+    public function read_notification($id){
+        $notif = $this->connection->prepare("UPDATE notifiche SET status_lettura = 1 WHERE COD_Cliente=?");
+        $notif -> bind_param("i", $id);
+        $notif -> execute();
     }
 }
 ?>

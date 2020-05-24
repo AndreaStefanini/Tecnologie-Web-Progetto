@@ -56,7 +56,7 @@ if ($db->is_admin($_SESSION["ID"])) {
     <div class="container-fluid">
     
     <?php
-    foreach ($articles as $article) :
+    foreach ($articles as $article):
     ?>
         <div class="row logged">
             <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared">
@@ -68,9 +68,18 @@ if ($db->is_admin($_SESSION["ID"])) {
                 <p>Elimina Evento:
                 <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
                 </p>
+                <p style="width:fit-content;">Stato dell'evento:
+                <?php if($article["Status"]==1):?>
+                <img class="icons" src="resources/approved.png" alt="">
+                <?php elseif($article["Status"]==2): ?>
+                <img class="icons" src="resources/not-approved.png" alt="">
+                <?php else: ?>
+                In attesa di approvazione da parte dell'admin.
+                <?php endif; ?>
+                </p>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach;?>
     <div class="botton-new">
     <h2 class="add">Aggiungi Nuovo Evento:
         <button class="login"  onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
