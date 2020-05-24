@@ -6,5 +6,10 @@ $output="";
 foreach($notif as $n){
     $output .= "<a class='dropdown-item' href='#'>". $n["notific_content"] . "</a>" .PHP_EOL;
 }
-echo $output;
+$exitvalue = array(
+    "notifiche" => $output,
+    "numero_notifiche" => count($notif)
+);
+echo json_encode($exitvalue);
+
 ?>

@@ -42,7 +42,7 @@ function buy_from_cart(){
        }
    });
 }
-/*function load_unseen_notification(view = ''){
+function load_unseen_notification(view = ''){
     $.ajax({
       url:"fetch.php",
       method:"POST",
@@ -55,7 +55,7 @@ function buy_from_cart(){
         }
       }
      });
-};*/
+};
 function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
     $.post("add_purchase.php",{
@@ -121,17 +121,24 @@ function confirmPurchase_and_sendEmail(titolo,id_evento){
     });
 }
 $(document).ready(function(){
-    //load_unseen_notification();
-    /*$('#bell').click(function(){
+    load_unseen_notification();
+    $('#bell').click(function(){
         $('#bell').html('');
         load_unseen_notification('yes');
-      });*/
+      });
     $("#bell").click(function(){
-        $.post("fetch_notification.php",{},function(data,status){
-            if(status=="success"){
-                $("#notification").html(data);
+        $.ajax({
+            url:"fetch_notification.php",
+            method:"GET",
+            data:{},
+            dataType:"json",
+            success:function(data,status){
+                if(status=="success"){
+                    $("#notification").html(data.notifiche);
+                    $("#labelbell").html(data.numero_notifiche);
+                }
             }
-        });
+           });
     });  
       
     let all_content = null;
