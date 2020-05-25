@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
     $time = $_POST["TimeEvent"];
     $description = $_POST["EventArticle"];
     $subfolder = "/Articoli/".$_POST["ArticleTitle"];
-    $image_path = saveImage($_FILES['EventFoto'],$_SESSION["nome"].$_SESSION["cognome"],$subfolder,1020,780);
+    $image_path = saveImage($_FILES['EventFoto'],$_SESSION["nome"].$_SESSION["cognome"],$subfolder);
     $categorie = $_POST["Categorie"];
     $numticket = $_POST["Ticket_Number"];
     $db->add_article($titolo, $data, $costo, $location, $description, $time, $image_path, $_SESSION["ID"], 0, $categorie,$numticket);

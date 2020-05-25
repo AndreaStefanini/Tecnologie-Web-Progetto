@@ -1,13 +1,5 @@
 <?php
-function resizeImage($resourceType, $image_width, $image_height, $newwidth, $newheight)
-{
-    $resizeWidth = $image_width;
-    $resizeHeight = $image_height;
-    $imageLayer = imagecreatetruecolor($resizeWidth, $resizeHeight);
-    imagecopyresampled($imageLayer, $resourceType, 0, 0, 0, 0, $resizeWidth, $resizeHeight, $image_width, $image_height);
-    return $imageLayer;
-}
-function saveImage($image, $fotoname,$subfolder, $newwidth, $newheight)
+function saveImage($image, $fotoname,$subfolder)
 {
     $fileName = $image['tmp_name'];
     $sourceProperties = getimagesize($fileName);
@@ -21,37 +13,34 @@ function saveImage($image, $fotoname,$subfolder, $newwidth, $newheight)
     switch ($uploadImageType) {
         case IMAGETYPE_JPEG:
             $resourceType = imagecreatefromjpeg($fileName);
-            $imageLayer = resizeImage($resourceType, $sourceImageWidth, $sourceImageHeight,$newwidth, $newheight);
             
             if($subfolder=="/Profilo/"){
-                imagejpeg($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
+                imagejpeg($resourceType, $uploadPath . $fotoname . '.' . $fileExt);
                 $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
             }else{
-                imagejpeg($imageLayer, $uploadPath . '.' . $fileExt);
+                imagejpeg($resourceType, $uploadPath . '.' . $fileExt);
                 $resizeFileName = $newpath . '.' . $fileExt;
             }
             break;
         case IMAGETYPE_GIF:
             $resourceType = imagecreatefromgif($fileName);
-            $imageLayer = resizeImage($resourceType, $sourceImageWidth, $sourceImageHeight,$newwidth, $newheight);
            
             if($subfolder=="/Profilo/"){
-                imagegif($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
+                imagegif($resourceType, $uploadPath . $fotoname . '.' . $fileExt);
                 $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
             }else{
-                imagegif($imageLayer, $uploadPath . '.' . $fileExt);
+                imagegif($resourceType, $uploadPath . '.' . $fileExt);
                 $resizeFileName = $newpath . '.' . $fileExt;
             }
             break;
         case IMAGETYPE_PNG:
             $resourceType = imagecreatefrompng($fileName);
-            $imageLayer = resizeImage($resourceType, $sourceImageWidth, $sourceImageHeight,$newwidth, $newheight);
             
             if($subfolder=="/Profilo/"){
-                imagepng($imageLayer, $uploadPath . $fotoname . '.' . $fileExt);
+                imagepng($resourceType, $uploadPath . $fotoname . '.' . $fileExt);
                 $resizeFileName = $newpath . $fotoname . '.' . $fileExt;
             }else{
-                imagepng($imageLayer, $uploadPath . '.' . $fileExt);
+                imagepng($resourceType, $uploadPath . '.' . $fileExt);
                 $resizeFileName = $newpath . '.' . $fileExt;
             }
             break;
