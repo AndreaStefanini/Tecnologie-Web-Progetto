@@ -1,8 +1,8 @@
 <?php
 function resizeImage($resourceType, $image_width, $image_height, $newwidth, $newheight)
 {
-    $resizeWidth = $newwidth;
-    $resizeHeight = $newheight;
+    $resizeWidth = $image_width;
+    $resizeHeight = $image_height;
     $imageLayer = imagecreatetruecolor($resizeWidth, $resizeHeight);
     imagecopyresampled($imageLayer, $resourceType, 0, 0, 0, 0, $resizeWidth, $resizeHeight, $image_width, $image_height);
     return $imageLayer;

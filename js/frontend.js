@@ -1,3 +1,14 @@
+function delete_article(id_article,percorso){
+    $.post("delete-article.php",{
+        delete:id_article,
+        percorso:percorso
+    },function(status){
+        if(status=="success"){
+            alert("Articolo eliminato con successo");
+            window.location.reload();
+        }
+    });
+}
 function reject_article(id_article,author){
     let astatus =2;
     let messagge = $("textarea#reasons").val();

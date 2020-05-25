@@ -41,7 +41,7 @@ if ($db->is_admin($_SESSION["ID"])) {
                         </div>
                     </div>
                 </div>
-                <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
+                <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="delete_article(<?php echo $article['ID_Articles']; ?>,<?php echo $article['Image_Path']; ?>);" alt=""></button>
             </div>
                 
             </div>
@@ -59,14 +59,14 @@ if ($db->is_admin($_SESSION["ID"])) {
     foreach ($articles as $article):
     ?>
         <div class="row logged">
-            <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared">
+            <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared rounded float-left">
             <div class="organaized col-md-3">
                 <h2><div style="margin-top:5%;"> <?php echo $article["Article_Title"] ?></div></h2>
                 <p>Modifica Evento:
                 <button class="login icon"><img src="resources/matita.png" class="icons" alt="" onclick="window.location.replace('modify_article.php?ID=<?php echo $article['ID_Articles']; ?>');"></button>
                 </p>
                 <p>Elimina Evento:
-                <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="window.location.href='delete-article?delete=<?php echo $article['Article_Title']; ?>'" alt=""></button>
+                <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="delete_article(<?php echo $article['ID_Articles']; ?>,<?php echo $article['Image_Path']; ?>);" alt=""></button>
                 </p>
                 <p style="width:fit-content;">Stato dell'evento:
                 <?php if($article["Status"]==1):?>

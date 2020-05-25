@@ -12,4 +12,4 @@ $exitvalue = array(
 );
 echo json_encode($exitvalue);
 
-?>
+?> 

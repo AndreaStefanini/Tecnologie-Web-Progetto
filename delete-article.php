@@ -1,7 +1,7 @@
 <?php
 require_once("database-entrance.php");
-if(isset($_GET["delete"])){
-    $db->remove_article($_GET["delete"]);
-}
-echo "<script type='text/javascript'>window.location.replace('login.php');</script>"
+$db->remove_article($_POST["delete"]);
+unlink($_POST["percorso"]);
+
+
 ?>

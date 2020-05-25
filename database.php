@@ -87,9 +87,9 @@ class database {
         $result=$get->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function remove_article($title){
-        $remove = $this->connection->prepare("DELETE FROM articles WHERE Article_Title = ?");
-        $remove->bind_param("s", $title);
+    public function remove_article($id_article){
+        $remove = $this->connection->prepare("DELETE FROM articles WHERE ID_Articles = ?");
+        $remove->bind_param("i", $id_article);
         $remove->execute();
     }
     public function remove_outdated_articles($date){
