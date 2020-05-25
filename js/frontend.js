@@ -53,19 +53,19 @@ function buy_from_cart(){
        }
    });
 }
-function load_unseen_notification(view = ''){
+function load_unseen_notification(){
     $.ajax({
-      url:"fetch.php",
-      method:"POST",
-      data:{view:view},
-      dataType:"json",
-      success:function(data){
-        document.getElementById("notification").innerHTML= data.notification;
-        if(data.unseen_notification>0){
-            document.getElementById("labelbell").innerHTML= data.unseen_notification;
+        url:"fetch.php",
+        method:"GET",
+        data:{},
+        dataType:"json",
+        success:function(data,status){
+            if(status=="success"){
+                $("#notification").html(data.notification);
+                $("#labelbell").html(data.unseen_notification);
+            }
         }
-      }
-     });
+       });
 };
 function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
@@ -134,23 +134,8 @@ function confirmPurchase_and_sendEmail(titolo,id_evento){
 $(document).ready(function(){
     load_unseen_notification();
     $('#bell').click(function(){
-        $('#bell').html('');
-        load_unseen_notification('yes');
-      });
-    $("#bell").click(function(){
-        $.ajax({
-            url:"fetch_notification.php",
-            method:"GET",
-            data:{},
-            dataType:"json",
-            success:function(data,status){
-                if(status=="success"){
-                    $("#notification").html(data.notifiche);
-                    $("#labelbell").html(data.numero_notifiche);
-                }
-            }
-           });
-    });  
+        load_unseen_notification();
+      }); 
       
     let all_content = null;
     $.ajax({    //create an ajax request to display.php
@@ -181,6 +166,6 @@ $(document).ready(function(){
         move()
     },600);
     setInterval(function(){
-        //load_unseen_notification();
+        load_unseen_notification();
     }, 5000);
 });

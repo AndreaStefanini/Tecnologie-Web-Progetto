@@ -184,9 +184,9 @@ class database {
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function get_evento_scadere($datadioggi){
-        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND DATEDIFF(Date_Event,?)=7");
-        $Qquery->bind_param("s",$datadioggi);
+    public function get_evento_acquistato_vicino($id_cliente,$datadioggi){
+        $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title FROM articles,acquisti WHERE articles.ID_Articles=acquisti.COD_Evento AND DATEDIFF(articles.Date_Event,?)=7 AND acquisti.COD_Cliente=?");
+        $Qquery->bind_param("si",$datadioggi,$id_cliente);
         $Qquery->execute();
         $result = $Qquery->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
