@@ -11,7 +11,6 @@ if(!empty($_SESSION)){
            $_POST = array();
            header("Location: login.php");
         }else{
-            echo "<script type ='text/javascript'> alert('Benvenuto'); </script> ";
             $_SESSION["email"]= $_POST["email"];
             $_SESSION["nome"] = $result[0]["Nome"];
             $_SESSION["cognome"] = $result[0]["Cognome"];
