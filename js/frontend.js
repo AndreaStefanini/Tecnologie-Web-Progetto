@@ -66,7 +66,7 @@ function load_unseen_notification(){
                 $("#labelbell").css("display:inline;");
             }
         }
-       });
+       });   
 };
 function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
@@ -136,6 +136,9 @@ $(document).ready(function(){
     load_unseen_notification();
     $('#bell').click(function(){
         load_unseen_notification();
+        $.post("read_notification.php",{},function(){
+            $("#labelbell").css("display:none;");
+        });
       }); 
       
     let all_content = null;

@@ -339,7 +339,7 @@ class database {
         $querynotif->execute();
     }
     public function fetch_notification($id){
-        $notif = $this->connection->prepare("SELECT * FROM notifiche WHERE COD_Cliente = ?");
+        $notif = $this->connection->prepare("SELECT * FROM notifiche WHERE COD_Cliente = ? AND status_lettura=0");
         $notif -> bind_param("i", $id);
         $notif -> execute();
         $result = $notif -> get_result();
