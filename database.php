@@ -350,5 +350,6 @@ class database {
         $notif -> bind_param("i", $id);
         $notif -> execute();
     }
+
 }
 ?>

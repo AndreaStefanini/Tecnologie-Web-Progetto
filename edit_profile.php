@@ -10,8 +10,8 @@ if (isset($_POST["edit"])){
             unlink($FolderName);
         }
         $subfolder = "/Profilo/";
-        $resizeFileName = saveImage($_FILES["ProfileFoto"], $FolderName,$subfolder, 20, 20);
-        $db->edit_profile($_SESSION["ID"],$_POST["email"],$_POST["password"],$_POST["tipouser"],$resizeFileName);
+        $resizeFileName = saveImage($_FILES["ProfileFoto"], $FolderName,$subfolder);
+        $db->edit_profile($_SESSION["ID"],$_POST["email"],md5($_POST["password"]),$_POST["tipouser"],$resizeFileName);
         header("Location: index.php");
     }else{
         unset($_POST);
@@ -20,7 +20,7 @@ if (isset($_POST["edit"])){
     }
     
 }else{
-    
+    $db->get_changeble_option($_SESSION["ID"]);
     $page="edit_profile-form.php";
     require("Bopleve.php");
 }
