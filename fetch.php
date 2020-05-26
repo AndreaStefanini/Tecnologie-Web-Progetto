@@ -11,36 +11,17 @@ foreach($notif as $n){
 
 //evento che sta per scadere 
 $datadioggi=date("Y/m/d");
-$notificapersobalizzata3=$db->get_evento_acquistato_vicino($_SESSION["ID"],$datadioggi);
-$acquistatoilBiglietto=$db->get_aquisti();
-$output3 = '';
-if(!empty($acquistatoilBiglietto)){
-    if(!empty($notificapersobalizzata3)){
-        foreach($acquistatoilBiglietto as $riw){
-            foreach($notificapersobalizzata3 as $row){
-                if($riw["COD_Evento"]==$row["ID_Articles"]){
-                $output3 .= '
-                <li>
-                <a href="obtain_article.php?id='.$row['ID_Articles'].'" style="color: black">
-                <strong>'.$row["Article_Title"].'</strong><br />
-                <small><em>sta per scadere!</em></small>
-                </a>
-                </li>
-                ';
-                }
-            }
-       }
-    }
+$close_event=$db->get_evento_acquistato_vicino($_SESSION["ID"],$datadioggi);
+foreach($close_event as $c){
+    $output .= "<a class='dropdown-item' href='#'>" . $c["Article_Title"] . " si sta avvicinando!</a>". PHP_EOL;
 }
-$countEvent=count($notificapersobalizzata3);
-
-$output.= $output3;
-if($countfinale != ''){
-    $db->set_new_status_non_visto($_SESSION["ID"]);  //controllo da rivedere perche output3 e sepre "pieno"
-}
+$countEvent=count($close_event);
 $countfinale = count($notif) + $countEvent;
+if($countfinale != ''){
+        $db->set_new_status_non_visto($_SESSION["ID"]);  //controllo da rivedere perche output3 e sepre "pieno"
+}
 $notifiche = array(
-    'notification' => $outputfinale,
+    'notification' => $output,
     'unseen_notification'  => $countfinale
  );
  echo json_encode($notifiche); 

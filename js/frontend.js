@@ -63,6 +63,7 @@ function load_unseen_notification(){
             if(status=="success"){
                 $("#notification").html(data.notification);
                 $("#labelbell").html(data.unseen_notification);
+                $("#labelbell").css("display:inline;");
             }
         }
        });
