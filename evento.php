@@ -54,7 +54,7 @@
       <div class="card-header" id="headingThree">
         <h5 class="mb-0">
           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            <h2>Costo </h2>
+            <h2>Acquista </h2>
           </button>
         </h5>
       </div>

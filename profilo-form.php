@@ -21,7 +21,7 @@
     </div>
     <?php if($articoli>0){?>
     <div class="form-group">
-      <button type="button" onclick="window.location.href='modify_article.php'" class="btn btn-primary">modifica i tuoi eventi</button>
+      <button type="button" onclick="window.location.href='login.php'" class="btn btn-primary">modifica i tuoi eventi</button>
     </div>
     <?php } ?>  
   <?php } ?>

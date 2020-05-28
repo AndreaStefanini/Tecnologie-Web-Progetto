@@ -15,3 +15,41 @@ Cose da fare:
  - footer da sistemare (FATTO)
  - aggiungi la pagine degli acquisti (FATTO)
  - modificare dimensioni immagini per il profilo (FATTO)
+
+
+
+accorgimenti di leo:
+Importanza: !!
+
+-se schiaccio acquista (senza passare dal carrello) e inserisco dati a caso non succede niente, ok che l'acquisto va simulato ma l'ordine deve partire ed essere registrato (fatto manca una sorta di transizione o messaggio dell'avvenuto ordine)
+
+
+-mettere l'evento a 0 nel carrello per eliminarlo non è troppo intuitivo, meglio mettere un bottone che rimuove tutto senza rimuoverne uno alla volta
+
+-nel carrello a un certo punto (ad esempio con 1066 biglietti degli acdc) il prezzo mi viene con una decina e più di numeri dopo la virgola
+
+
+Importanza: !
+
+-la cosa della password che deve essere complicata ci sta ma è brutto il fatto che compaia una pagina bianca con un banner in alto che non si legge neanche tutto
+-mettete un limite al numero di biglietti acquistabili da un solo utente
+-se mi compro più biglietti di quelli che ce ne sono non succede niente, il numero dei ticket_available nel db diventa negativo
+-quando vado con il mouse sopra la campanella e il carrello sarebbe bello se si illuminassero
+-la barra di ricerca trova un evento solo se scrivo il nome intero (POSSO LAVORARCI MA NON PROMETTO NULLA)
+-quando mi registro mi dovresti subito reindirizzare alla pagina di login invece che alla home
+-mi fa creare l'evento con una data passata 
+-sicuri della scelta di far acquistare biglietti anche al promoter? (SI)
+-il banner che esce nel caso dell'eliminazione dell'evento non è un granchè
+-quando sono in visualizzazione mobile (e non) per tornare alla home potrebbe anche bastare schiacciare sul logo senza dover aprire l'elenco a tendina (work in progress)
+-in modalità mobile la tabella del carrello viene un po spostato verso destra e le scritte sopra vanno a capo non troppo correttamente (io visualizzavo con Iphone 6,7,8 magari con altri non succede....usate quelli) (NOI USIAMO IL PIXEL 2XL QUINDI SUCA MINGHIA)
+
+
+
+Consigli:
+
+-sono obbligato a inserire un'immagine utente quando mi registro (troppo cattivo forse?) (SI PORCODDIO OK? SE NON TI PIACE TI LEVI DALLE PALLE)
+-la scritta COSTO all'interno dell'evento non è molto intuitiva, forse la scritta ACQUISTA potrebbe essere meglio (fatto)
+-categoria Serate...cambiate il nome hahahahha
+-per la presentazione create dei bei eventi di esempio con delle belle descrizioni e belle immagini e togliete quelli che non volete far vedere (GGG , Grazie, Grazie e Grazie al cazzo)
+-Cambia "Titolo articolo" con Titolo evento o Nome evento quando l'organizzatore crea l'evento
+-il riepilogo acquisti è molto pieno di scritte nere piccole (magari distanziarle un po, cambiare qualche colore) (NON CAMBIO COLORE NERO E GIALLO FANNO MOLTO CONTRASTO)
