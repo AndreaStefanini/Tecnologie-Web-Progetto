@@ -1,5 +1,6 @@
-<h1>Ecco il tuo carrello della spesa</h1>
+<h1 class="titolo_pagina">Ecco il tuo carrello della spesa</h1>
 <div class="container-fluid">
+<?php if(count($purchases)>0){?>
     <table class="table table-striped table-dark table-sm">
         <thead>
             <tr>
@@ -26,7 +27,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary btn-Cont" data-toggle="modal" data-target="#exampleModalCenter" onclick="get_final_amount();">
+      <button type="button" class="btn btn-primary btn-Cont" data-toggle="modal" data-target="#exampleModalCenter" onclick="get_final_amount();">
             Acquista
           </button>
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -66,4 +67,7 @@
             </div>
           </div>
           <a href="index.php" class="btn-Cont"><button type="button" class="btn btn-secondary" data-dismiss="modal">Scegli altri biglietti</button></a>
+    <?php }else{?>
+    <div style="text-align:center;background-color: rgb(255,255,165);">Non hai nulla nel carrello, guardati intorno e vedi se ti intriga qualcosa e aggiungilo al carrello!</div>
+    <?php } ?>
 </div>

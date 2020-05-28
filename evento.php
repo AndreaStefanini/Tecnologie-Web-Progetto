@@ -64,12 +64,15 @@
           <h1> SOLD-OUT </h1>
           <?php }else{ ?>
           <p>€<?php echo $articolo["Costo_Ticket"]; ?></p>
+          <?php if(empty($_SESSION)){?>
+            <p>esegui l'accesso per accesso per aggiungere ticket di questo evento al tuo carrello o acquistarlo direttamente da qui </p>
+          <?php }else{ ?>
           N° biglietti: <input type="number" name="n_ticket" min="1" max="<?php $articolo['Ticket_Available']; ?>" id="n_ticket" step=1 value="1">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="add_to_cart(<?php echo $articolo['ID_Articles'] ;?>);">Aggiungi al Carrello</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Acquista
           </button>
-          <?php } ?>
+          <?php }} ?>
           <div class="modal fade right" id="modalAbandonedCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
             <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
               <div class="modal-content">
@@ -94,7 +97,7 @@
                 </div>
                 <div class="modal-footer justify-content-center">
                   <a type="button" class="btn btn-primary" onclick="window.location.href='cart-manager.php'">Vai al carrello</a>
-                  <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Cancel</a>
+                  <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">Continua a navigare</a>
                 </div>
               </div>
             </div>

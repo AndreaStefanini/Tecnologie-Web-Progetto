@@ -240,6 +240,7 @@ h1.titolo_pagina{
     width:fit-content;  
     margin-top:1%;
     align-self: center;
+    border-radius: 5pt;
 }
 span#labelbell{
     background-color: red;

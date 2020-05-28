@@ -20,7 +20,6 @@ if (isset($_POST["edit"])){
     }
     
 }else{
-    $db->get_changeble_option($_SESSION["ID"]);
     $page="edit_profile-form.php";
     require("Bopleve.php");
 }

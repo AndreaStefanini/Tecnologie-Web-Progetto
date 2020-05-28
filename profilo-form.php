@@ -19,9 +19,11 @@
     <div class="form-group">
       <button type="button" onclick="window.location.href='upload_article.php'" class="btn btn-primary">crea i tuoi eventi</button>
     </div>
+    <?php if($articoli>0){?>
     <div class="form-group">
       <button type="button" onclick="window.location.href='modify_article.php'" class="btn btn-primary">modifica i tuoi eventi</button>
     </div>
+    <?php } ?>  
   <?php } ?>
     <div class="form-group">
       <button type="button" onclick="window.location.href='edit_profile.php'" class="btn btn-primary">modifica il tuo account</button>

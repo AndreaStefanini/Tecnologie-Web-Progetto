@@ -8,7 +8,7 @@ if(empty($acquisti)){?>
 <?php foreach($acquisti as $acquisto): ?>
   <div class="row">
     <div class="col-md-5 col-xs-10">
-      <a href="obtain_article?id=<?php echo $acquisto['ID_Articles']; ?>">
+      <a href="obtain_article.php?id=<?php echo $acquisto['ID_Articles']; ?>">
         <img src="<?php echo $acquisto['Image_Path']; ?>" class="col-12 shared img-responsive rounded float-left" height="auto" alt="">
       </a>
     </div>  
