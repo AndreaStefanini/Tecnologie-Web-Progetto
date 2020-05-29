@@ -21,24 +21,20 @@ Cose da fare:
 accorgimenti di leo:
 Importanza: !!
 
--se schiaccio acquista (senza passare dal carrello) e inserisco dati a caso non succede niente, ok che l'acquisto va simulato ma l'ordine deve partire ed essere registrato (fatto manca una sorta di transizione o messaggio dell'avvenuto ordine)
-
 
 Importanza: !
 
 -la cosa della password che deve essere complicata ci sta ma è brutto il fatto che compaia una pagina bianca con un banner in alto che non si legge neanche tutto
 -mettete un limite al numero di biglietti acquistabili da un solo utente (dobbiamo decidere cosa fare)
--se mi compro più biglietti di quelli che ce ne sono non succede niente, il numero dei ticket_available nel db diventa negativo
 -quando vado con il mouse sopra la campanella e il carrello sarebbe bello se si illuminassero
 -la barra di ricerca trova un evento solo se scrivo il nome intero (POSSO LAVORARCI MA NON PROMETTO NULLA)
--quando mi registro mi dovresti subito reindirizzare alla pagina di login invece che alla home
--mi fa creare l'evento con una data passata 
--sicuri della scelta di far acquistare biglietti anche al promoter? (SI)
 -il banner che esce nel caso dell'eliminazione dell'evento non è un granchè
--quando sono in visualizzazione mobile (e non) per tornare alla home potrebbe anche bastare schiacciare sul logo senza dover aprire l'elenco a tendina (work in progress)
+
+work in progress:
+-mi fa creare l'evento con una data passata (CREDO DI AVER RISOLTO)
 -in modalità mobile la tabella del carrello viene un po spostato verso destra e le scritte sopra vanno a capo non troppo correttamente (io visualizzavo con Iphone 6,7,8 magari con altri non succede....usate quelli) (NOI USIAMO IL PIXEL 2XL QUINDI SUCA MINGHIA)
-
-
+-se mi compro più biglietti di quelli che ce ne sono non succede niente, il numero dei ticket_available nel db diventa negativo (quasi risolto)
+-sicuri della scelta di far acquistare biglietti anche al promoter? (SI)
 
 Consigli:
 

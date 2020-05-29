@@ -49,7 +49,7 @@
         </div>
         <div class="form-group">
           <label for="labelDataEvent">Data dell'Evento:</label>
-          <input type="date" name="dataevento" class="form-control" id="date1" placeholder="gg/mm/aa" required>
+          <input type="date" name="dataevento" class="form-control" id="date1" placeholder="gg/mm/aa" required min="<?php echo date('Y-m-d');?>">
         </div>
         <label for="labelCategoryEvent">Scegli la categoria dell'Evento:</label>
         <select id="Categorie" name="Categorie"class="custom-select mr-sm-2" id="inlineFormCustomSelect">

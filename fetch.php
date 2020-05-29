@@ -10,7 +10,7 @@ foreach($notif as $n){
 
 
 //evento che sta per scadere 
-$datadioggi=date("Y/m/d");
+$datadioggi=date("Y-m-d");
 $close_event=$db->get_evento_acquistato_vicino($_SESSION["ID"],$datadioggi);
 foreach($close_event as $c){
     $output .= "<a class='dropdown-item' href='#'>" . $c["Article_Title"] . " si sta avvicinando!</a>". PHP_EOL;

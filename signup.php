@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
         $subfolder = "/Profilo/";
         $resizeFileName = saveImage($_FILES["ProfileFoto"], $NewFolderName,$subfolder);
         $db->add_user($_POST["nome"], $_POST["cognome"], $_POST["email"], md5($_POST["password"]), $_POST["datanascita"], $_POST["tipouser"], $resizeFileName);
-        header("Location: index.php");
+        header("Location: login.php");
     } else {
         unset($_POST);
         echo "<script type='text/javascript'>alert('La Password inserita non è abbastanza forte per favore inserire una password che contega A-Z,a-z,0-9,,-');\n

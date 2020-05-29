@@ -1,12 +1,13 @@
 function delete_article(id_article,percorso){
+    alert(id_article);
+    alert(percorso);
     $.post("delete-article.php",{
         delete:id_article,
         percorso:percorso
-    },function(status){
-        if(status=="success"){
-            alert("Articolo eliminato con successo");
+    },function(data){
+            alert(data);
             window.location.reload();
-        }
+        
     });
 }
 function reject_article(id_article,author){
@@ -71,7 +72,7 @@ function load_unseen_notification(){
 function delete_from_cart(id_event){
     $.post("remove_all_ticket.php",{
         id: id_event
-    },function(status){
+    },function(){
                window.location.reload();
     });
 }
@@ -88,8 +89,7 @@ function add_to_cart(ticket,max){
                 }
             });
     }else{
-        /*$(".alert").alert();
-        window.scrollTo(0, 0);*/
+        alert("Hai tentato di aggiungere più aggiungere più biglietti di quelli disponibili");
     }
     
     return 0;
@@ -142,7 +142,7 @@ function confirmPurchase_and_sendEmail(titolo,id_evento){
               event: titolo,
               id:id_evento},
         success: function(response){
-            console.log(response);
+            window.location.assign("Acquisti-manager.php");
         }
 
     });
