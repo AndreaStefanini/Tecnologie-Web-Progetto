@@ -280,7 +280,7 @@ button.btn-buy{
     }
     
     .number-input {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     }
     
     .number-input button {
@@ -357,7 +357,10 @@ button.btn-buy{
     button.btn-Cont{
         margin-left: 40%;
     }
-    
+    button.btn-delete-car{
+        margin-left: 9%;
+
+    }
     
 @media only screen and (max-width:600px){
     h1.titolo_pagina{
@@ -428,6 +431,10 @@ button.btn-buy{
    button.btn-Cont{
        margin-left: 10%;
    }
+   button.btn-delete-car{
+    margin-left: 22%;
+
+}
 }
 
 

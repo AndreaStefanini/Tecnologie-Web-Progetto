@@ -8,7 +8,6 @@
                 <th scope="col">Titolo</th>
                 <th scope="col">Prezzo Totale (€)</th>
                 <th scope="col">Numero Biglietti</th>
-                <th scope="col">Rimuovi tutti i Biglietti</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +21,11 @@
                             <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>, 'minus');" class="minus" ></button>
                             <input class="quantity" min="0" max="<?php echo $purchase['n_tickets'];?>" name="tickets" id="n_ticket<?php echo $purchase["ID_Articles"]; ?>" disabled="disabled" value="<?php echo $purchase['n_tickets'];?>" type="number">
                             <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>,'plus');" class="plus"></button>
+                            
                         </div>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-light" onclick="delete_from_cart(<?php echo $purchase['ID_Articles']; ?>);" >Rimuovi</button>
+      
+                        <button class="btn btn-outline-light btn-delete-car" onclick="delete_from_cart(<?php echo $purchase['ID_Articles']; ?>);" >Rimuovi</button>
+            
                     </td>
                 </tr>
             <?php endforeach; ?>
