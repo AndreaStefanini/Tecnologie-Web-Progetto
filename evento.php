@@ -67,8 +67,8 @@
           <?php if(empty($_SESSION)){?>
             <p>esegui l'accesso per accesso per aggiungere ticket di questo evento al tuo carrello o acquistarlo direttamente da qui </p>
           <?php }else{ ?>
-          N° biglietti: <input type="number" name="n_ticket" min="1" max="<?php echo $articolo['Ticket_Available']; ?>" id="n_ticket" step=1 value="1">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="add_to_cart(<?php echo $articolo['ID_Articles'] ;?>,<?php echo $articolo['Ticket_Available']; ?>);">Aggiungi al Carrello</button>
+          N° biglietti: <input type="number" name="n_ticket" min="1" max="6" id="n_ticket" step=1 value="1">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="add_to_cart(<?php echo $articolo['ID_Articles'] ;?>);">Aggiungi al Carrello</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Acquista
           </button>

@@ -13,8 +13,7 @@ if (isset($_POST["submit"])) {
         header("Location: login.php");
     } else {
         unset($_POST);
-        echo "<script type='text/javascript'>alert('La Password inserita non è abbastanza forte per favore inserire una password che contega A-Z,a-z,0-9,,-');\n
-        window.location.assign('signup.php');</script>";
+        header("Location: signup.php");
     }
 } else {
 

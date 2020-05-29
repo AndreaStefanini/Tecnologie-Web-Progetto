@@ -76,8 +76,9 @@ function delete_from_cart(id_event){
                window.location.reload();
     });
 }
-function add_to_cart(ticket,max){
+function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
+    const max = $("#n_ticket").attr("max");
     if(n_ticket<=max){
         $.post("add_purchase.php",{
             ticket:ticket,
