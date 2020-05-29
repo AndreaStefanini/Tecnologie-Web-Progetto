@@ -268,18 +268,24 @@ div.botton-new{
 button.btn-buy{
     margin-left: 90%;
 }
+button.btn-delete-car{
+    display: inline-block;
+
+}
+div.safari_only{
+    display: inline-block;
+}
 .number-input input[type="number"] {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
     }
     
-    .number-input input[type=number]::-webkit-inner-spin-button,
-    .number-input input[type=number]::-webkit-outer-spin-button {
+.number-input input[type=number]::-webkit-inner-spin-button,.number-input input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     }
     
-    .number-input {
+.number-input {
     margin-bottom: 1rem;
     }
     
@@ -357,12 +363,12 @@ button.btn-buy{
     button.btn-Cont{
         margin-left: 40%;
     }
-    button.btn-delete-car{
-        margin-left: 9%;
-
-    }
+ 
     
 @media only screen and (max-width:600px){
+    div.safari_only{
+        display: block;
+    }
     h1.titolo_pagina{
         width:100%;
     }

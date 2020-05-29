@@ -23,9 +23,7 @@
                             <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>,'plus');" class="plus"></button>
                             
                         </div>
-      
                         <button class="btn btn-outline-light btn-delete-car" onclick="delete_from_cart(<?php echo $purchase['ID_Articles']; ?>);" >Rimuovi</button>
-            
                     </td>
                 </tr>
             <?php endforeach; ?>
