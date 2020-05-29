@@ -154,14 +154,17 @@ class database {
     }
     public function update_tickets($id_cliente, $id_ticket, $n_tickets){
         if($n_tickets==0){
-            $deletequery = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ? AND COD_Evento = ?");
-            $deletequery->bind_param("ii", $id_cliente,$id_ticket);
-            $deletequery->execute();
+            $this->remove_ticket_from_cart($id_cliente, $id_ticket);
         }else{
             $newtickets = $this->connection->prepare("UPDATE carrello SET n_tickets = ? WHERE COD_Cliente = ? AND COD_Evento = ?");
             $newtickets->bind_param("iii", $n_tickets, $id_cliente, $id_ticket);
             $newtickets->execute();
         }
+    }
+    public function remove_ticket_from_cart($id_cliente,$id_ticket){
+            $deletequery = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ? AND COD_Evento = ?");
+            $deletequery->bind_param("ii", $id_cliente,$id_ticket);
+            $deletequery->execute();
     }
     public function get_evento_accettato($datadiieri,$id){
         $Qquery= $this->connection->prepare("SELECT ID_Articles,Article_Title,Date_Event From articles WHERE Status=1 AND notifications_status=0 AND date(notification_data)=? AND Author_COD=?");

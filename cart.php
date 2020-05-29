@@ -8,6 +8,7 @@
                 <th scope="col">Titolo</th>
                 <th scope="col">Prezzo Totale (€)</th>
                 <th scope="col">Numero Biglietti</th>
+                <th scope="col">Rimuovi tutti i Biglietti</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,9 @@
                             <input class="quantity" min="0" max="<?php echo $purchase['n_tickets'];?>" name="tickets" id="n_ticket<?php echo $purchase["ID_Articles"]; ?>" disabled="disabled" value="<?php echo $purchase['n_tickets'];?>" type="number">
                             <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>,'plus');" class="plus"></button>
                         </div>
+                    </td>
+                    <td>
+                      <button class="btn btn-outline-light" onclick="delete_from_cart(<?php echo $purchase['ID_Articles']; ?>);" >Rimuovi</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -68,6 +72,6 @@
           </div>
           <a href="index.php" class="btn-Cont"><button type="button" class="btn btn-secondary" data-dismiss="modal">Scegli altri biglietti</button></a>
     <?php }else{?>
-    <div style="text-align:center;background-color: rgb(255,255,165);">Non hai nulla nel carrello, guardati intorno e vedi se ti intriga qualcosa e aggiungilo al carrello!</div>
+    <div style="text-align:center;background-color: rgb(255,255,165); font-size:21pt; margin-top:15%;">Non hai nulla nel carrello, guardati intorno e vedi se ti intriga qualcosa e aggiungilo al carrello!</div>
     <?php } ?>
 </div>

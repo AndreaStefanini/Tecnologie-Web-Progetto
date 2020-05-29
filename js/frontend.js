@@ -68,17 +68,30 @@ function load_unseen_notification(){
         }
        });   
 };
-function add_to_cart(ticket){
+function delete_from_cart(id_event){
+    $.post("remove_all_ticket.php",{
+        id: id_event
+    },function(status){
+               window.location.reload();
+    });
+}
+function add_to_cart(ticket,max){
     let n_ticket = parseInt($("#n_ticket").val());
-    $.post("add_purchase.php",{
-        ticket:ticket,
-        n_ticket:n_ticket
-        },function(data,status){
-            if(status=="success"){
-                    $("#cart").html(data);
-                
-            }
-        });
+    if(n_ticket<=max){
+        $.post("add_purchase.php",{
+            ticket:ticket,
+            n_ticket:n_ticket
+            },function(data,status){
+                if(status=="success"){
+                        $("#cart").html(data);
+                    
+                }
+            });
+    }else{
+        /*$(".alert").alert();
+        window.scrollTo(0, 0);*/
+    }
+    
     return 0;
 }
 function update_number_ticket(id_event,steptype){
@@ -89,20 +102,22 @@ function update_number_ticket(id_event,steptype){
     }else{
         n_ticket--;
     }
-    let total_price = single_price*n_ticket;
-    $("#n_ticket"+id_event).val(n_ticket)
-    $("td#total_price"+id_event).html(total_price);
-    $.post("update-ticket.php",{
-        id: id_event,
-        n_ticket:n_ticket
-    },function(data,status){
-        if(status=="success"){
-           if(n_ticket==0){
-               alert("l'evento verrà rimosso dal carrello");
-               window.location.reload();
-           }
-        }
-    });
+    if(n_ticket<=$('#n_ticket'+id_event).attr('max')){
+        let total_price =single_price*n_ticket; 
+        $("#n_ticket"+id_event).val(n_ticket)
+        $("td#total_price"+id_event).html(total_price.toFixed(2));
+        $.post("update-ticket.php",{
+            id: id_event,
+            n_ticket:n_ticket
+        },function(data,status){
+            if(status=="success"){
+               if(n_ticket==0){
+                   alert("l'evento verrà rimosso dal carrello");
+                   window.location.reload();
+               }
+            }
+        });
+    }
 }
 function move(){
     let images=$("img.arrows");

@@ -24,15 +24,10 @@ Importanza: !!
 -se schiaccio acquista (senza passare dal carrello) e inserisco dati a caso non succede niente, ok che l'acquisto va simulato ma l'ordine deve partire ed essere registrato (fatto manca una sorta di transizione o messaggio dell'avvenuto ordine)
 
 
--mettere l'evento a 0 nel carrello per eliminarlo non è troppo intuitivo, meglio mettere un bottone che rimuove tutto senza rimuoverne uno alla volta
-
--nel carrello a un certo punto (ad esempio con 1066 biglietti degli acdc) il prezzo mi viene con una decina e più di numeri dopo la virgola
-
-
 Importanza: !
 
 -la cosa della password che deve essere complicata ci sta ma è brutto il fatto che compaia una pagina bianca con un banner in alto che non si legge neanche tutto
--mettete un limite al numero di biglietti acquistabili da un solo utente
+-mettete un limite al numero di biglietti acquistabili da un solo utente (dobbiamo decidere cosa fare)
 -se mi compro più biglietti di quelli che ce ne sono non succede niente, il numero dei ticket_available nel db diventa negativo
 -quando vado con il mouse sopra la campanella e il carrello sarebbe bello se si illuminassero
 -la barra di ricerca trova un evento solo se scrivo il nome intero (POSSO LAVORARCI MA NON PROMETTO NULLA)
