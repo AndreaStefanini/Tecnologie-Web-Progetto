@@ -1,12 +1,11 @@
 function delete_article(id_article,percorso){
-    alert(id_article);
-    alert(percorso);
     $.post("delete-article.php",{
         delete:id_article,
         percorso:percorso
     },function(data){
-            alert(data);
+        if(data=="success"){
             window.location.reload();
+        }
         
     });
 }

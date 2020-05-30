@@ -25,7 +25,6 @@ Importanza: !!
 Importanza: !
 
 -quando vado con il mouse sopra la campanella e il carrello sarebbe bello se si illuminassero
--la barra di ricerca trova un evento solo se scrivo il nome intero (POSSO LAVORARCI MA NON PROMETTO NULLA)
 -il banner che esce nel caso dell'eliminazione dell'evento non è un granchè
 
 work in progress:
