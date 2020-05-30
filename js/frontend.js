@@ -156,12 +156,17 @@ $(document).ready(function(){
             $("#labelbell").css("display:none;");
         });
       }); 
-    let all_content = null;
+    let all_content = [];
     $.ajax({    //create an ajax request to display.php
         type: "GET",
-        url: "suggestions.php",                             
-        success: function(response){                    
-            all_content=response; 
+        url: "suggestions.php",
+        data:{},
+        dataType:"json",                             
+        success: function(data){                    
+            all_content=(data); 
+            $.each(all_content, function(index, val) {
+                $("#event-suggestion").append("<option value='"+val.Article_Title+"'>"+val.Article_Title+"</option>");
+            });
         }
     });
 

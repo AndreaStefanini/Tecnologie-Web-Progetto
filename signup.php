@@ -13,7 +13,14 @@ if (isset($_POST["submit"])) {
         header("Location: login.php");
     } else {
         unset($_POST);
-        header("Location: signup.php");
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'style='margin-bottom:0;' >
+        <strong>Attenzione!</strong> La tua Password è troppo debole.
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+      $page = "signup-form.php";
+      require("Bopleve.php");
     }
 } else {
 
