@@ -98,7 +98,7 @@ class database {
         $remove_outdated->execute();
     }
     public function get_content(){
-        $query_suggestion=$this->connection->prepare("SELECT Article_Title FROM articles");
+        $query_suggestion=$this->connection->prepare("SELECT Article_Title FROM articles WHERE Status=1");
         $query_suggestion->execute();
         $result = $query_suggestion->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

@@ -65,6 +65,11 @@ if ($db->is_admin($_SESSION["ID"])) {
                 <p>Modifica Evento:
                 <button class="login icon"><img src="resources/matita.png" class="icons" alt="" onclick="window.location.replace('modify_article.php?ID=<?php echo $article['ID_Articles']; ?>');"></button>
                 </p>
+                <?php if($article["Status"]==0):?>
+                <p>Elimina Evento:
+                <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="delete_article(<?php echo $article['ID_Articles']; ?>,'<?php echo $article['Image_Path']; ?>');" alt=""></button>
+                </p>
+                <?php endif; ?>
                 <p style="width:fit-content;">Stato dell'evento:
                 <?php if($article["Status"]==1):?>
                 <img class="icons" src="resources/approved.png" alt="">
