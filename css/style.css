@@ -285,7 +285,8 @@ div.safari_only{
     -webkit-appearance: none;
     }
     
-.number-input {
+    .number-input {
+    margin-bottom: 5px;
     margin-bottom: 1rem;
     }
     
