@@ -76,8 +76,9 @@ function delete_from_cart(id_event){
                window.location.reload();
     });
 }
-function add_to_cart(ticket,max){
+function add_to_cart(ticket){
     let n_ticket = parseInt($("#n_ticket").val());
+    const max = $("#n_ticket").attr("max");
     if(n_ticket<=max){
         $.post("add_purchase.php",{
             ticket:ticket,
@@ -155,13 +156,17 @@ $(document).ready(function(){
             $("#labelbell").css("display:none;");
         });
       }); 
-      
-    let all_content = null;
+    let all_content = [];
     $.ajax({    //create an ajax request to display.php
         type: "GET",
-        url: "suggestions.php",                             
-        success: function(response){                    
-            all_content=response; 
+        url: "suggestions.php",
+        data:{},
+        dataType:"json",                             
+        success: function(data){                    
+            all_content=(data); 
+            $.each(all_content, function(index, val) {
+                $("#event-suggestion").append("<option value='"+val.Article_Title+"'>"+val.Article_Title+"</option>");
+            });
         }
     });
 

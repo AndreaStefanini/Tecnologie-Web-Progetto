@@ -1,9 +1,14 @@
 <?php
-function get_data(){
-    require_once("database-entrance.php");
-    $result = $db->get_content();
-    return $result;
+
+require_once("database-entrance.php");
+$result = $db->get_content();
+$out = array();
+foreach($result as $article){
+    $out += array("titolo"=>$article["Article_Title"]);
 }
-get_data();
+echo(json_encode($result));
+
+
+
 
 ?>

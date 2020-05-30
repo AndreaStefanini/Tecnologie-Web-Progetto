@@ -13,8 +13,14 @@ if (isset($_POST["submit"])) {
         header("Location: login.php");
     } else {
         unset($_POST);
-        echo "<script type='text/javascript'>alert('La Password inserita non è abbastanza forte per favore inserire una password che contega A-Z,a-z,0-9,,-');\n
-        window.location.assign('signup.php');</script>";
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'style='margin-bottom:0;' >
+        <strong>Attenzione!</strong> La tua Password è troppo debole.
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+      $page = "signup-form.php";
+      require("Bopleve.php");
     }
 } else {
 

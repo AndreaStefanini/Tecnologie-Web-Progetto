@@ -1,7 +1,7 @@
 <form class="form needs-validation col-sm-12 col-lg-6" method="POST" action="upload_article.php" enctype="multipart/form-data" >
         <h1>Inserisci tutti i dettagli per il nuovo Articolo/Evento</h1>
         <div class="form-group">
-          <label for="labelEmail">Titolo Articolo:</label>
+          <label for="labelEmail">Titolo Evento:</label>
           <input type="title" name="ArticleTitle" class="input form-control" id="ArticleTitle" placeholder="Titolo..." required>
           <div class="submessages">Inserisci qui il titolo dell'articolo...</div>
           <div class="invalid-feedback">

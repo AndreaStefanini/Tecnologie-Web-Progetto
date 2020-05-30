@@ -7,6 +7,7 @@
     <div class="form-group">
       <label for="labelPassword">Password:</label>
       <input type="password" name="password" class="input form-control" id="password1" placeholder="Password">
+      <div class="submessages">La password deve essere lunga almeno 8 caratteri, e deve contenere almeno un carattere A-Z , una cifra 0-9 e un simbolo tra cui , . -</div>
     </div>
     <div class="form-group">
       <label for="labelNome">Nome:</label>
