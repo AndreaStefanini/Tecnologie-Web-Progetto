@@ -2,11 +2,8 @@ function delete_article(id_article,percorso){
     $.post("delete-article.php",{
         delete:id_article,
         percorso:percorso
-    },function(data){
-        if(data=="success"){
+    },function(){
             window.location.reload();
-        }
-        
     });
 }
 function reject_article(id_article,author){

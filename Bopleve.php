@@ -50,9 +50,9 @@ require_once("database-entrance.php");
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contattaci
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item">andreastefanini98@gmail.com</a>
-            <a class="dropdown-item">albertorossi@gmail.com</a>
-            <a class="dropdown-item">baronienrico@gmail.com</a>
+            <a class="dropdown-item">andrea.stefanini5@studio.unibo.it</a>
+            <a class="dropdown-item">alberto.rossi12@studio.unibo.it</a>
+            <a class="dropdown-item">enrico.baroni@studio.unibo.it</a>
           </div>
         </li>
       </ul>

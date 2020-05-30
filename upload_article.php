@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     $categorie = $_POST["Categorie"];
     $numticket = $_POST["Ticket_Number"];
     $db->add_article($titolo, $data, $costo, $location, $description, $time, $image_path, $_SESSION["ID"], 0, $categorie,$numticket);
-    echo "<script type='text/javascript'>window.location.replace('login.php');</script>";
+    header("Location: login.php");
 } else {
     $page = "article-form.php";
 }
