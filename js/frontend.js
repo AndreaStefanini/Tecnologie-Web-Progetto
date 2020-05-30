@@ -156,7 +156,6 @@ $(document).ready(function(){
             $("#labelbell").css("display:none;");
         });
       }); 
-      
     let all_content = null;
     $.ajax({    //create an ajax request to display.php
         type: "GET",
