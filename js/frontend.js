@@ -164,9 +164,7 @@ $(document).ready(function(){
         dataType:"json",                             
         success: function(data){                    
             all_content=(data); 
-            $.each(all_content, function(index, val) {
-                $("#event-suggestion").append("<option value='"+val.Article_Title+"'>"+val.Article_Title+"</option>");
-            });
+            
         }
     });
 
@@ -181,7 +179,11 @@ $(document).ready(function(){
     });
     $("#search").on("input",function(){
         let testo = $("#search").val();
-        testo += "%";
+        $.each(all_content, function(index, val) {
+            if(val.Article_Title.toLowerCase().includes(testo.toLowerCase())){
+                $("#event-suggestion").append("<option value='"+val.Article_Title+"'>"+val.Article_Title+"</option>");
+            }
+        });
     });
     
   
