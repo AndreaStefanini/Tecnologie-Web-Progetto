@@ -8,13 +8,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="obtain_article.php?id=<?php echo $topevents[0]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[0]["Image_Path"];?>" alt=""></a>
+        <a href="obtain_article.php?id=<?php echo $topevents[0]["ID_Articles"]; ?>"><img class="col-12" style="max-height:720px;" src="<?php echo $topevents[0]["Image_Path"];?>" alt=""></a>
       </div>
       <div class="carousel-item">
-        <a href="obtain_article.php?id=<?php echo $topevents[1]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[1]["Image_Path"];?>" alt=""></a>
+        <a href="obtain_article.php?id=<?php echo $topevents[1]["ID_Articles"]; ?>"><img class="col-12" style="max-height:720px;" src="<?php echo $topevents[1]["Image_Path"];?>" alt=""></a>
       </div>
       <div class="carousel-item">
-        <a href="obtain_article.php?id=<?php echo $topevents[2]["ID_Articles"]; ?>"><img class="altern" src="<?php echo $topevents[2]["Image_Path"];?>" alt=""></a>
+        <a href="obtain_article.php?id=<?php echo $topevents[2]["ID_Articles"]; ?>"><img class="col-12" style="max-height:720px;" src="<?php echo $topevents[2]["Image_Path"];?>" alt=""></a>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
