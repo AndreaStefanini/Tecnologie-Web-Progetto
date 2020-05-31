@@ -47,7 +47,6 @@ function buy_from_cart() {
     }else{
         n_tickets =parseInt($("input.quantity").val());
     }
-    alert($.type(n_tickets));
     $.post("move_to_acquisti.php", {}, function (data, status) {
         if (status == "success") {
             $.post("sendEmail.php", {
