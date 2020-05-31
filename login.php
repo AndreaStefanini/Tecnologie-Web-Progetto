@@ -31,10 +31,11 @@ if(!empty($_SESSION)){
         }
     }else{
         $page= "login-form.php";
+        require("Bopleve.php");
     }
 }
     
-    require("Bopleve.php");
+    
 
 
 
