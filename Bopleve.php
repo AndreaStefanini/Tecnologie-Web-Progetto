@@ -77,7 +77,7 @@ require_once("database-entrance.php");
       <div id="cart" onclick="window.location.href='cart-manager.php'"><?php echo count($purchases); ?></div>
       <p class="hiding" style="margin-bottom:0;"><?php echo $_SESSION["nome"] . " " . $_SESSION["cognome"]; ?></p>
       <div class="dropdown">
-        <img class="carrello dropdown-toggle" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
+        <img class="carrello dropdown-toggle .hvr-grow" src="<?php echo $_SESSION["ProfileImage"]; ?>" data-toggle="dropdown" style="margin-left:2pt;" alt="">
             <div class="dropdown-menu dropdown-menu-right">
             <?php if($_SESSION["User"]!="Cliente"){?>
             <div class="dropdown-item" onclick="window.location.href='login.php'">Main Page</div>

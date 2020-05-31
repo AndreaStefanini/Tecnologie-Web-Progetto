@@ -25,17 +25,12 @@ Importanza: !!
 Importanza: !
 
 -quando vado con il mouse sopra la campanella e il carrello sarebbe bello se si illuminassero
--il banner che esce nel caso dell'eliminazione dell'evento non è un granchè
+
 
 work in progress:
--mettete un limite al numero di biglietti acquistabili da un solo utente (abbiamo deciso di fare 6 biglietti max per persona)
--mi fa creare l'evento con una data passata (CREDO DI AVER RISOLTO)
--in modalità mobile la tabella del carrello viene un po spostato verso destra e le scritte sopra vanno a capo non troppo correttamente (io visualizzavo con Iphone 6,7,8 magari con altri non succede....usate quelli) (NOI USIAMO IL PIXEL 2XL QUINDI SUCA MINGHIA)
--se mi compro più biglietti di quelli che ce ne sono non succede niente, il numero dei ticket_available nel db diventa negativo (quasi risolto)
--sicuri della scelta di far acquistare biglietti anche al promoter? (SI)
+
 
 Consigli:
 
 -categoria Serate...cambiate il nome hahahahha
--per la presentazione create dei bei eventi di esempio con delle belle descrizioni e belle immagini e togliete quelli che non volete far vedere (GGG , Grazie, Grazie e Grazie al cazzo)
 -il riepilogo acquisti è molto pieno di scritte nere piccole (magari distanziarle un po, cambiare qualche colore) (NON CAMBIO COLORE NERO E GIALLO FANNO MOLTO CONTRASTO)

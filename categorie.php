@@ -16,7 +16,7 @@ if(empty($categoria)){?>
         
         <ul style ="margin-top:5%; margin-left:20px; background-color: rgb(255,255,165);" class="col-md-5">
           <li><?php echo $cat["Article_Title"]; ?></li>
-          <li><?php echo $cat["Costo_Ticket"]; ?></li>
+          <li>€<?php echo $cat["Costo_Ticket"]; ?></li>
           <li><?php echo $cat["Location_Event"]; ?></li>
           <li><?php echo $cat["Date_Event"]; ?></li>
           <li><?php echo $cat["Event_Description"]; ?></li>
