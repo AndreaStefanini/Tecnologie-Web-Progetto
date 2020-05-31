@@ -38,16 +38,18 @@ function get_final_amount() {
 
 function buy_from_cart() {
     let numero_eventi = $("tbody tr").length;
-    let n_tickets=[];
-    $("tbody tr td div input").each(function (){
-        alert()
-        n_tickets.push($(this).val());
-    });
+    let n_tickets;
+    if(numero_eventi>1){
+        n_tickets=[];
+        $("input.quantity").each(function (){
+            n_tickets.push($(this).val());
+        });
+    }else{
+        n_tickets =parseInt($("input.quantity").val());
+    }
+    alert($.type(n_tickets));
     $.post("move_to_acquisti.php", {}, function (data, status) {
         if (status == "success") {
-            if (numero_eventi == 1) {
-                n_tickets = parseInt($("#n_ticket" + data).val());
-            }
             $.post("sendEmail.php", {
                 n_tickets: n_tickets,
                 bought: "yes",

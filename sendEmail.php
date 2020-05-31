@@ -14,7 +14,7 @@ if($_POST["numero_eventi"]>1){
     $lista="";
     $cont = 0;
     foreach($acquisti as $acquisto){
-        $lista.=" - ".$_POST[$cont]["n_tickets"]. " biglietto/i per l'evento: ". $acquisto["Article_Title"]. " che si svolgerà in: ".$acquisto["Location_Event"]." per la data del: ".$acquisto["Date_Event"]. PHP_EOL;      
+        $lista.=" - ".$_POST["n_tickets"][$cont]. " biglietto/i per l'evento: ". $acquisto["Article_Title"]. " che si svolgerà in: ".$acquisto["Location_Event"]." per la data del: ".$acquisto["Date_Event"]. PHP_EOL;      
         $cont++;
     }
     $body.=$lista;
