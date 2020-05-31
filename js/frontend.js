@@ -190,6 +190,7 @@ $(document).ready(function () {
         });
     });
     $("#search").on("input", function () {
+        $("#event-suggestion").empty();
         let testo = $("#search").val();
         $.each(all_content, function (index, val) {
             if (val.Article_Title.toLowerCase().includes(testo.toLowerCase())) {
