@@ -15,7 +15,6 @@ if(!empty($_SESSION)){
             </button>
           </div>";
           $page = "login-form.php";
-          require("Bopleve.php");
         }else{
             $_SESSION["email"]= $_POST["email"];
             $_SESSION["nome"] = $result[0]["Nome"];
@@ -28,13 +27,14 @@ if(!empty($_SESSION)){
                 header("Location: index.php");
             }
             $page = "login-in.php";
+           
         }
     }else{
         $page= "login-form.php";
-        require("Bopleve.php");
+        
     }
 }
-    
+require("Bopleve.php");
     
 
 
