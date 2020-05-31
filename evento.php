@@ -68,6 +68,11 @@
             <p>esegui l'accesso per accesso per aggiungere ticket di questo evento al tuo carrello o acquistarlo direttamente da qui </p>
           <?php }else{ ?>
           N° biglietti: <input type="number" name="n_ticket" min="1" max="6" id="n_ticket" step=1 value="1">
+          <div class="def-number-input number-input safari_only">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" ></button>
+                            <input class="quantity" min="0" max="6" name="n_ticket" id="n_ticket" disabled="disabled" value="1" type="number">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        </div>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAbandonedCart" onclick="add_to_cart(<?php echo $articolo['ID_Articles'] ;?>);">Aggiungi al Carrello</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Acquista
