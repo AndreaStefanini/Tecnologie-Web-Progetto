@@ -41,7 +41,7 @@ require_once("database-entrance.php");
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="obtain-category.php?categories=Concerti">Concerti</a>
             <a class="dropdown-item" href="obtain-category.php?categories=Festivals">Festivals</a>
-            <a class="dropdown-item" href="obtain-category.php?categories=Serate">Serate</a>
+            <a class="dropdown-item" href="obtain-category.php?categories=Serate">Eventi Serali</a>
             <a class="dropdown-item" href="obtain-category.php?categories=Musei e Cultura">Musei e Cultura</a>
             <a class="dropdown-item" href="obtain-category.php?categories=Altro">Altro</a>
           </div>
