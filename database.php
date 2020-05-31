@@ -280,7 +280,7 @@ class database {
     public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets, $data_acquisto){
         $this->decrease_ticket_available($id_evento,$n_tickets);
         if($this->already_bought($id_cliente, $id_evento,$data_acquisto)){
-            $this->add_purchase_to_acquisti($id_cliente, $id_evento, $data_acquisto, $n_tickets);
+            $this->update_bought_product($id_cliente, $id_evento, $data_acquisto, $n_tickets);
         }else{
             $add_to_puchase = $this->connection->prepare("INSERT INTO acquisti(COD_Cliente,COD_Evento,n_tickets,data_acquisto) VALUES (?,?,?,?)");
             $add_to_puchase->bind_param("iiis",$id_cliente, $id_evento, $n_tickets, $data_acquisto);
@@ -290,7 +290,7 @@ class database {
     }
     public function already_bought($id_cliente, $id_evento, $date){
         $alreadybought = $this->connection->prepare("SELECT * FROM acquisti WHERE COD_Cliente=? AND COD_Evento=? AND data_acquisto=? ");
-        $alreadybought -> bind_param("iid",$id_cliente, $id_evento, $date );
+        $alreadybought -> bind_param("iis",$id_cliente, $id_evento, $date );
         $alreadybought->execute();
         $result = $alreadybought->get_result();
         $value = $result->fetch_all(MYSQLI_ASSOC);
@@ -298,13 +298,13 @@ class database {
     }
     public function update_bought_product($id_cliente, $id_evento, $date, $moretickets){
         $getoldnumber = $this->connection->prepare("SELECT n_tickets FROM acquisti WHERE COD_Cliente =? AND COD_Evento =? AND data_acquisto =?");
-        $getoldnumber->bind_param("iid",$id_cliente, $id_evento, $date);
+        $getoldnumber->bind_param("iis",$id_cliente, $id_evento, $date);
         $getoldnumber->execute();
         $firstqueryresult = $getoldnumber->get_result();
         $updateTickets = $firstqueryresult->fetch_all(MYSQLI_ASSOC)[0]["n_tickets"];
         $updateTickets+=$moretickets;
         $setTickets = $this->connection->prepare("UPDATE acquisti SET n_tickets =? WHERE COD_Cliente =? AND COD_Evento =? AND data_acquisto =?");
-        $setTickets->bind_param("iiid",$updateTickets,$id_cliente, $id_evento, $date);
+        $setTickets->bind_param("iiis",$updateTickets,$id_cliente, $id_evento, $date);
         $setTickets->execute();
     }
     public function move_to_acquisti($id_cliente){
@@ -314,6 +314,7 @@ class database {
         $oggetti = $retrievecart->get_result();
         $currentDate=date("Y-m-d");
         $list = $oggetti->fetch_all(MYSQLI_ASSOC);
+        
         foreach($list as $elem){
             $this->decrease_ticket_available($elem["COD_Evento"],$elem["n_tickets"]);
             if($this->already_bought($elem["COD_Cliente"],$elem["COD_Evento"],$currentDate)){
@@ -327,6 +328,9 @@ class database {
         $DeleteFromCart = $this->connection->prepare("DELETE FROM `carrello` WHERE COD_Cliente = ?");
         $DeleteFromCart->bind_param("i",$id_cliente);
         $DeleteFromCart->execute();
+        if(count($list)==1){
+            return $list[0]["COD_Evento"];
+        }
     }
     public function decrease_ticket_available($id_evento, $tickets){
         $oldtickets = $this->connection->prepare("SELECT Ticket_Available FROM articles WHERE ID_Articles=?");
