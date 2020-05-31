@@ -7,9 +7,15 @@ if(!empty($_SESSION)){
     if(isset($_POST["email"])&& isset($_POST["password"])){
         $result=$db->login($_POST["email"], md5($_POST["password"]));
         if(count($result)==0){
-           echo "<script type ='text/javascript'> alert('I dati inseriti non sono corretti, riprova'); </script> ";
-           $_POST = array();
-           header("Location: login.php");
+            unset($_POST);
+            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'style='margin-bottom:0;' >
+            <strong>Attenzione!</strong> La password o l'email non sono corretti, riprova.
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+          $page = "login-form.php";
+          require("Bopleve.php");
         }else{
             $_SESSION["email"]= $_POST["email"];
             $_SESSION["nome"] = $result[0]["Nome"];
