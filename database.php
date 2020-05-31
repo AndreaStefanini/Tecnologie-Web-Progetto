@@ -270,6 +270,13 @@ class database {
         $result = $retrievePurchase->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_latest_purchases_by_id($id_cliente, $id_evento){
+        $retrievePurchase = $this->connection->prepare("SELECT n_tickets,Article_Title  FROM acquisti,articles WHERE COD_Cliente = ? AND COD_Evento = ? AND articles.ID_Articles=COD_Evento ORDER BY data_acquisto DESC");
+        $retrievePurchase->bind_param("ii", $id_cliente, $id_evento);
+        $retrievePurchase->execute();
+        $result = $retrievePurchase->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function add_purchase_to_acquisti($id_cliente, $id_evento, $n_tickets, $data_acquisto){
         $this->decrease_ticket_available($id_evento,$n_tickets);
         if($this->already_bought($id_cliente, $id_evento,$data_acquisto)){
