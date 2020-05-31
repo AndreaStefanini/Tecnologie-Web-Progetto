@@ -19,7 +19,7 @@ if($_POST["numero_eventi"]>1){
     $db->add_purchase_to_acquisti($_SESSION["ID"],$_POST["id"],$_POST["n_tickets"],$currentDate);
     $acquisto = $db->get_latest_purchases($_SESSION["ID"],$_POST["numero_eventi"]);
     if($acquisto[0]["n_tickets"]>1){
-        $body = "Salve, ".$_SESSION["nome"] ." ".$_SESSION["cognome"].". I ". $acquisto[0]["n_tickets"]." biglietti per l'evento: ".$acquisto[0]["Article_Title"]. " sono stati comprati con successo ";
+        $body = "Salve, ".$_SESSION["nome"] ." ".$_SESSION["cognome"].". I ". $_POST["n_tickets"]." biglietti per l'evento: ".$acquisto[0]["Article_Title"]. " sono stati comprati con successo ";
     }else{
         $body = "Salve, ".$_SESSION["nome"] ." ".$_SESSION["cognome"].". Il biglietto per l'evento: ". $acquisto[0]["Article_Title"]." è stato comprato con successo ";
     }
