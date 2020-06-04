@@ -366,6 +366,11 @@ div.safari_only{
  
     
 @media only screen and (max-width:600px){
+    img.altern{
+        width:auto;
+        height:auto;
+    }
+
     div.safari_only{
         display: block;
     }
