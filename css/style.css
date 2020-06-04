@@ -93,7 +93,6 @@ h1{
     text-align: center;
 }
 img.shared{
-    margin-left:5%;
     margin-top:5%;
     border: none;
     padding: 60px 10px 100px 10px;
@@ -253,7 +252,7 @@ span#labelbell{
     font-size: xx-small;
 }
 div.ordering-arrow{
-    margin-top: 5%;
+    margin-top: 2%;
     background-color: rgb(255,255,165)
 }
 div.organaized{
