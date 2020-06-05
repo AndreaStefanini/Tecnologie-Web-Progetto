@@ -17,7 +17,7 @@
                     <td><a href="obtain_article.php?id=<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Article_Title"]; ?></a></td>
                     <td class="total_price" id="total_price<?php echo $purchase["ID_Articles"]; ?>"><?php echo $purchase["Costo_Ticket"] * $purchase["n_tickets"]; ?></td>
                     <td>
-                        <div class="def-number-input number-input safari_only">
+                        <div class="def-number-input-white number-input-white safari_only">
                             <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>, 'minus');" class="minus" ></button>
                             <input class="quantity" min="0" max="<?php echo $purchase['n_tickets'];?>" name="tickets" id="n_ticket<?php echo $purchase["ID_Articles"]; ?>" disabled="disabled" value="<?php echo $purchase['n_tickets'];?>" type="number">
                             <button onclick="update_number_ticket(<?php echo $purchase['ID_Articles'];?>,'plus');" class="plus"></button>
