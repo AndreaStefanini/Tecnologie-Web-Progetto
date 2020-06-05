@@ -1,5 +1,5 @@
 <h1 class="titolo_pagina">Evento: <?php echo $articolo["Article_Title"]; ?></h1>
-<div class="container col-lg-8">
+<div class="container col-lg-10">
   <div clas="row">
     <div class=" event col-sm-12">
         <img class="col-12 altern" id="polaroid" src="<?php echo $articolo['Image_Path']; ?>" alt="">
