@@ -12,7 +12,7 @@ if ($db->is_admin($_SESSION["ID"])) {
             <img height="auto" class="col-12 shared img-responsive rounded float-left" src="<?php echo $article["Image_Path"]; ?>" alt="">
             </div>
             <div class="col-4">
-                <ul style ="margin-top:10%; background-color: rgb(255,255,165);" class="col-md-12">
+                <ul style ="margin-top:6%; background-color: rgb(255,255,165);" class="col-md-12">
                     <li style="margin-top:3%;">Titolo Articolo: <?php echo $article["Article_Title"] ?></li>
                     <li style="margin-top:3%;">Descrizione dell'evento: <?php echo $article["Event_Description"] ?></li>
                     <li style="margin-top:3%;">Costo del ticket: €<?php echo $article["Costo_Ticket"] ?></li>
@@ -42,11 +42,8 @@ if ($db->is_admin($_SESSION["ID"])) {
                     </div>
                 </div>
                 <button class="login icon" id="delete_article"><img src="resources/bidone.png" class=" icons" onClick="delete_article(<?php echo $article['ID_Articles']; ?>,'<?php echo $article['Image_Path']; ?>');" alt=""></button>
-            </div>
-                
-            </div>
-           
-            
+            </div>         
+            </div>        
     <?php endforeach;?>
     </div>
 <?php } else {
@@ -58,8 +55,10 @@ if ($db->is_admin($_SESSION["ID"])) {
     foreach ($articles as $article):
     ?>
         <div class="row logged">
-            <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="shared rounded float-left">
-            <div class="organaized col-md-3">
+            <div class="col-md-5">
+                <img src="<?php echo $article["Image_Path"]; ?>" alt="" class="col-12 shared img-responsive rounded float-left">
+            </div>
+            <div class="organaized col-md-4">
                 <h2><div style="margin-top:5%;"> <?php echo $article["Article_Title"] ?></div></h2>
                 <p>Modifica Evento:
                 <button class="login icon"><img src="resources/matita.png" class="icons" alt="" onclick="window.location.replace('modify_article.php?ID=<?php echo $article['ID_Articles']; ?>');"></button>
