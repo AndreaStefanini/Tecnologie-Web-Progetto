@@ -54,7 +54,6 @@ if ($db->is_admin($_SESSION["ID"])) {
     ?>
     <h1 class="titolo_pagina">Ecco tutti gli eventi da te organizzati:</h1>
     <div class="container-fluid">
-    
     <?php
     foreach ($articles as $article):
     ?>
