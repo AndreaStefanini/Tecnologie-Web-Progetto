@@ -162,7 +162,6 @@ function confirmPurchase_and_sendEmail(titolo, id_evento) {
 $(document).ready(function () {
     load_unseen_notification();
     $('#bell').click(function () {
-        load_unseen_notification();
         $.post("read_notification.php", {}, function () {
             $("#labelbell").css("display:none;");
         });
