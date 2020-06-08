@@ -206,5 +206,5 @@ $(document).ready(function () {
     }, 600);
     setInterval(function () {
         load_unseen_notification();
-    }, 5000);
+    }, 15000);
 });
