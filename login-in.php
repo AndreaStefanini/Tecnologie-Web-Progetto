@@ -81,9 +81,9 @@ if ($db->is_admin($_SESSION["ID"])) {
         </div>
     <?php endforeach;?>
     <div class="botton-new">
-    <h2 class="add">Aggiungi Nuovo Evento:
-        <button class="login"  onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
+    <h2 class="add" style="background-color: rgb(255,255,165); width:fit-content; display:inline-block;">Aggiungi Nuovo Evento:
     </h2>
+    <button class="login"  onClick="window.location.href='upload_article.php'"><img src="resources/plus.png" class="icons" alt=""></button>
     </div>
     </div>
 <?php } ?>
