@@ -1,7 +1,7 @@
 <h1 class="titolo_pagina"> I tuoi acquisti</h1>
 <?php 
 if(empty($acquisti)){?>
-<p style="text-align: center;"> Non hai ancora effettuato acquisti, fatti un giro per il sito e vedi se qualcosa ti attrae!</p>
+<p style="text-align:center;background-color: rgb(255,255,165); font-size:21pt; margin-top:15%;"> Non hai ancora effettuato acquisti, fatti un giro per il sito e vedi se qualcosa ti attrae!</p>
 <?php
 } else { ?>
 <div class="container-fluid">
