@@ -337,7 +337,7 @@ div.safari_only{
     .number-input.number-input button:before,
     .number-input.number-input button:after {
     width: .7rem;
-    background-color: white;
+    background-color: black;
     }
     
     .number-input.number-input input[type=number] {
